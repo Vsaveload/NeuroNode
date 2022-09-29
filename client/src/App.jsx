@@ -1,10 +1,9 @@
 import React from 'react';
+import FirstPage from './components/FirstPage/FirstPage';
 
 function App() {
   return (
-    <div className="App">
-      App
-    </div>
+    <FirstPage />
   );
 }
 
