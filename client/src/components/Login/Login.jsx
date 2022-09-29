@@ -20,7 +20,7 @@ export default function Login() {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:3001/auth', {
+    const response = await fetch('http://localhost:3001/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

@@ -16,7 +16,7 @@ export default function SignUp() {
   });
 
   useEffect(() => {
-    fetch('http://localhost:3001/auth', {
+    fetch('http://localhost:3001/signup', {
       credentials: 'include',
     })
       .then((res) => res.json())
@@ -28,7 +28,7 @@ export default function SignUp() {
   const submitHandler = async (e) => {
     e.preventDefault();
     if (input.repeat === input.password && input.name !== '') {
-      const response = await fetch('http://localhost:3001/auth', {
+      const response = await fetch('http://localhost:3001/signup', {
         credentials: 'include',
         method: 'POST',
         headers: {

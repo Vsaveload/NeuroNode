@@ -32,12 +32,12 @@ export default function Navbar() {
             {!signup
               ? (
                 <>
-                  <NavLink to="/signup" className="btn btn-dark m-2"><strong>Регистрация</strong></NavLink>
+                  <NavLink to="/signup" className="btn btn-outline-dark m-2"><strong>Регистрация</strong></NavLink>
                   <NavLink to="/login" className="btn btn-outline-dark m-2"><strong>Авторизация</strong></NavLink>
                 </>
               ) : (
                 <>
-                  <NavLink to="/game" className="btn btn-outline-dark m-2"><strong>Выход</strong></NavLink>
+                  <NavLink to="/game" className="btn btn-outline-dark m-2"><strong>Node</strong></NavLink>
                   <a onClick={logoutHandler} className="btn btn-dark m-2" href="logout">Выйти</a>
                 </>
               )}

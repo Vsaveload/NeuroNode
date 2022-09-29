@@ -6,7 +6,7 @@ const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const bcrypt = require('bcrypt');
-// const { User } = require('./db/models');
+const { User } = require('./db/models');
 
 const app = express();
 
@@ -77,62 +77,6 @@ app.post('/signup', async (req, res) => {
   if (!created) res.sendStatus(405);
   else res.json({ name: currentUser.name, email: currentUser.email, id: currentUser.id });
 });
-
-app.get('/auth', async (req, res) => {
-  try {
-    const result = await User.findByPk(req.session.userId);
-    res.json(result);
-  } catch (error) {
-    res.json(error);
-  }
-});
-
-app.post('/auth', async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
-
-    const user = await User.findOne({
-      where: {
-        [Sequelize.Op.or]: [{ name }],
-      },
-    });
-
-    if (user && (await bcrypt.compare(password, user.password) || password === user.password)) {
-      req.session.name = user.name;
-      req.session.userId = user.id;
-      return res.json(user);
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const newUser = await User.create(
-      { email, password: hashedPassword, name },
-    );
-
-    if (newUser.id) {
-      req.session.name = newUser.name;
-      req.session.userId = newUser.id;
-      return res.json(newUser);
-    }
-
-    return res.json({});
-  } catch (error) {
-    return res.json(error);
-  }
-});
-
-
-// app.get('/logout', async (req, res) => {
-//   try {
-//     req.session.destroy();
-//     res.clearCookie('mega-cookie');
-//     res.sendStatus(200);
-//   } catch (error) {
-//     res.json(error);
-//   }
-// });
-
-
 
 app.listen(process.env.PORT, () => {
   console.log('server start ', process.env.PORT);
