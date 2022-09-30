@@ -1,34 +1,40 @@
-/* eslint-disable no-console */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { Button } from 'reactstrap';
-
-// require('dotenv').config({ path: '../../../../server' });
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function ProjectViewerPage() {
-  const { id } = useParams();
-  const [node, setNode] = useState([]);
+  const [project, setProject] = useState({});
+  const { projectId } = useParams();
 
-  //   const { PORT } = process.env;
   useEffect(() => {
-    axios(`http://localhost:3001/projects/${id}`)
-      .then((res) => setNode(res.data[0]))
+    axios(`http://localhost:3001/project/${projectId}`)
+      .then((res) => {
+        setProject(res.data);
+        console.log(res.data);
+      })
       .catch(console.log);
   }, []);
 
-  const nextNode = (nodeId) => {
-    axios(`http://localhost:3001/node/${nodeId}`)
-      .then((res) => setNode(res.data))
-      .catch(console.log);
+  const navigate = useNavigate();
+
+  const toCategory = (categoryId) => {
+    const path = `/projectselect/${categoryId}`;
+    navigate(path);
+  };
+
+  const toFirstNode = (setProjectId) => {
+    const path = `/nodeviewer/${setProjectId}`;
+    navigate(path);
   };
 
   return (
     <>
-      <div>{node?.content}</div>
-      <div>
-        {node?.Connections?.map((el) => <Button onClick={() => nextNode(el.to)} key={el.id}>{`${el.from}-${el.to}`}</Button>)}
-      </div>
+      <h2>{project?.name}</h2>
+      <div>{project?.desc}</div>
+      <img src={project?.img} alt="Not provided" />
+      <Button onClick={() => toCategory(project?.Category?.id)}>Back to Category</Button>
+      <Button onClick={() => toFirstNode(project?.id)}>Explore project</Button>
     </>
   );
 }

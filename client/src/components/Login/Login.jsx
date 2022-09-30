@@ -32,7 +32,7 @@ export default function Login() {
       const data = await response.json();
       console.log(data);
       dispatch(setLogin(data));
-      navigate('/');
+      navigate('/home');
     } else {
       setError('Вы не зарегистрировались или ввели неправильные данные');
     }
