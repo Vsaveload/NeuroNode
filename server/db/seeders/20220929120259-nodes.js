@@ -28,8 +28,9 @@ module.exports = {
       },
       {
         name: 'Dush',
-        content: 'shodili v dush',
+        content: 'shodili v dush podskolznulis i sdohli',
         project_id: 1,
+        isFirst: false,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
