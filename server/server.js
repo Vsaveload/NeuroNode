@@ -7,7 +7,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const bcrypt = require('bcrypt');
 const {
-  User, Project, Node, Connection,
+  User, Project, Node, Connection, Category,
 } = require('./db/models');
 
 const app = express();
@@ -80,12 +80,7 @@ app.post('/signup', async (req, res) => {
   else res.json({ name: currentUser.name, email: currentUser.email, id: currentUser.id });
 });
 
-app.get('/projects', async (req, res) => {
-  const projects = await Project.findAll();
-  res.json(projects);
-});
-
-app.get('/projects/:id', async (req, res) => {
+app.get('/firstnode/:id', async (req, res) => {
   const { id } = req.params;
   const firstNode = await Node.findAll({
     include: [{ model: Connection }],
@@ -94,10 +89,36 @@ app.get('/projects/:id', async (req, res) => {
   res.json(firstNode);
 });
 
+app.get('/project/:id', async (req, res) => {
+  const { id } = req.params;
+  const project = await Project.findByPk(id, { include: [{ model: Category }] });
+  res.json(project);
+});
+
+app.get('/projectbycategory/:id', async (req, res) => {
+  const { id } = req.params;
+  const projectsInCategory = await Project.findAll({
+    include: [{ model: Category }],
+    where: { category_id: id },
+  });
+  res.json(projectsInCategory);
+});
+
 app.get('/node/:id', async (req, res) => {
   const { id } = req.params;
   const node = await Node.findByPk(id, { include: [{ model: Connection }] });
   res.json(node);
+});
+
+app.get('/categories', async (req, res) => {
+  const allCategories = await Category.findAll({ include: [{ model: Project }] });
+  res.json(allCategories);
+});
+
+app.get('/categories/:id', async (req, res) => {
+  const { id } = req.params;
+  const projects = await Project.findAll({ where: { category_id: id } });
+  res.json(projects);
 });
 
 app.listen(process.env.PORT, () => {
