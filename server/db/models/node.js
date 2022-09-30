@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.Project, { foreignKey: 'project_id' });
       this.hasMany(models.Connection, { foreignKey: 'from' });
-      this.hasMany(models.Connection, { foreignKey: 'to' });
     }
   }
   Node.init({
