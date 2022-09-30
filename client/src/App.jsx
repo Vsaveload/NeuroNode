@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import ProjectViewerPage from './components/ProjectViewerPage';
+import ProjectSelectPage from './components/projectSelectPage';
 import NavBar from './components/Navbar/NavBar';
 import SignUp from './components/Signup/SignUp';
 import Login from './components/Login/Login';
@@ -23,13 +25,14 @@ export default function App({ userSession, notes }) {
   //     ));
   // }, []);
   return (
-
     <div className="container">
       <div className="row">
         <NavBar />
         {/* <FirstPage /> */}
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/projects" element={<ProjectSelectPage />} />
+          <Route path="/projectviewer/:id" element={<ProjectViewerPage />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
         </Routes>

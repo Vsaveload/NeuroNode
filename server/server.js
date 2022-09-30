@@ -6,7 +6,7 @@ const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const bcrypt = require('bcrypt');
-const { User } = require('./db/models');
+const { User, Project, Node, Connection } = require('./db/models');
 
 const app = express();
 
@@ -78,6 +78,26 @@ app.post('/signup', async (req, res) => {
   else res.json({ name: currentUser.name, email: currentUser.email, id: currentUser.id });
 });
 
+app.get('/projects', async (req, res) => {
+  const projects = await Project.findAll();
+  res.json(projects);
+});
+
+app.get('/projects/:id', async (req, res) => {
+  const { id } = req.params;
+  const firstNode = await Node.findAll({
+    include: [{ model: Connection }],
+    where: { project_id: id, isFirst: true },
+  });
+  res.json(firstNode);
+});
+
+app.get('/node/:id', async (req, res) => {
+  const { id } = req.params;
+  const node = await Node.findByPk(id, { include: [{ model: Connection }] });
+  res.json(node);
+});
+
 app.listen(process.env.PORT, () => {
-  console.log('server start ', process.env.PORT);
+  console.log('Server start: ', process.env.PORT);
 });
