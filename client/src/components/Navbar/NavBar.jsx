@@ -34,6 +34,7 @@ export default function Navbar() {
                 <>
                   <NavLink to="/signup" className="btn btn-outline-dark m-2"><strong>Регистрация</strong></NavLink>
                   <NavLink to="/login" className="btn btn-outline-dark m-2"><strong>Авторизация</strong></NavLink>
+                  <NavLink to="/library" className="btn btn-outline-dark m-2"><strong>Library</strong></NavLink>
                 </>
               ) : (
                 <>
