@@ -6,7 +6,9 @@ const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const bcrypt = require('bcrypt');
-const { User, Project, Node, Connection } = require('./db/models');
+const {
+  User, Project, Node, Connection, Category,
+} = require('./db/models');
 
 const app = express();
 
@@ -81,6 +83,21 @@ app.post('/signup', async (req, res) => {
 app.get('/projects', async (req, res) => {
   const projects = await Project.findAll();
   res.json(projects);
+});
+
+app.get('/allcategories', async (req, res) => {
+  const categories = await Category.findAll();
+  res.json(categories);
+});
+
+app.post('/addproject', async (req, res) => {
+  const {
+    name, desc, img, category_id,
+  } = req.body;
+  const newProject = await Project.create({
+    name, desc, img, category_id,
+  });
+  res.json(newProject);
 });
 
 app.get('/projects/:id', async (req, res) => {
