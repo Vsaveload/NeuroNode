@@ -34,7 +34,7 @@ export default function LoginPage({ toggle }) {
       const data = await response.json();
       console.log(data);
       dispatch(setLogin(data));
-      navigate('/main');
+      navigate('/home');
     } else {
       setError('Вы не зарегистрировались или ввели неправильные данные');
     }

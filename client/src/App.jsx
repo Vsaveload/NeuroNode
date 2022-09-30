@@ -34,8 +34,6 @@ export default function App({ userSession, notes }) {
   // }, []);
   return (
 
-    <div className="container">
-      <div className="row">
         <Routes>
           <Route path="/" element={<FirstPage />} />
           <Route path="/main" element={<MainPage />} />
@@ -43,8 +41,8 @@ export default function App({ userSession, notes }) {
           <Route path="/projectselect/:categoryId" element={<ProjectSelectPage />} />
           <Route path="/projectviewer/:projectId" element={<ProjectViewerPage />} />
           <Route path="/nodeviewer/:projectId" element={<NodeVeiwerPage />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} /> */}
           <Route path="/home" element={<HomePage />} />
           <Route path="*" element={<NoPage />} />
           <Route path="/newproject" element={<NewProjectPage />} />
@@ -52,7 +50,6 @@ export default function App({ userSession, notes }) {
           <Route path="/statistics" element={<StatisticsPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
         </Routes>
-      </div>
-    </div>
+
   );
 }
