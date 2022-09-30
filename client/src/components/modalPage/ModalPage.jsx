@@ -2,31 +2,19 @@ import React from 'react';
 import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter, Input,
 } from 'reactstrap';
+import SignUpPage from '../Signup/SignUpPage';
+import LoginPage from '../Login/LoginPage';
 
-function ModalPage({ modal, toggle }) {
+function ModalPage({ modal, toggle, modalType }) {
   return (
     <div>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Авторизация</ModalHeader>
+        <ModalHeader toggle={toggle}>{modalType === 'login' ? 'Авторизация' : 'Регистрация'}</ModalHeader>
         <ModalBody>
-          <Input
-            type="email"
-            placeholder="Введите Email"
-            rows={1}
-            name="email"
-          />
-          <Input
-            type="password"
-            placeholder="Введите пароль"
-            rows={1}
-            name="password"
-          />
+          {modalType === 'login' ? <LoginPage toggle={toggle} /> : <SignUpPage toggle={toggle} />}
+
         </ModalBody>
-        <ModalFooter>
-          <Button color="secondary" onClick={toggle}>
-            Авторизироваться
-          </Button>
-        </ModalFooter>
+        <ModalFooter />
       </Modal>
     </div>
   );

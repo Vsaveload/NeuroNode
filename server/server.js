@@ -46,7 +46,7 @@ app.get('/logout', async (req, res) => {
 app.post('/login', async (req, res) => {
   const databaseUser = await User.findOne({
     where: {
-      name: req.body.name,
+      email: req.body.email,
     },
   });
   if (databaseUser && await bcrypt.compare(req.body.password, databaseUser.password)) {

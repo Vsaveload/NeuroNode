@@ -33,12 +33,12 @@ export default function App({ userSession, notes }) {
   //     ));
   // }, []);
   return (
+
     <div className="container">
       <div className="row">
-        <NavBar />
-        {/* <FirstPage /> */}
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route path="/" element={<FirstPage />} />
+          <Route path="/main" element={<MainPage />} />
           <Route path="/library" element={<LibraryPage />} />
           <Route path="/projectselect/:categoryId" element={<ProjectSelectPage />} />
           <Route path="/projectviewer/:projectId" element={<ProjectViewerPage />} />
