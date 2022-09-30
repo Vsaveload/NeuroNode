@@ -17,6 +17,12 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        rate: 4,
+        project_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ]);
   },
 
