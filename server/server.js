@@ -6,7 +6,9 @@ const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const bcrypt = require('bcrypt');
-const { User, Project, Node, Connection } = require('./db/models');
+const {
+  User, Project, Node, Connection,
+} = require('./db/models');
 
 const app = express();
 

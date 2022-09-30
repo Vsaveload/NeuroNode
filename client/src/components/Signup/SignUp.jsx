@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { setSignup } from '../../redux/action/signupActions';
 
 export default function SignUp() {
-//   const [loading, setLoading] = useState(true);
+  //   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ export default function SignUp() {
       if (response.ok) {
         const data = await response.json();
         dispatch(setSignup(data));
-        navigate('/');
+        navigate('/home');
       } else {
         setError('Вы уже зарегистрированы');
       }
