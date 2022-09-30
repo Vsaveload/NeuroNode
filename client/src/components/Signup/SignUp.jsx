@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { setSignup } from '../../redux/action/signupActions';
 
 export default function SignUp() {
-//   const [loading, setLoading] = useState(true);
+  //   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
