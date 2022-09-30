@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,13 +7,13 @@ import SignUp from './components/Signup/SignUp';
 import Login from './components/Login/Login';
 import MainPage from './components/MainPage/MainPage';
 import { CHECK_AUTH_THUNK } from './redux/action/signupActions';
-// import './App.css'
+import FirstPage from './components/FirstPage/FirstPage';
+
 
 export default function App({ userSession, notes }) {
   const { signup } = useSelector((state) => state);
   const State = useSelector((state) => state);
   const dispatch = useDispatch();
-  // const [authState, setAuthState] = useState(userSession || null);
 
   useEffect(() => {
     fetch('http://localhost:3001/auth', {
@@ -24,9 +25,11 @@ export default function App({ userSession, notes }) {
       ));
   }, []);
   return (
+
     <div className="container">
       <div className="row">
         <NavBar />
+        <FirstPage />
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/signup" element={<SignUp />} />
