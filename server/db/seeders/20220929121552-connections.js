@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -68,6 +69,66 @@ module.exports = {
       {
         from: 7,
         to: 8,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 9,
+        to: 10,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 9,
+        to: 11,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 10,
+        to: 11,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 11,
+        to: 10,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 10,
+        to: 12,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 11,
+        to: 13,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 13,
+        to: 14,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 12,
+        to: 15,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 15,
+        to: 16,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 14,
+        to: 16,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
