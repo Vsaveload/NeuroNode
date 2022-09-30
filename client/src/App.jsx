@@ -25,18 +25,18 @@ export default function App({ userSession, notes }) {
   //     ));
   // }, []);
   return (
-    <div className="container">
-      <div className="row">
-        <NavBar />
-        {/* <FirstPage /> */}
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/projects" element={<ProjectSelectPage />} />
-          <Route path="/projectviewer/:id" element={<ProjectViewerPage />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </div>
-    </div>
+
+    <>
+      {/* <NavBar /> */}
+      <FirstPage />
+      <Routes>
+        <Route path="/main" element={<MainPage />} />
+        <Route path="/projects" element={<ProjectSelectPage />} />
+        <Route path="/projectviewer/:id" element={<ProjectViewerPage />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+
+    </>
   );
 }
