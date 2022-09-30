@@ -6,7 +6,9 @@ const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const bcrypt = require('bcrypt');
-const { User, Project, Node, Connection } = require('./db/models');
+const {
+  User, Project, Node, Connection,
+} = require('./db/models');
 
 const app = express();
 
@@ -44,7 +46,7 @@ app.get('/logout', async (req, res) => {
 app.post('/login', async (req, res) => {
   const databaseUser = await User.findOne({
     where: {
-      name: req.body.name,
+      email: req.body.email,
     },
   });
   if (databaseUser && await bcrypt.compare(req.body.password, databaseUser.password)) {

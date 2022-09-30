@@ -14,6 +14,15 @@ function FirstPage() {
   }, []);
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+  const [modalType, SetModalType] = useState('');
+  const inHandler = () => {
+    SetModalType('login');
+    toggle();
+  };
+  const regHandler = () => {
+    SetModalType('reg');
+    toggle();
+  };
   return (
     <>
       {' '}
@@ -29,11 +38,11 @@ function FirstPage() {
         <div className="full-screen__title">Neuro Node</div>
         <div className="full-screen__text">Приложение для создания проектов на основе графов</div>
       </div>
-      <div onClick={toggle} className="btns in from-right">Войти</div>
-      <div className="btns reg from-left open-btn">Зарегистрироваться</div>
+      <div onClick={inHandler} className="btns in from-right">Войти</div>
+      <div onClick={regHandler} className="btns reg from-left open-btn">Зарегистрироваться</div>
       <div className="btns lib from-center open-btn">Библиотека</div>
 
-      <ModalPage modal={modal} toggle={toggle} />
+      <ModalPage modalType={modalType} modal={modal} toggle={toggle} />
     </>
   );
 }

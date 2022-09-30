@@ -28,8 +28,9 @@ export default function App({ userSession, notes }) {
 
     <>
       {/* <NavBar /> */}
-      <FirstPage />
+
       <Routes>
+        <Route path="/" element={<FirstPage />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/projects" element={<ProjectSelectPage />} />
         <Route path="/projectviewer/:id" element={<ProjectViewerPage />} />
