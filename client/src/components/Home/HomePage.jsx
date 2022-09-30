@@ -1,10 +1,13 @@
 import React from 'react';
 import { ButtonGroup, Button } from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import NavBar from '../Navbar/NavBar';
 
 export default function HomePage() {
   const navigate = useNavigate();
   return (
+   <>
+<NavBar />
       <ButtonGroup vertical size="lg">
          <Button color="dark" onClick={() => navigate('/library')}>
             Library
@@ -26,5 +29,6 @@ export default function HomePage() {
             Favorites
          </Button>
       </ButtonGroup>
+   </>
   );
 }
