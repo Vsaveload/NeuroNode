@@ -9,6 +9,7 @@ import Login from './components/Login/Login';
 import MainPage from './components/MainPage/MainPage';
 import { CHECK_AUTH_THUNK } from './redux/action/signupActions';
 import FirstPage from './components/FirstPage/FirstPage';
+import HomePage from './components/Home/HomePage';
 
 export default function App({ userSession, notes }) {
   const { signup } = useSelector((state) => state);
@@ -35,6 +36,7 @@ export default function App({ userSession, notes }) {
           <Route path="/projectviewer/:id" element={<ProjectViewerPage />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<HomePage />} />
         </Routes>
       </div>
     </div>
