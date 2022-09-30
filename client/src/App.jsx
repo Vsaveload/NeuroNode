@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ProjectViewerPage from './components/ProjectViewerPage';
-import ProjectSelectPage from './components/projectSelectPage';
+import ProjectSelectPage from './components/ProjectSelectPage';
 import NavBar from './components/Navbar/NavBar';
 import SignUp from './components/Signup/SignUp';
 import Login from './components/Login/Login';

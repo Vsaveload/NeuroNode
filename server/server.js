@@ -6,7 +6,9 @@ const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const bcrypt = require('bcrypt');
-const { User, Project, Node, Connection } = require('./db/models');
+const {
+  User, Project, Node, Connection, Category,
+} = require('./db/models');
 
 const app = express();
 
@@ -96,6 +98,11 @@ app.get('/node/:id', async (req, res) => {
   const { id } = req.params;
   const node = await Node.findByPk(id, { include: [{ model: Connection }] });
   res.json(node);
+});
+
+app.get('/categories', async (req, res) => {
+  const allCategories = await Category.findAll();
+  res.json(allCategories);
 });
 
 app.listen(process.env.PORT, () => {
