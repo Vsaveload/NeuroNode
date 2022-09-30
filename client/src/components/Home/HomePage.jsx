@@ -2,33 +2,34 @@ import React from 'react';
 import { ButtonGroup, Button } from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import NavBar from '../Navbar/NavBar';
+import './Home.css';
 
 export default function HomePage() {
   const navigate = useNavigate();
   return (
-   <>
-<NavBar />
-      <ButtonGroup vertical size="lg">
-         <Button color="dark" onClick={() => navigate('/library')}>
-            Library
-         </Button>
+      <>
+         <NavBar />
+         <ButtonGroup vertical size="lg">
+            <Button color="dark" onClick={() => navigate('/library')} className="button">
+               Library
+            </Button>
 
-         <Button color="dark" onClick={() => navigate('/newproject')}>
-            New Project
-         </Button>
+            <Button color="dark" onClick={() => navigate('/newproject')} className="button1">
+               New Project
+            </Button>
 
-         <Button color="dark" onClick={() => navigate('/myproject')}>
-            My Project
-         </Button>
+            <Button color="dark" onClick={() => navigate('/myproject')} className="button2">
+               My Project
+            </Button>
 
-         <Button color="dark" onClick={() => navigate('/statistics')}>
+            {/* <Button color="dark" onClick={() => navigate('/statistics')}>
             Statistics
-         </Button>
+         </Button> */}
 
-         <Button color="dark" onClick={() => navigate('/favorites')}>
-            Favorites
-         </Button>
-      </ButtonGroup>
-   </>
+            <Button color="dark" onClick={() => navigate('/favorites')} className="button3">
+               Favorites
+            </Button>
+         </ButtonGroup>
+      </>
   );
 }
