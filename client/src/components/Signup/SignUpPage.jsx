@@ -42,7 +42,7 @@ export default function SignUpPage({ toggle }) {
       if (response.ok) {
         const data = await response.json();
         dispatch(setSignup(data));
-        navigate('/main');
+        navigate('/home');
       } else {
         setError('Вы уже зарегистрированы');
       }

@@ -50,5 +50,6 @@ export default function App({ userSession, notes }) {
           <Route path="/statistics" element={<StatisticsPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
         </Routes>
+
   );
 }
