@@ -99,14 +99,25 @@ export default function AddProject() {
             <option value={category.id}>{category.name}</option>
           ))}
         </Input> */}
-        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+        {/* <Dropdown isOpen={dropdownOpen} toggle={toggle}>
           <DropdownToggle caret>Category</DropdownToggle>
           <DropdownMenu value={input.category_id} name="category_id" onChange={inputHandler}>
             {allCategories && allCategories?.map((category) => (
               <DropdownItem value={category.id} key={category.id}>{category.name}</DropdownItem>
             ))}
           </DropdownMenu>
-        </Dropdown>
+        </Dropdown> */}
+        <Input
+          onChange={inputHandler}
+          value={input.category_id}
+          id="exampleSelect"
+          name="category_id"
+          type="select"
+        >
+      {allCategories && allCategories?.map((category) => (
+            <option value={category.id}>{category.name}</option>
+      ))}
+        </Input>
       </FormGroup>
       <Button type="submit">
         Create

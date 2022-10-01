@@ -13,7 +13,7 @@ export default function HomePage() {
             Library
          </Button>
 
-         <Button color="dark" onClick={() => navigate('/newproject')}>
+         <Button color="dark" onClick={() => navigate('/addproject')}>
             New Project
          </Button>
 

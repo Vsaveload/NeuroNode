@@ -13,10 +13,10 @@ import LibraryPage from './components/LibraryPage';
 import NodeVeiwerPage from './components/NodeVeiwerPage';
 import HomePage from './components/Home/HomePage';
 import NoPage from './components/NoMatch/NoMatch';
-import NewProjectPage from './components/Home/NewProjectPage';
 import MyProjectPage from './components/Home/MyProjectPage';
 import StatisticsPage from './components/Home/StatisticsPage';
 import FavoritesPage from './components/Home/FavoritesPage';
+import AddProject from './components/AddProject';
 
 export default function App({ userSession, notes }) {
   const { signup } = useSelector((state) => state);
@@ -45,7 +45,7 @@ export default function App({ userSession, notes }) {
           <Route path="/login" element={<Login />} /> */}
           <Route path="/home" element={<HomePage />} />
           <Route path="*" element={<NoPage />} />
-          <Route path="/newproject" element={<NewProjectPage />} />
+          <Route path="/addproject" element={<AddProject />} />
           <Route path="/myproject" element={<MyProjectPage />} />
           <Route path="/statistics" element={<StatisticsPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
