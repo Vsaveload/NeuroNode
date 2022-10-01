@@ -6,7 +6,7 @@ import { ButtonGroup, Button } from 'reactstrap';
 export default function MainPage() {
   const navigate = useNavigate();
   return (
-   <ButtonGroup vertical size="lg">
+    <ButtonGroup vertical size="lg">
       <Button color="secondary" onClick={() => navigate('/addproject')}>
         New project
       </Button>
@@ -16,6 +16,6 @@ export default function MainPage() {
       <Button color="secondary">
         Statistics
       </Button>
-   </ButtonGroup>
+    </ButtonGroup>
   );
 }
