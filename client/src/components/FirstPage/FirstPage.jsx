@@ -34,13 +34,13 @@ function FirstPage() {
         options={config}
       />
 
+      <div onClick={inHandler} className="btns in from-right">Войти</div>
+      <div onClick={regHandler} className="btns reg from-left open-btn">Регистрация</div>
+      <div className="btns lib from-center open-btn">Библиотека</div>
       <div className="full-screen__body">
         <div className="full-screen__title">Neuro Node</div>
         <div className="full-screen__text">Приложение для создания проектов на основе графов</div>
       </div>
-      <div onClick={inHandler} className="btns in from-right">Войти</div>
-      <div onClick={regHandler} className="btns reg from-left open-btn">Зарегистрироваться</div>
-      <div className="btns lib from-center open-btn">Библиотека</div>
 
       <ModalPage modalType={modalType} modal={modal} toggle={toggle} />
     </>
