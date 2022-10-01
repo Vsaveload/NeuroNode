@@ -6,7 +6,7 @@ import ProjectSelectPage from './components/ProjectSelectPage';
 import NavBar from './components/Navbar/NavBar';
 import SignUp from './components/Signup/SignUp';
 import Login from './components/Login/Login';
-import MainPage from './components/MainPage/MainPage';
+import MainPage from './components/MainPage';
 import { CHECK_AUTH_THUNK } from './redux/action/signupActions';
 import FirstPage from './components/FirstPage/FirstPage';
 import LibraryPage from './components/LibraryPage';
@@ -17,6 +17,7 @@ import NewProjectPage from './components/NewProject/NewProjectPage';
 import MyProjectPage from './components/MyProject/MyProjectPage';
 import StatisticsPage from './components/Statistics/StatisticsPage';
 import FavoritesPage from './components/Favorites/FavoritesPage';
+import AddProject from './components/AddProject/AddProject';
 
 export default function App({ userSession, notes }) {
   const { signup } = useSelector((state) => state);
@@ -45,7 +46,7 @@ export default function App({ userSession, notes }) {
           <Route path="/login" element={<Login />} /> */}
           <Route path="/home" element={<HomePage />} />
           <Route path="*" element={<NoPage />} />
-          <Route path="/newproject" element={<NewProjectPage />} />
+          <Route path="/addproject" element={<AddProject />} />
           <Route path="/myproject" element={<MyProjectPage />} />
           <Route path="/statistics" element={<StatisticsPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
