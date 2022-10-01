@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
 export default function NodeVeiwerPage() {
@@ -20,11 +20,19 @@ export default function NodeVeiwerPage() {
       .catch(console.log);
   };
 
+  const navigate = useNavigate();
+
+  const toProject = (nodeProjectId) => {
+    const path = `/projectviewer/${nodeProjectId}`;
+    navigate(path);
+  };
   return (
     <>
       <div>{node?.content}</div>
       <div>
-        {node?.Connections?.map((el) => <Button onClick={() => nextNode(el.to)} key={el.id}>{`${el.name}_${el.from}-${el.to}`}</Button>)}
+        {node?.isFirst === false
+          ? <Button onClick={() => toProject(node.project_id)}>Finish project</Button>
+          : node?.Connections?.map((el) => <Button onClick={() => nextNode(el.to)} key={el.id}>{`${el.from}-${el.to}`}</Button>)}
       </div>
     </>
   );
