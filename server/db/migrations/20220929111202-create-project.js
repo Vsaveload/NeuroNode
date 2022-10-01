@@ -26,7 +26,6 @@ module.exports = {
         type: Sequelize.TEXT,
       },
       category_id: {
-        // allowNull: true,
         type: Sequelize.INTEGER,
         references: {
           model: 'Categories',

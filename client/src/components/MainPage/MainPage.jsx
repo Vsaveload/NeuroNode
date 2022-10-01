@@ -4,7 +4,7 @@ import { ButtonGroup, Button } from 'reactstrap';
 
 export default function MainPage() {
   return (
-      <ButtonGroup vertical size="lg">
+    <ButtonGroup vertical size="lg">
          <Button color="secondary">
             New project
          </Button>
@@ -14,6 +14,6 @@ export default function MainPage() {
          <Button color="secondary">
             Statistics
          </Button>
-      </ButtonGroup>
+    </ButtonGroup>
   );
 }
