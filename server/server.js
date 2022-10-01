@@ -7,7 +7,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const bcrypt = require('bcrypt');
 const {
-  User, Project, Node, Connection, Category,
+  User, Project, Node, Connection, Category, Statistic,
 } = require('./db/models');
 
 const app = express();
@@ -100,6 +100,31 @@ app.post('/addproject', async (req, res) => {
   res.json(newProject);
 });
 
+app.post('/addstat', async (req, res) => {
+  const { id, nodeId } = req.body;
+  const newStat = await Statistic.create({
+    project_id: id, connection_id: nodeId,
+  });
+  res.json(newStat);
+});
+
+app.get('/getstat', async (req, res) => {
+  const stats = await Statistic.findAll({
+    include:
+    [{ model: Connection, include: [{ model: Node }] }],
+  });
+  res.json(stats);
+});
+
+app.get('/getstat/:id', async (req, res) => {
+  const { id } = req.params;
+  const projectStat = await Project.findByPk(id, {
+    include:
+        [{ model: Statistic, include: [{ model: Connection, include: [{ model: Node }] }] }],
+  });
+  res.json(projectStat);
+});
+
 app.get('/firstnode/:id', async (req, res) => {
   const { id } = req.params;
   const firstNode = await Node.findAll({
@@ -126,7 +151,10 @@ app.get('/projectbycategory/:id', async (req, res) => {
 
 app.get('/node/:id', async (req, res) => {
   const { id } = req.params;
-  const node = await Node.findByPk(id, { include: [{ model: Connection }] });
+  const node = await Node.findByPk(id, {
+    include:
+    [{ model: Connection }],
+  });
   res.json(node);
 });
 
