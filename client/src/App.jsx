@@ -18,6 +18,7 @@ import MyProjectPage from './components/MyProject/MyProjectPage';
 import StatisticsPage from './components/Statistics/StatisticsPage';
 import FavoritesPage from './components/Favorites/FavoritesPage';
 import AddProject from './components/AddProject/AddProject';
+import CardProjectPage from './components/CardProject/CardProjectPage';
 
 export default function App({ userSession, notes }) {
   const { signup } = useSelector((state) => state);
@@ -45,11 +46,13 @@ export default function App({ userSession, notes }) {
           {/* <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} /> */}
           <Route path="/home" element={<HomePage />} />
+          <Route path="/projects" element={<MyProjectPage />} />
           <Route path="*" element={<NoPage />} />
           <Route path="/addproject" element={<AddProject />} />
           <Route path="/myproject" element={<MyProjectPage />} />
           <Route path="/statistics" element={<StatisticsPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/card" element={<CardProjectPage />} />
         </Routes>
 
   );
