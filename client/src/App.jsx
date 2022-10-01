@@ -47,7 +47,7 @@ export default function App({ userSession, notes }) {
           <Route path="*" element={<NoPage />} />
           <Route path="/newproject" element={<NewProjectPage />} />
           <Route path="/myproject" element={<MyProjectPage />} />
-          {/* <Route path="/statistics" element={<StatisticsPage />} />? */}
+          <Route path="/statistics" element={<StatisticsPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
         </Routes>
 
