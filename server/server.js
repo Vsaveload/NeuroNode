@@ -80,6 +80,26 @@ app.post('/signup', async (req, res) => {
   else res.json({ name: currentUser.name, email: currentUser.email, id: currentUser.id });
 });
 
+app.get('/projects', async (req, res) => {
+  const projects = await Project.findAll();
+  res.json(projects);
+});
+
+app.get('/allcategories', async (req, res) => {
+  const categories = await Category.findAll();
+  res.json(categories);
+});
+
+app.post('/addproject', async (req, res) => {
+  const {
+    name, desc, img, category_id,
+  } = req.body;
+  const newProject = await Project.create({
+    name, desc, img, category_id,
+  });
+  res.json(newProject);
+});
+
 app.get('/firstnode/:id', async (req, res) => {
   const { id } = req.params;
   const firstNode = await Node.findAll({
