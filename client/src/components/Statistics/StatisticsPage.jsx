@@ -7,6 +7,6 @@ export default function StatisticsPage() {
       .then((data) => console.log(data.data));
   });
   return (
-      <div>StatisticsPage</div>
+    <div>StatisticsPage</div>
   );
 }
