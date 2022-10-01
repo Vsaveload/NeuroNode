@@ -13,7 +13,6 @@ const colors = scaleOrdinal(schemeCategory10).range();
 const data = [
   {
     name: 'Page A',
-    uv: 4000,
     female: 2400,
     male: 2400,
   },
@@ -75,20 +74,47 @@ TriangleBar.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
 };
-const [projectStat, setProjectStat] = useState([]);
 
 export default function StatisticsPage() {
+  const [projectStat, setProjectStat] = useState([]);
+  const { staticId } = useParams();
+  console.log(staticId);
   useEffect(() => {
-    const projectId = useParams();
-    axios(`http://localhost:3001/getstat/${projectId}`)
-      .then((res) => setProjectStat(res.data));
-  });
+    axios(`http://localhost:3001/getstat/${staticId}`)
+      .then((res) => {
+        setProjectStat(res.data.Statistics);
+        console.log(res.data.Statistics);
+      });
+  }, []);
+  const tempArr = [];
+  const countObj = {};
+  if (projectStat) {
+    projectStat.forEach((el) => tempArr.push(`${el.Connection.from}-${el.Connection.to}`));
+  }
+  console.log(tempArr);
+  if (tempArr) {
+    for (let i = 0; i < tempArr.length; i++) {
+      if (!countObj[tempArr[i]])countObj[tempArr[i]] = 1;
+      else countObj[tempArr[i]] += 1;
+    }
+  }
+  const newData = [];
+  console.log(countObj);
+
+  for (const key in countObj) {
+    newData.push({
+      name: key,
+      female: countObj[key],
+      male: countObj[key],
+    });
+  }
+  console.log(newData);
   return (
       <ResponsiveContainer width="50%" aspect={3}>
         <BarChart
           width={500}
           height={300}
-          data={data}
+          data={newData}
           margin={{
             top: 20,
             right: 30,
