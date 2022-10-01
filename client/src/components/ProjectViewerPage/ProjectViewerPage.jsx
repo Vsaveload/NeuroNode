@@ -9,10 +9,7 @@ export default function ProjectViewerPage() {
 
   useEffect(() => {
     axios(`http://localhost:3001/project/${projectId}`)
-      .then((res) => {
-        setProject(res.data);
-        console.log(res.data);
-      })
+      .then((res) => setProject(res.data))
       .catch(console.log);
   }, []);
 
