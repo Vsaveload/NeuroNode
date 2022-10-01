@@ -2,12 +2,14 @@ import React from 'react';
 import { ButtonGroup, Button } from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import NavBar from '../Navbar/NavBar';
+import FirstPage from '../FirstPage/FirstPage';
 
 export default function HomePage() {
   const navigate = useNavigate();
   return (
    <>
-<NavBar />
+ <NavBar />
+
       <ButtonGroup vertical size="lg">
          <Button color="dark" onClick={() => navigate('/library')}>
             Library
