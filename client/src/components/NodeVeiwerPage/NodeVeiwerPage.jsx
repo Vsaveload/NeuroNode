@@ -9,7 +9,7 @@ export default function NodeVeiwerPage() {
 
   //   const { PORT } = process.env;
   useEffect(() => {
-    axios(`http://localhost:3001/firstnode/${projectId}`)
+    axios(`http://localhost:3001/node/first/${projectId}`)
       .then((res) => setNode(res.data[0]))
       .catch(console.log);
   }, []);
@@ -18,14 +18,14 @@ export default function NodeVeiwerPage() {
     console.log('nodeId', nodeId);
     console.log('projectId', id);
     const data = { id, nodeId };
-    await fetch('http://localhost:3001/addstat', {
+    await fetch('http://localhost:3001/stat/new', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(data),
     });
-    axios(`http://localhost:3001/node/${nodeId}`)
+    axios(`http://localhost:3001/node/byid/${nodeId}`)
       .then((res) => setNode(res.data))
       .catch(console.log);
   };
