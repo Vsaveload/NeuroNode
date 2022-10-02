@@ -31,7 +31,7 @@ export default function NodeVeiwerPage() {
   const navigate = useNavigate();
 
   const toProject = (nodeProjectId) => {
-    const path = `/projectselect/${nodeProjectId}`;
+    const path = `/category/${nodeProjectId}`;
     navigate(path);
   };
 
