@@ -7,7 +7,7 @@ export default function LibraryPage() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios('http://localhost:3001/categories')
+    axios('http://localhost:3001/category/allwithproject')
       .then((res) => {
         setCategories(res.data);
       })

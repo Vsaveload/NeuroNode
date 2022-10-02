@@ -49,7 +49,7 @@ export default function App({ userSession, notes }) {
           <Route path="/home" element={<HomePage />} />
           <Route path="/projects" element={<MyProjectPage />} />
           <Route path="*" element={<NoPage />} />
-          <Route path="/addproject" element={<AddProject />} />
+          <Route path="/project/new" element={<AddProject />} />
           <Route path="/myproject" element={<MyProjectPage />} />
           <Route path="/statistics" element={<StatisticsPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />

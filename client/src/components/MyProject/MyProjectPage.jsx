@@ -10,7 +10,7 @@ export default function MyProjectPage() {
   const [card, setCard] = useState([]);
 
   useEffect(() => {
-    axios('http://localhost:3001/projects')
+    axios('http://localhost:3001/project/all')
       .then((res) => {
         setCard(res.data);
       })
@@ -20,7 +20,7 @@ export default function MyProjectPage() {
   const navigate = useNavigate();
 
   const toProjects = (id) => {
-    const path = `/projects/${id}`;
+    const path = `/project/byid/${id}`;
     navigate(path);
   };
 
