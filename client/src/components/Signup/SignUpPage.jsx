@@ -18,7 +18,7 @@ export default function SignUpPage({ toggle }) {
   });
 
   useEffect(() => {
-    fetch('http://localhost:3001/signup', {
+    fetch('http://localhost:3001/auth/signup', {
       credentials: 'include',
     })
       .then((res) => res.json())
@@ -30,7 +30,7 @@ export default function SignUpPage({ toggle }) {
   const submitHandler = async (e) => {
     e.preventDefault();
     if (input.repeat === input.password && input.name !== '') {
-      const response = await fetch('http://localhost:3001/signup', {
+      const response = await fetch('http://localhost:3001/auth/signup', {
         credentials: 'include',
         method: 'POST',
         headers: {

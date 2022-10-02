@@ -5,9 +5,8 @@ import {
 } from 'reactstrap';
 
 export default function AddProject() {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
+  // const [dropdownOpen, setDropdownOpen] = useState(false);
+  // const toggle = () => setDropdownOpen((prevState) => !prevState);
   const [allCategories, setAllCategories] = useState([]);
   const [input, setInput] = useState({
     name: '',
@@ -20,7 +19,7 @@ export default function AddProject() {
   };
   const submitHandler = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:3001/addproject', {
+    const response = await fetch('http://localhost:3001/project/new', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -38,7 +37,7 @@ export default function AddProject() {
   };
 
   useEffect(() => {
-    axios('http://localhost:3001/allcategories')
+    axios('http://localhost:3001/category/all')
       .then((data) => setAllCategories(data.data));
   }, []);
 

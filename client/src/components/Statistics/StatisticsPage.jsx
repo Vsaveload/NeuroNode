@@ -37,7 +37,7 @@ export default function StatisticsPage() {
   const { staticId } = useParams();
   console.log(staticId);
   useEffect(() => {
-    axios(`http://localhost:3001/getstat/${staticId}`)
+    axios(`http://localhost:3001/stat/byid/${staticId}`)
       .then((res) => {
         setProjectStat(res.data.Statistics);
         console.log(res.data.Statistics);
