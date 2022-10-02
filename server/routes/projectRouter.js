@@ -33,4 +33,12 @@ router.get('/bycategory/:id', async (req, res) => {
   res.json(projectsInCategory);
 });
 
+router.get('/cards', async (req, res) => {
+  const firstCard = await Project.findAll({
+    include: [{ model: Category }],
+    where: { user_id: id },
+  });
+
+  res.json(firstCard);
+});
 module.exports = router;

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   Form, FormGroup, Label, Input, Button,
 } from 'reactstrap';
+import CardProjectPage from '../Cards/CardProjectPage';
 import './MyProjectPage.css';
 
 export default function MyProjectPage() {
@@ -26,6 +27,8 @@ export default function MyProjectPage() {
 
   return (
     <div>
+      <h1>My Project</h1>
+      <CardProjectPage />
       {/* {card?.map((category) => (
         <Container key={category.id}>
           <h2>{category.name}</h2>
@@ -41,8 +44,7 @@ export default function MyProjectPage() {
         </Container>
       ))} */}
       <div>
-        <h1>My Project</h1>
-        <Form>
+        {/* <Form>
           <FormGroup>
             <Label for="exampleEmail">
               Name
@@ -76,7 +78,7 @@ export default function MyProjectPage() {
               type="url"
             />
           </FormGroup>
-        </Form>
+        </Form> */}
         <Button color="secondary" size="lg" block className="btn">Go Project</Button>
         <Button color="secondary" size="lg" block className="btn">Edit</Button>
       </div>

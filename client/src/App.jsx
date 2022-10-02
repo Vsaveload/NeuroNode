@@ -16,7 +16,7 @@ import MyProjectPage from './components/MyProject/MyProjectPage';
 import StatisticsPage from './components/Statistics/StatisticsPage';
 import FavoritesPage from './components/Favorites/FavoritesPage';
 import AddProject from './components/AddProject/AddProject';
-import CardProjectPage from './components/CardProject/CardProjectPage';
+import CardProjectPage from './components/Cards/CardProjectPage';
 
 export default function App({ userSession, notes }) {
   const { signup } = useSelector((state) => state);
