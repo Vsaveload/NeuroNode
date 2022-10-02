@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
-import { Button } from 'reactstrap';
+import {
+  Button, Card, CardBody, CardSubtitle, CardText, CardTitle, Container,
+} from 'reactstrap';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -19,26 +21,47 @@ export default function projectSelectPage() {
 
   const navigate = useNavigate();
 
-  const toProject = (projectId) => {
-    const path = `/projectviewer/${projectId}`;
-    navigate(path);
-  };
-
-  const toLibrary = () => {
+  const toCategories = () => {
     navigate('/library');
   };
 
+  const toFirstNode = (ProjectId) => {
+    const path = `/nodeviewer/${ProjectId}`;
+    navigate(path);
+  };
+
   return (
-    <div>
+    <div className="d-flex" style={{ flexDirection: 'column' }}>
       {projects?.map((project) => (
-        <Button
-          onClick={() => toProject(project.id)}
-          key={project.id}
+    <Card
+      style={{
+        width: '18rem',
+      }}
+      key={project.id}
+    >
+      <img
+        style={{ width: '18rem', height: '16rem' }}
+        src={project?.img}
+        alt="Not provided"
+      />
+      <CardBody>
+        <CardTitle tag="h5">
+          {project?.name}
+        </CardTitle>
+        <CardSubtitle
+          className="mb-2 text-muted"
+          tag="h6"
         >
-          {project.name}
-        </Button>
+            Card subtitle
+        </CardSubtitle>
+          <CardText>
+            {project?.desc}
+          </CardText>
+        <Button onClick={() => toFirstNode(project?.id)}>Explore project</Button>
+      </CardBody>
+    </Card>
       ))}
-      <Button onClick={toLibrary}>Back to library</Button>
+      <Button onClick={toCategories}>Back to library</Button>
     </div>
   );
 }

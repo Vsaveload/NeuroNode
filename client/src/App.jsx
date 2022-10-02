@@ -33,7 +33,6 @@ export default function App({ userSession, notes }) {
   //     ));
   // }, []);
   return (
-
         <Routes>
           <Route path="/" element={<FirstPage />} />
           <Route path="/main" element={<MainPage />} />
@@ -51,6 +50,5 @@ export default function App({ userSession, notes }) {
           <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/card" element={<CardProjectPage />} />
         </Routes>
-
   );
 }
