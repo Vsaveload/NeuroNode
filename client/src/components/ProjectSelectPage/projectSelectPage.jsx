@@ -12,7 +12,7 @@ export default function projectSelectPage() {
 
   //   const { PORT } = process.env;
   useEffect(() => {
-    axios(`http://localhost:3001/projectbycategory/${categoryId}`)
+    axios(`http://localhost:3001/project/bycategory/${categoryId}`)
       .then((res) => setProjects(res.data))
       .catch(console.log);
   }, []);
