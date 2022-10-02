@@ -34,47 +34,24 @@ function CustomTooltip({
 
 export default function StatisticsPage() {
   const [projectStat, setProjectStat] = useState([]);
+  const [projectStatName, setProjectStatName] = useState([]);
   const { staticId } = useParams();
   console.log(staticId);
   useEffect(() => {
     axios(`http://localhost:3001/stat/byid/${staticId}`)
       .then((res) => {
-        setProjectStat(res.data.Statistics);
-        console.log(res.data.Statistics);
+        console.log('ПОСЛЕ ФЕЧА', res.data);
+        setProjectStat(res.data.newData);
+        setProjectStatName(res.data.namesArr);
       });
   }, []);
-  const tempArr = [];
-  const countObj = {};
-  const namesArr = [];
-  if (projectStat) {
-    projectStat.forEach((el) => tempArr.push(`${el.Connection.from}-${el.Connection.to}`));
-    projectStat.forEach((el) => namesArr.push({ [`${el.Connection.from}-${el.Connection.to}`]: `${el.Connection.Node.name}` }));
-  }
-  console.log('TEMP_ARR', tempArr);
-  console.log('NAMES_ARR', namesArr);
-  if (tempArr) {
-    for (let i = 0; i < tempArr.length; i++) {
-      if (!countObj[tempArr[i]])countObj[tempArr[i]] = 1;
-      else countObj[tempArr[i]] += 1;
-    }
-  }
-  const newData = [];
-  console.log(countObj);
 
-  for (const key in countObj) {
-    newData.push({
-      name: key,
-      Nodes: countObj[key],
-      atm: countObj[key],
-    });
-  }
-  console.log(newData);
   return (
       <ResponsiveContainer width="40%" aspect={3}>
         <BarChart
           width={500}
           height={300}
-          data={newData}
+          data={projectStat}
           margin={{
             top: 5,
             right: 30,
@@ -85,7 +62,7 @@ export default function StatisticsPage() {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
-          <Tooltip content={<CustomTooltip namesArr={namesArr} />} />
+          <Tooltip content={<CustomTooltip namesArr={projectStatName} />} />
           <Legend />
           <Bar dataKey="Nodes" barSize={10} fill="#000000" />
         </BarChart>
