@@ -18,7 +18,7 @@ export default function HomePage() {
          <Button color="dark" onClick={() => navigate('/addproject')}>
             New Project
          </Button>
-            <Button color="dark" onClick={() => navigate('/myproject')} className="button2">
+            <Button color="dark" onClick={() => navigate('/myprojects')} className="button2">
                My Project
             </Button>
             <Button color="dark" onClick={() => navigate('/favorites')} className="button3">
