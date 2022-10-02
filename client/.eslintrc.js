@@ -29,5 +29,10 @@ module.exports = {
     'no-console': 0,
     'react/jsx-indent': 0,
     'react/no-unknown-property': 0,
+    'react/require-default-props': 0,
+    'no-restricted-exports': 0,
+    'no-plusplus': 0,
+    'no-restricted-syntax': 0,
+    'guard-for-in': 0,
   },
 };
