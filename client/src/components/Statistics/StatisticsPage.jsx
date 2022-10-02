@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { PureComponent, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Button } from 'reactstrap';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
@@ -36,17 +37,21 @@ export default function StatisticsPage() {
   const [projectStat, setProjectStat] = useState([]);
   const [projectStatName, setProjectStatName] = useState([]);
   const { staticId } = useParams();
-  console.log(staticId);
+  const navigate = useNavigate();
+
   useEffect(() => {
     axios(`http://localhost:3001/stat/byid/${staticId}`)
       .then((res) => {
-        console.log('ПОСЛЕ ФЕЧА', res.data);
         setProjectStat(res.data.newData);
         setProjectStatName(res.data.namesArr);
       });
   }, []);
-
+  const toProject = (projectId) => {
+    const path = `/projectselect/${projectId}`;
+    navigate(path);
+  };
   return (
+    <>
       <ResponsiveContainer width="40%" aspect={3}>
         <BarChart
           width={500}
@@ -67,5 +72,7 @@ export default function StatisticsPage() {
           <Bar dataKey="Nodes" barSize={10} fill="#000000" />
         </BarChart>
       </ResponsiveContainer>
+      <Button onClick={() => toProject(staticId)}>Back to project</Button>
+    </>
   );
 }

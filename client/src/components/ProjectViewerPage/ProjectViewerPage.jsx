@@ -31,6 +31,7 @@ export default function ProjectViewerPage() {
       <img src={project?.img} alt="Not provided" />
       <Button onClick={() => toCategory(project?.Category?.id)}>Back to Category</Button>
       <Button onClick={() => toFirstNode(project?.id)}>Explore project</Button>
+
     </>
   );
 }
