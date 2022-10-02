@@ -36,25 +36,25 @@ export default function App({ userSession, notes }) {
   // }, []);
   return (
 
-        <Routes>
-          <Route path="/" element={<FirstPage />} />
-          <Route path="/main" element={<MainPage />} />
-          <Route path="/library" element={<LibraryPage />} />
-          <Route path="/projectselect/:categoryId" element={<ProjectSelectPage />} />
-          <Route path="/projectviewer/:projectId" element={<ProjectViewerPage />} />
-          <Route path="/statistics/:staticId" element={<StatisticsPage />} />
-          <Route path="/nodeviewer/:projectId" element={<NodeVeiwerPage />} />
-          {/* <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} /> */}
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/projects" element={<MyProjectPage />} />
-          <Route path="*" element={<NoPage />} />
-          <Route path="/project/new" element={<AddProject />} />
-          <Route path="/myproject" element={<MyProjectPage />} />
-          <Route path="/statistics" element={<StatisticsPage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
-          <Route path="/card/:id" element={<CardProjectPage />} />
-        </Routes>
+    <Routes>
+      <Route path="/" element={<FirstPage />} />
+      <Route path="/main" element={<MainPage />} />
+      <Route path="/library" element={<LibraryPage />} />
+      <Route path="/projectselect/:categoryId" element={<ProjectSelectPage />} />
+      <Route path="/projectviewer/:projectId" element={<ProjectViewerPage />} />
+      <Route path="/statistics/:staticId" element={<StatisticsPage />} />
+      <Route path="/nodeviewer/:projectId" element={<NodeVeiwerPage />} />
+      {/* <Route path="/signup" element={<SignUp />} /> */}
+      {/* <Route path="/login" element={<Login />} /> */}
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/projects" element={<MyProjectPage />} />
+      <Route path="*" element={<NoPage />} />
+      <Route path="/project/new" element={<AddProject />} />
+      <Route path="/myproject" element={<MyProjectPage />} />
+      <Route path="/statistics" element={<StatisticsPage />} />
+      <Route path="/favorites" element={<FavoritesPage />} />
+      <Route path="/card/:id" element={<CardProjectPage />} />
+    </Routes>
 
   );
 }
