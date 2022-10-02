@@ -10,7 +10,7 @@ export default function Navbar() {
 
   const logoutHandler = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:3001/logout', { credentials: 'include' });
+    const response = await fetch('http://localhost:3001/auth/logout', { credentials: 'include' });
     if (response.ok) {
       dispatch(logout());
       navigate('/');
