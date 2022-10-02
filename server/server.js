@@ -44,6 +44,11 @@ app.use('/project', projectRouter);
 app.use('/category', categoryRouter);
 app.use('/node', nodeRouter);
 
+// app.get('/cards', async (req, res) => {
+//   const firstCard = await Project.findAll();
+//   res.json(firstCard);
+// });
+
 app.listen(process.env.PORT, () => {
   console.log('Server start: ', process.env.PORT);
 });

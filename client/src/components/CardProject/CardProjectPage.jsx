@@ -1,32 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   Card, CardBody, CardTitle, CardText, ListGroup, ListGroupItem, CardLink,
 } from 'reactstrap';
 
 export default function CardProjectPage() {
-  const [cd, setCd] = useState({
-    name: '',
-    desc: '',
-    img: '',
-  });
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    const response = await fetch('http://localhost:3001/projects', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(cd),
-    });
+  const [cd, setCd] = useState([]);
+  const { project } = useParams();
+  useEffect(() => {
+    fetch('http://localhost:3001/cards')
+      .then((res) => res.json)
+      .then((data) => setCd(data));
+  }, []);
 
-    if (response.ok) {
-      setCd({
-        name: '',
-        desc: '',
-        img: '',
-      });
-    }
-  };
   return (
     <div>
       <h1>Card</h1>
@@ -47,23 +33,24 @@ export default function CardProjectPage() {
         </CardBody>
         <ListGroup flush>
           <ListGroupItem>
-            Name
+            {project.name}
           </ListGroupItem>
           <ListGroupItem>
-            Description
+            {project.desc}
           </ListGroupItem>
           <ListGroupItem>
-            Photo
+            {project.img}
           </ListGroupItem>
         </ListGroup>
-        <CardBody>
-          <CardLink href="#">
+        {/* <CardBody>
+          <CardLink href="#"
+           onClick={() => (id === 0 ? navigate(`card/${id}`) : navigate(`card/${id - 1}`))}>
             back
           </CardLink>
-          <CardLink href="#">
+          <CardLink href="#" onClick={() => navigate(`card/${id + 1}`)}>
             forward
           </CardLink>
-        </CardBody>
+        </CardBody> */}
       </Card>
     </div>
   );

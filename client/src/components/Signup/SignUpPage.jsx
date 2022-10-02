@@ -10,6 +10,7 @@ export default function SignUpPage({ toggle }) {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [status, setStatus] = useState(false);
   const [input, setInput] = useState({
     name: '',
     email: '',
@@ -18,14 +19,19 @@ export default function SignUpPage({ toggle }) {
   });
 
   useEffect(() => {
-    fetch('http://localhost:3001/auth/signup', {
-      credentials: 'include',
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        dispatch(setSignup(res));
-      });
-  }, []);
+    // fetch('http://localhost:3001/auth/signup', {
+    //   credentials: 'include',
+    // })
+    //   .then((res) => res.json())
+    //   .then((res) => {
+    //     dispatch(setSignup(res));
+    //   });
+    if (input.repeat !== input.password) {
+      setStatus(true);
+    } else {
+      setStatus(false);
+    }
+  }, [input.password, input.repeat]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -118,6 +124,7 @@ export default function SignUpPage({ toggle }) {
           value={input.repeat}
           onChange={changeHandler}
         />
+        {status ? <div>Пароль не совпадает</div> : ''}
       </FormGroup>
       {' '}
       <Button type="submit" outline>
