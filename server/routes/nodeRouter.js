@@ -21,4 +21,22 @@ router.get('/byid/:id', async (req, res) => {
   res.json(node);
 });
 
+router.post('/new', async (req, res) => {
+  const { name, content } = req.body;
+  const newNode = await Node.create({ name, content });
+  res.json(newNode);
+});
+
+router.patch('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, content } = req.body;
+    const editedNode = await Node.findByPk(id);
+    await editedNode.update({ name, content });
+    res.json(editedNode);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 module.exports = router;
