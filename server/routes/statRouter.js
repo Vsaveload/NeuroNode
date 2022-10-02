@@ -1,3 +1,6 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable guard-for-in */
+/* eslint-disable no-restricted-syntax */
 const express = require('express');
 const {
   Statistic, Connection, Project, Node,
@@ -27,7 +30,32 @@ router.get('/byid/:id', async (req, res) => {
     include:
           [{ model: Statistic, include: [{ model: Connection, include: [{ model: Node }] }] }],
   });
-  res.json(projectStat);
+
+  const tempArr = [];
+  const countObj = {};
+  const namesArr = [];
+  if (projectStat.Statistics) {
+    projectStat.Statistics.forEach((el) => tempArr.push(`${el.Connection.from}-${el.Connection.to}`));
+    projectStat.Statistics.forEach((el) => namesArr.push({ [`${el.Connection.from}-${el.Connection.to}`]: `${el.Connection.Node.name}` }));
+  }
+
+  if (tempArr) {
+    for (let i = 0; i < tempArr.length; i++) {
+      if (!countObj[tempArr[i]])countObj[tempArr[i]] = 1;
+      else countObj[tempArr[i]] += 1;
+    }
+  }
+  const newData = [];
+
+  for (const key in countObj) {
+    newData.push({
+      name: key,
+      Nodes: countObj[key],
+      atm: countObj[key],
+    });
+  }
+  const result = { newData, namesArr };
+  res.json(result);
 });
 
 module.exports = router;

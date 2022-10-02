@@ -15,8 +15,6 @@ export default function NodeVeiwerPage() {
   }, []);
 
   const nextNode = async (nodeId, id) => {
-    console.log('nodeId', nodeId);
-    console.log('projectId', id);
     const data = { id, nodeId };
     await fetch('http://localhost:3001/stat/new', {
       method: 'POST',
@@ -33,19 +31,9 @@ export default function NodeVeiwerPage() {
   const navigate = useNavigate();
 
   const toProject = (nodeProjectId) => {
-    const path = `/projectviewer/${nodeProjectId}`;
+    const path = `/projectselect/${nodeProjectId}`;
     navigate(path);
   };
-
-  // const statHandler = async (to) => {
-  //   await fetch('http://localhost:3001/addstat', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-type': 'application/json',
-  //     },
-  //     body: JSON.stringify({ projectId, to }),
-  //   });
-  // };
 
   return (
     <>

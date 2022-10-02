@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProjectViewerPage from './components/ProjectViewerPage';
 import ProjectSelectPage from './components/ProjectSelectPage';
 import NavBar from './components/Navbar/NavBar';
-import SignUp from './components/Signup/SignUp';
 import Login from './components/Login/Login';
 import MainPage from './components/MainPage';
 import { CHECK_AUTH_THUNK } from './redux/action/signupActions';
@@ -13,7 +12,6 @@ import LibraryPage from './components/LibraryPage';
 import NodeVeiwerPage from './components/NodeVeiwerPage';
 import HomePage from './components/Home/HomePage';
 import NoPage from './components/NoPage/NoPage';
-import NewProjectPage from './components/NewProject/NewProjectPage';
 import MyProjectPage from './components/MyProject/MyProjectPage';
 import StatisticsPage from './components/Statistics/StatisticsPage';
 import FavoritesPage from './components/Favorites/FavoritesPage';
@@ -35,26 +33,22 @@ export default function App({ userSession, notes }) {
   //     ));
   // }, []);
   return (
-
-    <Routes>
-      <Route path="/" element={<FirstPage />} />
-      <Route path="/main" element={<MainPage />} />
-      <Route path="/library" element={<LibraryPage />} />
-      <Route path="/projectselect/:categoryId" element={<ProjectSelectPage />} />
-      <Route path="/projectviewer/:projectId" element={<ProjectViewerPage />} />
-      <Route path="/statistics/:staticId" element={<StatisticsPage />} />
-      <Route path="/nodeviewer/:projectId" element={<NodeVeiwerPage />} />
-      {/* <Route path="/signup" element={<SignUp />} /> */}
-      {/* <Route path="/login" element={<Login />} /> */}
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/projects" element={<MyProjectPage />} />
-      <Route path="*" element={<NoPage />} />
-      <Route path="/project/new" element={<AddProject />} />
-      <Route path="/myproject" element={<MyProjectPage />} />
-      <Route path="/statistics" element={<StatisticsPage />} />
-      <Route path="/favorites" element={<FavoritesPage />} />
-      <Route path="/cards/:id" element={<CardProjectPage />} />
-    </Routes>
-
+        <Routes>
+          <Route path="/" element={<FirstPage />} />
+          <Route path="/main" element={<MainPage />} />
+          <Route path="/library" element={<LibraryPage />} />
+          <Route path="/projectselect/:categoryId" element={<ProjectSelectPage />} />
+          <Route path="/projectviewer/:projectId" element={<ProjectViewerPage />} />
+          <Route path="/statistics/:staticId" element={<StatisticsPage />} />
+          <Route path="/nodeviewer/:projectId" element={<NodeVeiwerPage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/projects" element={<MyProjectPage />} />
+          <Route path="*" element={<NoPage />} />
+          <Route path="/addproject" element={<AddProject />} />
+          <Route path="/myproject" element={<MyProjectPage />} />
+          <Route path="/statistics" element={<StatisticsPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/card" element={<CardProjectPage />} />
+        </Routes>
   );
 }
