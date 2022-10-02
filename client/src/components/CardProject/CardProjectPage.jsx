@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   Card, CardBody, CardTitle, CardText, ListGroup, ListGroupItem, CardLink,
 } from 'reactstrap';
 
 export default function CardProjectPage() {
+  const user = useSelector((state) => state.user);
   const [cd, setCd] = useState([]);
-  const { project } = useParams();
+  // const { project } = useParams();
   useEffect(() => {
-    fetch('http://localhost:3001/cards')
+    fetch(`http://localhost:3001/project/cards/:${user.id}`)
       .then((res) => res.json)
       .then((data) => setCd(data));
   }, []);
@@ -26,34 +28,20 @@ export default function CardProjectPage() {
           src="https://picsum.photos/300/200"
         />
         <CardBody>
-          <CardTitle tag="h5">
-            Card Title
-          </CardTitle>
-          <CardText />
-        </CardBody>
-        <ListGroup flush>
-          <ListGroupItem>
-            {project.name}
-          </ListGroupItem>
-          <ListGroupItem>
-            {project.desc}
-          </ListGroupItem>
-          <ListGroupItem>
-            {project.img}
-          </ListGroupItem>
-          <ListGroupItem>
-            {project.Categories.name}
-          </ListGroupItem>
-        </ListGroup>
-        {/* <CardBody>
-          <CardLink href="#"
-           onClick={() => (id === 0 ? navigate(`card/${id}`) : navigate(`card/${id - 1}`))}>
-            back
-          </CardLink>
-          <CardLink href="#" onClick={() => navigate(`card/${id + 1}`)}>
-            forward
-          </CardLink>
-        </CardBody> */}
+            <CardTitle tag="h5">
+            {category.name}
+            </CardTitle>
+            <CardSubtitle
+              className="mb-2 text-muted"
+              tag="h6"
+            >
+              Card subtitle
+            </CardSubtitle>
+            <CardText>
+            {category.desc}
+            </CardText>
+            <Button onClick={() => toProjects(category.id)}>See projects</Button>
+          </CardBody>
       </Card>
     </div>
   );
