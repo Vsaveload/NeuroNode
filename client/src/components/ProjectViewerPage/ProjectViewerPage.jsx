@@ -6,7 +6,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 export default function ProjectViewerPage() {
   const [project, setProject] = useState({});
   const { projectId } = useParams();
-  console.log(projectId);
   useEffect(() => {
     axios(`http://localhost:3001/project/${projectId}`)
       .then((res) => setProject(res.data))

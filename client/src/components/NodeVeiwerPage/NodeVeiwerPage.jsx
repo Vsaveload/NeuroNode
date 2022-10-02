@@ -37,16 +37,6 @@ export default function NodeVeiwerPage() {
     navigate(path);
   };
 
-  // const statHandler = async (to) => {
-  //   await fetch('http://localhost:3001/addstat', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-type': 'application/json',
-  //     },
-  //     body: JSON.stringify({ projectId, to }),
-  //   });
-  // };
-
   return (
     <>
       <div>{node?.content}</div>
