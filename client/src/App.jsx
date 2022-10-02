@@ -17,38 +17,29 @@ import StatisticsPage from './components/Statistics/StatisticsPage';
 import FavoritesPage from './components/Favorites/FavoritesPage';
 import AddProject from './components/AddProject/AddProject';
 import CardProjectPage from './components/Cards/CardProjectPage';
+import EditProjectPage from './components/EditProjectPage/EditProjectPage';
 
 export default function App({ userSession, notes }) {
   const { signup } = useSelector((state) => state);
   const State = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   fetch('http://localhost:3001/auth', {
-  //     credentials: 'include',
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => (
-  //       dispatch(CHECK_AUTH_THUNK(data))
-  //     ));
-  // }, []);
   return (
         <Routes>
           <Route path="/" element={<FirstPage />} />
-          <Route path="/main" element={<MainPage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/library" element={<LibraryPage />} />
-          <Route path="/projectselect/:categoryId" element={<ProjectSelectPage />} />
+
+          <Route path="/category/:categoryId" element={<ProjectSelectPage />} />
           <Route path="/projectviewer/:projectId" element={<ProjectViewerPage />} />
           <Route path="/statistics/:staticId" element={<StatisticsPage />} />
           <Route path="/nodeviewer/:projectId" element={<NodeVeiwerPage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/projects" element={<MyProjectPage />} />
+
+          <Route path="/myprojects/edit/:projectID" element={<EditProjectPage />} />
           <Route path="*" element={<NoPage />} />
           <Route path="/addproject" element={<AddProject />} />
           <Route path="/myproject" element={<MyProjectPage />} />
-          <Route path="/statistics" element={<StatisticsPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
-          <Route path="/card" element={<CardProjectPage />} />
         </Routes>
   );
 }

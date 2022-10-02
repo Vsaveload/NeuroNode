@@ -47,7 +47,7 @@ export default function StatisticsPage() {
       });
   }, []);
   const toProject = (projectId) => {
-    const path = `/projectselect/${projectId}`;
+    const path = `/category/${projectId}`;
     navigate(path);
   };
   return (
