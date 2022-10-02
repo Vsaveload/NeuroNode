@@ -29,6 +29,10 @@ export default function projectSelectPage() {
     const path = `/nodeviewer/${ProjectId}`;
     navigate(path);
   };
+  const toStatistic = (id) => {
+    const path = `/statistics/${id}`;
+    navigate(path);
+  };
 
   return (
     <div className="d-flex" style={{ flexDirection: 'column' }}>
@@ -58,6 +62,7 @@ export default function projectSelectPage() {
             {project?.desc}
           </CardText>
         <Button onClick={() => toFirstNode(project?.id)}>Explore project</Button>
+        <Button onClick={() => toStatistic(project?.id)}>Statistics</Button>
       </CardBody>
     </Card>
       ))}
