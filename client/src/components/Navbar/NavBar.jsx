@@ -27,15 +27,11 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 d-md-flex justify-content-end">
             <li className="nav">
-              <NavLink className="btn btn-dark m-2" to="/"><strong>Домой</strong></NavLink>
+              <NavLink className="btn btn-dark m-2" to="/"><strong>На главную</strong></NavLink>
             </li>
             {!signup
               ? (
-                <>
-                  <NavLink to="/signup" className="btn btn-outline-dark m-2"><strong>Регистрация</strong></NavLink>
-                  <NavLink to="/login" className="btn btn-outline-dark m-2"><strong>Авторизация</strong></NavLink>
-                  <NavLink to="/library" className="btn btn-outline-dark m-2"><strong>Library</strong></NavLink>
-                </>
+                ''
               ) : (
                 <>
                   <NavLink to="/game" className="btn btn-outline-dark m-2"><strong>Node</strong></NavLink>
