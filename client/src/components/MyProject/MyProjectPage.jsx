@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   Form, FormGroup, Label, Input, Button,
 } from 'reactstrap';
-import CardProjectPage from '../CardProject/CardProjectPage';
+import CardProjectPage from '../Cards/CardProjectPage';
 import './MyProjectPage.css';
 
 export default function MyProjectPage() {
