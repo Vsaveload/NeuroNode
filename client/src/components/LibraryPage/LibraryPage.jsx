@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Container } from 'reactstrap';
+import {
+  Button, Card, CardBody, CardSubtitle, CardText, CardTitle, Container,
+} from 'reactstrap';
 
 export default function LibraryPage() {
   const [categories, setCategories] = useState([]);
@@ -22,20 +24,35 @@ export default function LibraryPage() {
   };
 
   return (
-    <div>
+    <div className="d-flex" style={{ flexDirection: 'column' }}>
       {categories?.map((category) => (
-        <Container key={category.id}>
-          <h2>{category.name}</h2>
-          <div>{category.desc}</div>
-          <div>
-            There are
-            {' '}
-            {category?.Projects?.length}
-            {' '}
-            projects in this category
-          </div>
-          <Button onClick={() => toProjects(category.id)}>See projects</Button>
-        </Container>
+        <Card
+          style={{
+            width: '18rem',
+          }}
+          key={category.id}
+        >
+          <img
+            style={{ width: '18rem', height: '16rem' }}
+            src={category?.img}
+            alt="Not provided"
+          />
+          <CardBody>
+            <CardTitle tag="h5">
+            {category.name}
+            </CardTitle>
+            <CardSubtitle
+              className="mb-2 text-muted"
+              tag="h6"
+            >
+              Card subtitle
+            </CardSubtitle>
+            <CardText>
+            {category.desc}
+            </CardText>
+            <Button onClick={() => toProjects(category.id)}>See projects</Button>
+          </CardBody>
+        </Card>
       ))}
     </div>
   );
