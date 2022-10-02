@@ -17,6 +17,7 @@ import StatisticsPage from './components/Statistics/StatisticsPage';
 import FavoritesPage from './components/Favorites/FavoritesPage';
 import AddProject from './components/AddProject/AddProject';
 import CardProjectPage from './components/Cards/CardProjectPage';
+import NodeEdit from './components/modalPage/NodeEdit';
 
 export default function App({ userSession, notes }) {
   const { signup } = useSelector((state) => state);
