@@ -41,6 +41,9 @@ export default function CardProjectPage() {
           <ListGroupItem>
             {project.img}
           </ListGroupItem>
+          <ListGroupItem>
+            {project.Categories.name}
+          </ListGroupItem>
         </ListGroup>
         {/* <CardBody>
           <CardLink href="#"
