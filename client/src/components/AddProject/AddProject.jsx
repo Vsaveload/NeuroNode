@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
-  Form, FormGroup, Label, Input, Button, DropdownItem, DropdownMenu, Dropdown, DropdownToggle,
+  Form, FormGroup, Label, Input, Button,
 } from 'reactstrap';
 
 export default function AddProject() {
