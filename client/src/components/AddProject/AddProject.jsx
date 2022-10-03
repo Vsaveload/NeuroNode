@@ -1,12 +1,10 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import {
-  Form, FormGroup, Label, Input, Button, DropdownItem, DropdownMenu, Dropdown, DropdownToggle,
+  Form, FormGroup, Label, Input, Button,
 } from 'reactstrap';
 
 export default function AddProject() {
-  // const [dropdownOpen, setDropdownOpen] = useState(false);
-  // const toggle = () => setDropdownOpen((prevState) => !prevState);
   const [allCategories, setAllCategories] = useState([]);
   const [input, setInput] = useState({
     name: '',
@@ -86,26 +84,6 @@ export default function AddProject() {
         <Label for="exampleSelectMulti">
           Select category
         </Label>
-        {/* <Input
-          onChange={inputHandler}
-          value={input.category_id}
-          id="exampleSelectMulti"
-          multiple
-          name="selectMulti"
-          type="select"
-        >
-          {allCategories && allCategories?.map((category) => (
-            <option value={category.id}>{category.name}</option>
-          ))}
-        </Input> */}
-        {/* <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-          <DropdownToggle caret>Category</DropdownToggle>
-          <DropdownMenu value={input.category_id} name="category_id" onChange={inputHandler}>
-            {allCategories && allCategories?.map((category) => (
-              <DropdownItem value={category.id} key={category.id}>{category.name}</DropdownItem>
-            ))}
-          </DropdownMenu>
-        </Dropdown> */}
         <Input
           onChange={inputHandler}
           value={input.category_id}
