@@ -36,4 +36,15 @@ router.get('/:id', async (req, res) => {
   res.json(projects);
 });
 
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const www = await Project.destroy({ where: { id } });
+    console.log(www);
+    res.sendStatus(200);
+  } catch (e) {
+    console.log(e);
+  }
+});
+
 module.exports = router;

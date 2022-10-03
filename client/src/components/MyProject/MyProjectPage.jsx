@@ -13,7 +13,6 @@ export default function MyProjectPage() {
   const navigate = useNavigate();
   const { id } = useParams();
   const signup = useSelector((state) => state.signup);
-  console.log('signup:', signup);
 
   useEffect(() => {
     if (signup) {
@@ -25,8 +24,6 @@ export default function MyProjectPage() {
         .catch(console.log);
     }
   }, [signup]);
-
-  console.log('<===============================>', currentUserProjects);
 
   return (
     <>

@@ -48,8 +48,8 @@ router.post('/signup', async (req, res) => {
 });
 
 router.post('/check', (req, res) => {
-  if (req.session.user) {
-    return res.json(req.session.user);
+  if (req.session.userSession) {
+    return res.json(req.session.userSession);
   }
   return res.sendStatus(401);
 });
