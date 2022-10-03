@@ -14,8 +14,9 @@ export default function NodeVeiwerPage() {
       .catch(console.log);
   }, []);
 
-  const nextNode = async (nodeId, id) => {
-    const data = { id, nodeId };
+  const nextNode = async (to, from, id) => {
+    const data = { to, from, id };
+    console.log('ДОБАВИЛ-------------------->', data);
     await fetch('http://localhost:3001/stat/new', {
       method: 'POST',
       headers: {
@@ -23,7 +24,7 @@ export default function NodeVeiwerPage() {
       },
       body: JSON.stringify(data),
     });
-    axios(`http://localhost:3001/node/byid/${nodeId}`)
+    axios(`http://localhost:3001/node/byid/${to}`)
       .then((res) => setNode(res.data))
       .catch(console.log);
   };
@@ -41,7 +42,7 @@ export default function NodeVeiwerPage() {
       <div>
         {node?.isFirst === false
           ? <Button onClick={() => toProject(node.project_id)}>Finish project</Button>
-          : node?.Connections?.map((el) => <Button onClick={() => { console.log('el', el); nextNode(el.to, projectId); }} key={el.id}>{`${el.from}-${el.to}`}</Button>)}
+          : node?.Connections?.map((el) => <Button onClick={() => { console.log('el', el); nextNode(el.to, el.from, projectId); }} key={el.id}>{`${el.from}-${el.to}`}</Button>)}
       </div>
     </>
   );
