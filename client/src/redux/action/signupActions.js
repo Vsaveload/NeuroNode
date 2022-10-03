@@ -6,7 +6,7 @@ import {
 export const setSignup = (data) => ({ type: SET_SIGNUP, payload: data });
 export const setLogin = (data) => ({ type: SET_LOGIN, payload: data });
 export const logout = () => ({ type: LOGOUT });
-export const CHECK_AUTH_THUNK = (data) => ({ type: SET_AUTH, payload: data });
+export const check = (data) => ({ type: SET_AUTH, payload: data });
 
 export const signupUser = (e, inputs) => (dispatch) => {
   e.preventDefault();
@@ -30,6 +30,6 @@ export const logoutUser = () => (dispatch) => {
 
 export const checkAuth = () => (dispatch) => {
   axios.post('http://localhost:3001/auth/check')
-    .then((res) => dispatch(CHECK_AUTH_THUNK(res.data)))
+    .then((res) => dispatch(check(res.data)))
     .catch(console.log);
 };
