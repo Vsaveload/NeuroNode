@@ -9,9 +9,10 @@ const {
 const router = express.Router();
 
 router.post('/new', async (req, res) => {
-  const { id, nodeId } = req.body;
+  const { to, from, id } = req.body; // Нужно: передать сюда Nodes: откуда и куда переход
+  const connection = await Connection.findOne({ where: { to, from } });
   const newStat = await Statistic.create({
-    project_id: id, connection_id: nodeId,
+    project_id: id, connection_id: connection.id, // Сюда будет занесён именно Connection.id
   });
   res.json(newStat);
 });
@@ -30,7 +31,7 @@ router.get('/byid/:id', async (req, res) => {
     include:
           [{ model: Statistic, include: [{ model: Connection, include: [{ model: Node }] }] }],
   });
-
+  // console.log(JSON.parse(JSON.stringify(projectStat)));
   const tempArr = [];
   const countObj = {};
   const namesArr = [];
@@ -54,7 +55,7 @@ router.get('/byid/:id', async (req, res) => {
       atm: countObj[key],
     });
   }
-  const result = { newData, namesArr };
+  const result = { newData, namesArr, projectStat };
   res.json(result);
 });
 
