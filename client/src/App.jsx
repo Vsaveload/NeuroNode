@@ -35,7 +35,7 @@ export default function App({ userSession, notes }) {
           <Route path="/statistics/:staticId" element={<StatisticsPage />} />
           <Route path="/nodeviewer/:projectId" element={<NodeVeiwerPage />} />
 
-          <Route path="/myprojects/edit/:projectID" element={<EditProjectPage />} />
+          <Route path="/myprojects/:id" element={<EditProjectPage />} />
           <Route path="*" element={<NoPage />} />
           <Route path="/addproject" element={<AddProject />} />
           <Route path="/myprojects" element={<MyProjectPage />} />
