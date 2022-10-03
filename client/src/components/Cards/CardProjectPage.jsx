@@ -42,6 +42,7 @@ export default function CardProjectPage({ project }) {
           </CardText>
         <Button onClick={() => toFirstNode(project.id)}>Explore project</Button>
         <Button onClick={() => toStatistic(project.id)}>Statistics</Button>
+        <Button color="secondary" size="lg" block className="btn">Edit</Button>
       </CardBody>
     </Card>
 

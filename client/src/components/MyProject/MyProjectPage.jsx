@@ -42,8 +42,7 @@ export default function MyProjectPage() {
       </div>
       <div>
         <div>
-          <Button color="secondary" size="lg" block className="btn">Go Project</Button>
-          <Button color="secondary" size="lg" block className="btn">Edit</Button>
+          <Button color="secondary" onClick={() => navigate('/home')} className="btn">Back to home</Button>
         </div>
       </div>
     </>

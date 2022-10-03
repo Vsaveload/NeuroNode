@@ -49,8 +49,8 @@ export default function StatisticsPage() {
         console.log('NAMES ARR', res.data.namesArr);
       });
   }, []);
-  const toProject = (projectId) => {
-    const path = `/category/${projectId}`;
+  const toProject = () => {
+    const path = '/myprojects/';
     navigate(path);
   };
   return (
