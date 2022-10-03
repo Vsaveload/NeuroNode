@@ -47,4 +47,11 @@ router.post('/signup', async (req, res) => {
   else res.json({ name: currentUser.name, email: currentUser.email, id: currentUser.id });
 });
 
+router.post('/check', (req, res) => {
+  if (req.session.user) {
+    return res.json(req.session.user);
+  }
+  return res.sendStatus(401);
+});
+
 module.exports = router;
