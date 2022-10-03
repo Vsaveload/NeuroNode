@@ -15,6 +15,10 @@ export default function CardProjectPage({ project }) {
     const path = `/statistics/${id}`;
     navigate(path);
   };
+  const toEdit = (id) => {
+    const path = `/myprojects/${id}`;
+    navigate(path);
+  };
   return (
 
     <Card
@@ -40,9 +44,9 @@ export default function CardProjectPage({ project }) {
           <CardText>
             {project.desc}
           </CardText>
-        <Button onClick={() => toFirstNode(project.id)}>Explore project</Button>
-        <Button onClick={() => toStatistic(project.id)}>Statistics</Button>
-        <Button color="secondary" size="lg" block className="btn">Edit</Button>
+        <Button onClick={() => toFirstNode(project.id)} type="submit">Explore project</Button>
+        <Button onClick={() => toStatistic(project.id)} type="submit">Statistics</Button>
+        <Button onClick={() => toEdit(project.id)} type="submit">Edit</Button>
       </CardBody>
     </Card>
 

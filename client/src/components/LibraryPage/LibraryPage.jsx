@@ -17,7 +17,7 @@ export default function LibraryPage() {
   return (
     <>
     <Navbar />
-    <div className="d-flex" style={{ flexDirection: 'column' }}>
+    <div className="d-flex" style={{ justifyContent: 'space-around' }}>
       {categories?.map((category) => (
         <CardCategoriesPage key={category.id} category={category} />))}
     </div>
