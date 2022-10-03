@@ -8,7 +8,7 @@ export default function CardProjectPage({ category }) {
   const navigate = useNavigate();
 
   const toProjects = (categoryID) => {
-    const path = `/projectselect/${categoryID}`;
+    const path = `/category/${categoryID}`;
     navigate(path);
   };
 

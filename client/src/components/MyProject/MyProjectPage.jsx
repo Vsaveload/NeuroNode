@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   Form, FormGroup, Label, Input, Button,
 } from 'reactstrap';
@@ -8,80 +9,40 @@ import CardProjectPage from '../Cards/CardProjectPage';
 import './MyProjectPage.css';
 
 export default function MyProjectPage() {
-  const [card, setCard] = useState([]);
+  const [currentUserProjects, setCurrentUserProjects] = useState([]);
+  const navigate = useNavigate();
+  // const { id } = req.session.userSession.id;
+  const { signup } = useSelector((state) => state.signup);
+  console.log(signup);
 
   useEffect(() => {
-    axios('http://localhost:3001/project/all')
+    axios(`http://localhost:3001/myprojects/${signup.id}`)
       .then((res) => {
-        setCard(res.data);
+        setCurrentUserProjects(res.data);
       })
       .catch(console.log);
   }, []);
 
-  const navigate = useNavigate();
-
-  const toProjects = (id) => {
-    const path = `/project/byid/${id}`;
-    navigate(path);
-  };
+  // const toProjects = (id) => {
+  //   const path = `/project/byid/${id}`;
+  //   navigate(path);
+  // };
+  // };
 
   return (
-    <div>
+    <>
       <h1>My Project</h1>
-      <CardProjectPage />
-      {/* {card?.map((category) => (
-        <Container key={category.id}>
-          <h2>{category.name}</h2>
-          <div>{category.desc}</div>
-          <div>
-            There are
-            {' '}
-            {category?.Projects?.length}
-            {' '}
-            projects in this category
-          </div>
-          <Button onClick={() => toProjects(category.id)}>See projects</Button>
-        </Container>
-      ))} */}
-      <div>
-        {/* <Form>
-          <FormGroup>
-            <Label for="exampleEmail">
-              Name
-            </Label>
-            <Input
-              id="exampleEmail"
-              name="name"
-              placeholder="name"
-              type="name"
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="examplePassword">
-              Description
-            </Label>
-            <Input
-              id="examplePassword"
-              name="desc"
-              placeholder="description"
-              type="text"
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleSelect">
-              Image
-            </Label>
-            <Input
-              id="examplePassword"
-              name="img"
-              placeholder="url"
-              type="url"
-            />
-          </FormGroup>
-        </Form> */}
-        <Button color="secondary" size="lg" block className="btn">Go Project</Button>
-        <Button color="secondary" size="lg" block className="btn">Edit</Button>
+      <div className="d-flex" style={{ flexDirection: 'column' }}>
+        {currentUserProjects?.map((project) => (
+          <CardProjectPage key={project.id} project={project} />))}
+        {/* <Button onClick={toCategories}>Back to library</Button> */}
       </div>
-    </div>
+      <div>
+        <div>
+          <Button color="secondary" size="lg" block className="btn">Go Project</Button>
+          <Button color="secondary" size="lg" block className="btn">Edit</Button>
+        </div>
+      </div>
+    </>
   );
 }
