@@ -15,8 +15,10 @@ export default function MyProjectPage() {
   const signup = useSelector((state) => state.signup);
 
   useEffect(() => {
+    console.log(signup);
     if (signup) {
-      axios(`http://localhost:3001/myprojects/${signup?.id}`)
+      console.log('axios sent');
+      axios.post('http://localhost:3001/myprojects/', { id: signup.id })
         .then((res) => {
           console.log('Res.Data:', res.data);
           setCurrentUserProjects(res.data);

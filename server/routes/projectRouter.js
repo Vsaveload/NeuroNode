@@ -10,10 +10,10 @@ router.get('/all', async (req, res) => {
 
 router.post('/new', async (req, res) => {
   const {
-    name, desc, img, category_id,
+    name, desc, img, categoryID, userId,
   } = req.body;
   const newProject = await Project.create({
-    name, desc, img, category_id,
+    name, desc, img, category_id: categoryID, user_id: userId,
   });
   res.json(newProject);
 });

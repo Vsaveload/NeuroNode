@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CardProjectPage from '../Cards/CardProjectPage';
+import Graph from '../Graph';
+
 
 export default function FavoritesPage() {
   const { project } = useParams();
@@ -17,6 +19,6 @@ export default function FavoritesPage() {
         key={project.id}
         project={project}
       />
-    </div>
+      <Graph />
   );
 }
