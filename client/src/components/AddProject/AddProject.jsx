@@ -1,36 +1,36 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   Form, FormGroup, Label, Input, Button,
 } from 'reactstrap';
 
 export default function AddProject() {
+  const userId = useSelector((state) => state.signup.id);
+  const navigate = useNavigate();
   const [allCategories, setAllCategories] = useState([]);
   const [input, setInput] = useState({
     name: '',
     desc: '',
     img: '',
-    category_id: '',
+    categoryID: '',
   });
   const inputHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   const submitHandler = async (e) => {
+    const data = { ...input, userId };
     e.preventDefault();
-    const response = await fetch('http://localhost:3001/project/new', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(input),
-    });
-    if (response.ok) {
+    const newProject = await axios.post('http://localhost:3001/project/new', data);
+    if (newProject) {
       setInput({
         name: '',
         desc: '',
         img: '',
-        category_id: '',
+        categoryID: '',
       });
+      navigate(`/myprojects/${newProject.data.id}`);
     }
   };
 
@@ -84,19 +84,19 @@ export default function AddProject() {
         <Label for="exampleSelectMulti">
           Select category
         </Label>
-        <Input
-          onChange={inputHandler}
-          value={input.category_id}
-          id="exampleSelect"
-          name="category_id"
-          type="select"
-        >
+               <Input
+                 onChange={inputHandler}
+                 value={input.categoryID}
+                 id="exampleSelect"
+                 name="categoryID"
+                 type="select"
+               >
       {allCategories && allCategories?.map((category) => (
-            <option value={category.id}>{category.name}</option>
+            <option key={category.id} value={category.id}>{category.name}</option>
       ))}
-        </Input>
+               </Input>
       </FormGroup>
-      <Button type="submit">
+      <Button type="submit" onClick={submitHandler}>
         Create
       </Button>
     </Form>
