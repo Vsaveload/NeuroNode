@@ -11,30 +11,33 @@ import './MyProjectPage.css';
 export default function MyProjectPage() {
   const [currentUserProjects, setCurrentUserProjects] = useState([]);
   const navigate = useNavigate();
-  // const { id } = req.session.userSession.id;
-  const { signup } = useSelector((state) => state);
-  console.log(signup);
+  const { id } = useParams();
+  const signup = useSelector((state) => state.signup);
+  console.log('signup:', signup);
 
   useEffect(() => {
-    axios(`http://localhost:3001/myprojects/${signup.id}`)
-      .then((res) => {
-        setCurrentUserProjects(res.data);
-      })
-      .catch(console.log);
-  }, []);
+    if (signup) {
+      axios(`http://localhost:3001/myprojects/${signup?.id}`)
+        .then((res) => {
+          console.log('Res.Data:', res.data);
+          setCurrentUserProjects(res.data);
+        })
+        .catch(console.log);
+    }
+  }, [signup]);
 
-  // const toProjects = (id) => {
-  //   const path = `/project/byid/${id}`;
-  //   navigate(path);
-  // };
-  // };
+  console.log('<===============================>', currentUserProjects);
 
   return (
     <>
       <h1>My Project</h1>
       <div className="d-flex" style={{ flexDirection: 'column' }}>
         {currentUserProjects?.map((project) => (
-          <CardProjectPage key={project.id} project={project} />))}
+          <CardProjectPage
+            key={project.id}
+            project={project}
+          />
+        ))}
         {/* <Button onClick={toCategories}>Back to library</Button> */}
       </div>
       <div>
