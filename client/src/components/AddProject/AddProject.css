@@ -1,0 +1,39 @@
+.main {
+  height: 100vh;
+  width: auto;
+  background-color: black;
+}
+
+.form {
+  padding-top: 30px;
+  /* display: flex; */
+  /* justify-content: center; */
+  margin-left: 300px;
+  margin-right: 300px;
+  padding-bottom: 30px;
+}
+
+.inpColor {
+  color: white;
+}
+
+.cardMain {
+  height: unset !important;
+  background-color: black;
+  outline: solid white;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  height: auto;
+  justify-content: center;
+
+}
+
+.cardBut {
+  position: absolute;
+  left: 50%;
+  justify-content: center;
+  outline: 2px outset white;
+  background-color: black;
+}

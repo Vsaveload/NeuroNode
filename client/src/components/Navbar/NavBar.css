@@ -2,10 +2,15 @@
   outline: 2px outset white;
   color: white;
   border-radius: 5px;
-}
+ }
 .navbar{
-  direction: block;
-  border-bottom: white;
-  /* border-bottom: beige; */
+/* outline: 3px outset white; */
+}
+.container-fluid {
+  outline: unset !important;
+  /* border-bottom: white; */
+
+}
+.border {
   outline: 3px outset white;
 }
