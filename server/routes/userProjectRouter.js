@@ -51,8 +51,7 @@ router.post('/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const www = await Project.destroy({ where: { id } });
-    console.log(www);
+    await Project.destroy({ where: { id } });
     res.sendStatus(200);
   } catch (e) {
     console.log(e);

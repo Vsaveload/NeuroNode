@@ -51,8 +51,8 @@ export default function CardProjectPage({ project }) {
           </CardText>
           {user ? (
             <>
-              <Button onClick={() => toFirstNode(project.id)} style={{ display: 'flex', justifyContent: 'space-around' }}>Explore project</Button>
-              <Button onClick={() => toStatistic(project.id)} style={{ display: 'flex', justifyContent: 'space-around' }}>Statistics</Button>
+              <Button onClick={() => toFirstNode(project.id)} className="btn">Explore project</Button>
+              <Button onClick={() => toStatistic(project.id)} className="btn">Statistics</Button>
               <Button onClick={() => toEdit(project.id)} type="submit">Edit</Button>
               <Button
                 onClick={() => deleteProject(project.id, dispatch)}

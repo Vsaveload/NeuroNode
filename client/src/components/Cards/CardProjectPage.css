@@ -3,8 +3,16 @@
   display: flex;
   margin-left: auto;
   margin-right: auto;
+  background-color: dark;
 }
 
 .cardPage {
   background-color: black;
+  outline: 1px outset white;
+}
+.btn {
+  display: flex;
+  justify-content: space-around;
+  outline: 1px outset white;
+  background-color: dark;
 }
