@@ -4,6 +4,7 @@ import {
   Card, CardBody, CardTitle, CardText, Button, CardSubtitle, Input,
 } from 'reactstrap';
 import './CardEditorPage.css';
+import './EditorCard.css';
 
 export default function EditorCard({ project }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -36,9 +37,7 @@ export default function EditorCard({ project }) {
 <>
     {isEditing
       ? (
-<Card
-  className="card"
->
+<Card className="cardEditor">
 <CardBody className="card-body">
 <Input value={input.name} onChange={changeHandler} name="name" />
 <Input value={input.desc} onChange={changeHandler} name="desc" />
