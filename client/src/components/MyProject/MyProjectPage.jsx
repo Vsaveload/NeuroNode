@@ -10,9 +10,19 @@ import './MyProjectPage.css';
 
 export default function MyProjectPage() {
   const [currentUserProjects, setCurrentUserProjects] = useState([]);
+  const [projectStat, setProjectStat] = useState([]);
+  const [projectStatName, setProjectStatName] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
   const signup = useSelector((state) => state.signup);
+
+  // useEffect(() => {
+  //   axios(`http://localhost:3001/stat/byid/${currentUserProjects.id}`)
+  //     .then((res) => {
+  //       setProjectStat(res.data.newData);
+  //       setProjectStatName(res.data.namesArr);
+  //     });
+  // }, []);
 
   useEffect(() => {
     console.log(signup);
@@ -24,6 +34,11 @@ export default function MyProjectPage() {
           setCurrentUserProjects(res.data);
         })
         .catch(console.log);
+      axios(`http://localhost:3001/stat/byid/${currentUserProjects.id}`)
+        .then((res) => {
+          setProjectStat(res.data.newData);
+          setProjectStatName(res.data.namesArr);
+        });
     }
   }, [signup]);
   return (
@@ -33,6 +48,8 @@ export default function MyProjectPage() {
           <CardProjectPage
             key={project.id}
             project={project}
+            projectStat={projectStat}
+            namesArr={projectStatName}
           />
         ))}
       </div>

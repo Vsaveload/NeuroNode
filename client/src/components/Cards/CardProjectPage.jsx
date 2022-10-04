@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   Card, CardBody, CardTitle, CardText, Button, CardSubtitle,
 } from 'reactstrap';
 import { deleteProject, setDelete } from '../../redux/action/deleteAction';
+import StatisticsPage from '../Statistics/StatisticsPage';
 import './CardProjectPage.css';
 
-export default function CardProjectPage({ project }) {
+export default function CardProjectPage({ project, projectStat, namesArr }) {
   const navigate = useNavigate();
   const user = useSelector((state) => state.signup);
   const del = useSelector((state) => state.setDelete);
@@ -17,10 +18,10 @@ export default function CardProjectPage({ project }) {
     const path = `/nodeviewer/${ProjectId}`;
     navigate(path);
   };
-  const toStatistic = (id) => {
-    const path = `/statistics/${id}`;
-    navigate(path);
-  };
+  // const toStatistic = (id) => {
+  //   const path = `/statistics/${id}`;
+  //   navigate(path);
+  // };
   const toEdit = (id) => {
     const path = `/myprojects/${id}`;
     navigate(path);
@@ -55,12 +56,13 @@ export default function CardProjectPage({ project }) {
           {user ? (
             <>
               <Button onClick={() => toFirstNode(project.id)} className="btn">Explore project</Button>
-              <Button
+              {/* <Button
                 onClick={() => toStatistic(project.id)}
                 className="btn"
               >
                 Statistics
-              </Button>
+              </Button> */}
+              <StatisticsPage projectStat={projectStat} namesArr={namesArr} />
               <Button onClick={() => toEdit(project.id)} type="submit" className="btn">Edit</Button>
               <Button
                 onClick={() => deleteProject(project.id, dispatch)}
