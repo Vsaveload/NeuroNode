@@ -57,6 +57,7 @@ export default function MyProjectPage() {
       <div>
         <div className="projectDiv">
           <Button onClick={() => navigate('/home')} className="btn1">Back to home</Button>
+
         </div>
       </div>
 </div>
