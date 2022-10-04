@@ -36,7 +36,7 @@ export default function LoginPage({ toggle }) {
       dispatch(setLogin(data));
       navigate('/home');
     } else {
-      setError('Вы не зарегистрировались или ввели неправильные данные');
+      setError('Not registered or credentials are wrong');
     }
   };
   return (
@@ -64,22 +64,22 @@ export default function LoginPage({ toggle }) {
           for="examplePassword"
           hidden
         >
-          Пароль
+          Password
         </Label>
         <Input
           value={input.password}
           onChange={changeHandler}
           id="examplePassword"
           name="password"
-          placeholder="Пароль"
+          placeholder="Password"
           type="password"
         />
       </FormGroup>
       {' '}
       <Button type="submit" outline>
-        Войти
+        Enter
       </Button>
-      {error && <Button disabled color="danger" outline> Неверный логин или пароль!</Button>}
+      {error && <Button disabled color="danger" outline>Wrong login or password</Button>}
     </Form>
   );
 }

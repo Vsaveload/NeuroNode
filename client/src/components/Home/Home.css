@@ -1,46 +1,51 @@
 .button{
   margin-top: 50px;
-  width: 200px;
-  background-color: #ffffff;
-  color: #080710;
-  padding: 15px 0;
-  font-size: 18px;
+  margin-bottom: 60px;
+  padding: 15px;
   font-weight: 600;
   border-radius: 5px;
-  cursor: pointer;
-  display: block;
+  display: flex;
   justify-content: center;
+  outline: 2px outset white;
 }
 .button1{
-  margin-top: 50px;
-  width: 200px;
-  background-color: #ffffff;
-  color: #080710;
-  padding: 15px 0;
-  font-size: 18px;
-  font-weight: 600;
   border-radius: 5px;
-  cursor: pointer;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  padding: 15px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  outline: 2px outset white;
 }
 .button2{
   margin-top: 50px;
-  width: 200px;
-  background-color: #ffffff;
-  color: #080710;
-  padding: 15px 0;
-  font-size: 18px;
+  margin-bottom: 60px;
+  padding: 15px;
   font-weight: 600;
   border-radius: 5px;
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  outline: 2px outset white;
 }
 .button3{
   margin-top: 50px;
-  width: 200px;
-  background-color: #ffffff;
-  color: #080710;
-  padding: 15px 0;
-  font-size: 18px;
+  padding: 15px;
   font-weight: 600;
   border-radius: 5px;
-  cursor: pointer;
+  /* display: flex; */
+  /* justify-content: center; */
+  outline: 2px outset white;
+}
+.homeDiv {
+  background-color: black;
+  height: 100vh;
+  width: auto;
+}
+.bg {
+  display: flex;
+  justify-content: center;
+  margin-left: 300px;
+  margin-right: 300px;
+  margin-top: 200px;
 }
