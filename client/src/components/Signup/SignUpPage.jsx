@@ -50,7 +50,7 @@ export default function SignUpPage({ toggle }) {
         dispatch(setSignup(data));
         navigate('/home');
       } else {
-        setError('Вы уже зарегистрированы');
+        setError('Already registered');
       }
     }
   };
@@ -65,14 +65,14 @@ export default function SignUpPage({ toggle }) {
           for="exampleLogin"
           hidden
         >
-          Логин
+          Login
         </Label>
         <Input
           value={input.name}
           onChange={changeHandler}
           id="exampleEmail"
           name="name"
-          placeholder="Логин"
+          placeholder="Login"
           type="text"
         />
       </FormGroup>
@@ -98,12 +98,12 @@ export default function SignUpPage({ toggle }) {
           for="examplePassword"
           hidden
         >
-          Пароль
+          Password
         </Label>
         <Input
           id="examplePassword"
           name="password"
-          placeholder="Пароль"
+          placeholder="Password"
           type="password"
           value={input.password}
           onChange={changeHandler}
@@ -114,23 +114,23 @@ export default function SignUpPage({ toggle }) {
           for="examplePassword"
           hidden
         >
-          Повторите пароль
+          Repeat password
         </Label>
         <Input
           id="examplePassword"
           name="repeat"
-          placeholder="Повторите пароль"
+          placeholder="Repeat password"
           type="password"
           value={input.repeat}
           onChange={changeHandler}
         />
-        {status ? <div>Пароль не совпадает</div> : ''}
+        {status ? <div>Passwords do not match</div> : ''}
       </FormGroup>
       {' '}
       <Button type="submit" outline>
-        Войти
+        Enter
       </Button>
-      {error && <Button disabled color="danger" outline> Такой Email уже занят!</Button>}
+      {error && <Button disabled color="danger" outline>That email is taken</Button>}
     </Form>
   );
 }

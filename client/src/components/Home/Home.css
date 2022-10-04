@@ -33,8 +33,8 @@
   padding: 15px;
   font-weight: 600;
   border-radius: 5px;
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
   outline: 2px outset white;
 }
 .homeDiv {

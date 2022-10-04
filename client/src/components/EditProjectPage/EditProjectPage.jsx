@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Button, ListGroup } from 'reactstrap';
-import CardEditorPage from '../Cards/CardEditorPage';
+import CardProjectPage from '../Cards/CardProjectPage';
 import NodeListPage from '../NodeList/NodeListPage';
 import Graph from '../Graph';
 import '../Cards/CardEditorPage.css';
+import EditorCard from '../Cards/EditorCard';
 
 export default function EditProjectPage() {
   const { id } = useParams();
@@ -41,7 +42,7 @@ export default function EditProjectPage() {
   return (
     <>
     <div className="cardPage">
-      {project.id && <CardEditorPage project={project} />}
+      {project.id && <EditorCard project={project} />}
       {newData.nodes && <Graph data={newData} />}
     </div>
     <ListGroup
