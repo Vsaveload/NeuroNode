@@ -1,17 +1,7 @@
 import React from 'react';
 import { Graph } from 'react-d3-graph';
 
-export default function GraphVizual() {
-  // graph payload (with minimalist structure)
-  const data = {
-    nodes: [{ id: 'Harry' }, { id: 'Sally' }, { id: 'Alice' }],
-    links: [
-      { source: 'Harry', target: 'Sally' },
-      { source: 'Harry', target: 'Alice' },
-    ],
-  };
-
-  // the graph configuration, just override the ones you need
+export default function GraphVizual({ data }) {
   const myConfig = {
     nodeHighlightBehavior: true,
     node: {
@@ -33,7 +23,6 @@ export default function GraphVizual() {
   };
   return (
     <div>
-
     <Graph
       id="graph-id" // id is mandatory
       data={data}
@@ -41,8 +30,6 @@ export default function GraphVizual() {
       onClickNode={onClickNode}
       onClickLink={onClickLink}
     />
-;
-
     </div>
   );
 }
