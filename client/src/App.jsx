@@ -17,6 +17,7 @@ import StatisticsPage from './components/Statistics/StatisticsPage';
 import FavoritesPage from './components/Favorites/FavoritesPage';
 import AddProject from './components/AddProject/AddProject';
 import CardProjectPage from './components/Cards/CardProjectPage';
+import NodeEdit from './components/modalPage/NodeEdit';
 import EditProjectPage from './components/EditProjectPage/EditProjectPage';
 
 export default function App({ userSession, notes }) {
@@ -33,18 +34,15 @@ export default function App({ userSession, notes }) {
       <Route path="/" element={<FirstPage />} />
       <Route path="/home" element={<HomePage />} />
       <Route path="/library" element={<LibraryPage />} />
-
       <Route path="/category/:categoryId" element={<ProjectSelectPage />} />
       <Route path="/projectviewer/:projectId" element={<ProjectViewerPage />} />
       <Route path="/statistics/:staticId" element={<StatisticsPage />} />
       <Route path="/nodeviewer/:projectId" element={<NodeVeiwerPage />} />
-
       <Route path="/myprojects/:id" element={<EditProjectPage />} />
       <Route path="*" element={<NoPage />} />
       <Route path="/addproject" element={<AddProject />} />
       <Route path="/myprojects" element={<MyProjectPage />} />
       <Route path="/favorites" element={<FavoritesPage />} />
     </Routes>
-
   );
 }

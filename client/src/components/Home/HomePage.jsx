@@ -19,7 +19,7 @@ export default function HomePage() {
             New Project
          </Button>
             <Button color="dark" onClick={() => navigate('/myprojects')} className="button2">
-               My Project
+               My Projects
             </Button>
             <Button color="dark" onClick={() => navigate('/favorites')} className="button3">
                Favorites

@@ -5,6 +5,7 @@ import { Button, ListGroup } from 'reactstrap';
 import CardEditorPage from '../Cards/CardEditorPage';
 import NodeListPage from '../NodeList/NodeListPage';
 import Graph from '../Graph';
+import '../Cards/CardEditorPage.css';
 
 export default function EditProjectPage() {
   const { id } = useParams();
@@ -39,14 +40,17 @@ export default function EditProjectPage() {
 
   return (
     <>
+    <div className="cardPage">
       {project.id && <CardEditorPage project={project} />}
+      {newData.nodes && <Graph data={newData} />}
+    </div>
     <ListGroup
       flush
       horizontal
       numbered
     />
     <>
-    {newData.nodes && <Graph data={newData} />}
+
     </>
     <Button color="secondary" onClick={() => navigate('/myprojects')} className="btn">Back to projects</Button>
     </>
