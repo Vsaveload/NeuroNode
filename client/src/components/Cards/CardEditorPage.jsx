@@ -42,13 +42,13 @@ export default function CardEditorPage({ project, projectStat, projectStatName }
         />
         <CardBody className="card-body">
           <CardTitle tag="h5" className="name">
-            {project.name}
+            <h1>{project.name}</h1>
           </CardTitle>
           <CardSubtitle
             className="title"
             tag="h6"
           >
-            Card subtitle
+            <strong>Card description:</strong>
           </CardSubtitle>
           <CardText className="desc">
             {project.desc}

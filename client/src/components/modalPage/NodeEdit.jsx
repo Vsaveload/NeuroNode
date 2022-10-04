@@ -129,7 +129,7 @@ export default function NodeEdit() {
                     onChange={(e) => {
                       if (alreadyHasFirstChecker(node.id)) {
                         // eslint-disable-next-line no-alert
-                        alert(`${alreadyHasFirstChecker().name} is the first node in this project\nThere can be only one first node`);
+                        alert(`"${alreadyHasFirstChecker().name}" is the first node in this project\nThere can be only one first node`);
                       } else {
                         changeHandler(e);
                       }

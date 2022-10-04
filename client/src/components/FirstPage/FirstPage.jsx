@@ -41,10 +41,10 @@ function FirstPage() {
 
       <div onClick={inHandler} className="btns in from-right">Sign In</div>
       <div onClick={regHandler} className="btns reg from-left open-btn">Sign Up</div>
-      <div onClick={libHandler} className="btns lib from-center open-btn">library</div>
+      <div onClick={libHandler} className="btns lib from-center open-btn">Library</div>
       <div className="full-screen__body">
         <div className="full-screen__title">Neuro Node</div>
-        <div className="full-screen__text">THE APPLICATION FOR CREATING PROJECTS BASED-ON GRAPH`S</div>
+        <div className="full-screen__text">WEB APP FOR CREATING PROJECTS BASED ON GRAPH STRUCTURE</div>
       </div>
 
       <ModalPage modalType={modalType} modal={modal} toggle={toggle} />
