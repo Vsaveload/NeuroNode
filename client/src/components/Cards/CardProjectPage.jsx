@@ -32,42 +32,44 @@ export default function CardProjectPage({ project }) {
     <div className="cardPage">
       <Card className="card">
         <img
-          style={{ width: '25rem', height: '15rem' }}
+          className="img"
           src={project.img}
           alt="Not provided"
         />
-        <CardBody>
-          <CardTitle tag="h5">
+        <CardBody className="card-body">
+          <CardTitle tag="h5" className="name">
             {project.name}
           </CardTitle>
           <CardSubtitle
-            className="mb-2 text-muted"
+            className="title"
             tag="h6"
           >
             Card subtitle
           </CardSubtitle>
-          <CardText>
+          <CardText className="desc">
             {project.desc}
           </CardText>
           {user ? (
             <>
               <Button onClick={() => toFirstNode(project.id)} className="btn">Explore project</Button>
-              <Button onClick={() => toStatistic(project.id)} className="btn">Statistics</Button>
-              <Button onClick={() => toEdit(project.id)} type="submit">Edit</Button>
+              <Button
+                onClick={() => toStatistic(project.id)}
+                className="btn"
+              >
+                Statistics
+
+              </Button>
+              <Button onClick={() => toEdit(project.id)} type="submit" className="btn">Edit</Button>
               <Button
                 onClick={() => deleteProject(project.id, dispatch)}
-                style={{
-                  display: 'block',
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
-                }}
+                className="del"
               >
                 Delete
 
               </Button>
             </>
           ) : (
-            <Button onClick={() => toFirstNode(project.id)} style={{ display: 'flex', justifyContent: 'flex-start' }}>Explore project</Button>
+            <Button onClick={() => toFirstNode(project.id)}>Explore project</Button>
           )}
         </CardBody>
       </Card>
