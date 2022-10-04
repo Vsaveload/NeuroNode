@@ -8,7 +8,6 @@ import './Home.css';
 export default function HomePage() {
   const navigate = useNavigate();
   return (
-
       <div className="homeDiv">
          <NavBar />
          <ButtonGroup vertical size="lg" className="bg">

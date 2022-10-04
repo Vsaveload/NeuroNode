@@ -2,9 +2,10 @@
   background-color: black;
   height: 100vh;
   width: auto;
-
 }
-
-#navbar {
-  
+.navbar {
+background-color: black;
+}
+.border {
+  outline: 3px outset white;
 }
