@@ -41,6 +41,7 @@ export default function EditProjectPage() {
 
   return (
     <>
+
     <div className="cardPage">
       {project.id && <EditorCard project={project} />}
       {newData.nodes && <Graph data={newData} />}

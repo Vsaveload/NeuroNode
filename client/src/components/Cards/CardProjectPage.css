@@ -5,7 +5,7 @@
   display: flex;
   /* margin-left: auto;
   margin-right: auto; */
-  background-color: rgb(30, 29, 29);
+  background-color: black;
   outline: 2px outset white;
 
  }
@@ -13,9 +13,11 @@
 .cardPage {
   background-color: black;
   display: flex;
+  justify-content: space-around;
+  
   /* margin-left: auto;
   margin-right: auto; */
-  height: auto;
+  /* height: auto; */
   margin-top: 50px;
   /* border-width: '0.5'; */
   /* box-shadow: '11px 14px 9px 1px  silver' */
@@ -27,7 +29,7 @@
   outline: 2px outset white;
   background-color: black;
   margin-top: 5px;
-  margin-bottom: 5px;
+  
 }
 
 .del {
@@ -58,7 +60,7 @@
 
 .img {
   display: flex;
-  width: 450px;
+  width: auto;
   height: 300px;
   margin: 40px;
   border-radius: 1%;
