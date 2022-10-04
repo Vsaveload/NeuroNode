@@ -11,7 +11,7 @@ export const deleteNode = (payload) => ({ type: DELETE_NODE, payload });
 
 export const addNodeAsync = (e, input, setInput) => (dispatch) => {
   e.preventDefault();
-  axios.post('/node/new', input)
+  axios.post('http://localhost:3001/node/new', input)
     .then((res) => {
       dispatch(addNode(res.data));
       setInput('');
@@ -20,25 +20,25 @@ export const addNodeAsync = (e, input, setInput) => (dispatch) => {
 };
 
 export const updateNodeAsync = (node, input) => (dispatch) => {
-  axios.patch(`/node/${node.id}`, { input })
+  axios.patch(`http://localhost:3001/node/${node.id}`, { input })
     .then((res) => dispatch(updateNode(res.data)))
     .catch(console.log);
 };
 
 export const firstNodeAsync = (id) => (dispatch) => {
-  axios(`/node/first${id}`)
+  axios(`http://localhost:3001/node/first${id}`)
     .then((res) => dispatch(firstNode(res.data)))
     .catch(console.log);
 };
 
 export const getNodesAsync = (id) => (dispatch) => {
-  axios(`/node/allinproject${id}`)
+  axios(`http://localhost:3001/node/allinproject${id}`)
     .then((res) => dispatch(getNodes(res.data)))
     .catch(console.log);
 };
 
 export const deleteNodeAsync = (id) => (dispatch) => {
-  axios.delete(`/node/${id}`)
+  axios.delete(`http://localhost:3001/node/${id}`)
     .then(() => dispatch(deleteNode(id)))
     .catch(console.log);
 };

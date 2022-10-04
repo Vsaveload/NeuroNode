@@ -45,12 +45,12 @@ router.patch('/:id', async (req, res) => {
   }
 });
 
-router.get('/cards', async (req, res) => {
-  const firstCard = await Project.findAll({
-    include: [{ model: Category }],
-    where: { user_id: id },
-  });
+// router.get('/cards', async (req, res) => {
+//   const firstCard = await Project.findAll({
+//     include: [{ model: Category }],
+//     where: { user_id: id },
+//   });
 
-  res.json(firstCard);
-});
+//   res.json(firstCard);
+// });
 module.exports = router;

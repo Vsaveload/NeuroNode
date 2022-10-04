@@ -11,7 +11,6 @@ import './CardProjectPage.css';
 export default function CardEditorPage({ project, projectStat, projectStatName }) {
   const navigate = useNavigate();
   const user = useSelector((state) => state.signup);
-  const del = useSelector((state) => state.setDelete);
   const dispatch = useDispatch();
 
   const toFirstNode = (ProjectId) => {
@@ -29,7 +28,7 @@ export default function CardEditorPage({ project, projectStat, projectStatName }
 
   useEffect(() => {
     dispatch(deleteProjectAsync());
-  }, [project]);
+  }, []);
 
   return (
     <div className="cardPage">
@@ -41,12 +40,11 @@ export default function CardEditorPage({ project, projectStat, projectStatName }
           alt="Not provided"
         />
         <CardBody className="card-body">
-          <CardTitle tag="h5" className="name">
+          <CardTitle className="name">
             <h1>{project.name}</h1>
           </CardTitle>
           <CardSubtitle
             className="title"
-            tag="h6"
           >
             <strong>Card description:</strong>
           </CardSubtitle>
@@ -60,7 +58,7 @@ export default function CardEditorPage({ project, projectStat, projectStatName }
 
               <Button onClick={() => toEdit(project.id)} type="submit" className="btn">Edit</Button>
               <Button
-                onClick={() => deleteProject(project.id, dispatch)}
+                onClick={() => dispatch(deleteProjectAsync(project.id))}
                 className="del"
               >
                 Delete
