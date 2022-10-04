@@ -1,43 +1,40 @@
 .card {
-  width: 33rem;
+  width: 70rem;
   height: 40rem;
   display: flex;
-  
   /* margin-left: auto;
   margin-right: auto; */
   background-color: rgb(30, 29, 29);
   outline: 2px outset white;
 }
-
 .cardPage {
   background-color: black;
   outline: 2px outset white;
-  justify-content: space-around;
-  justify-items: center;
-  align-self: center;
-  align-content: center;
   display: flex;
-  /* margin-left: auto;
-  margin-right: auto; */
+  margin-left: auto;
+  margin-right: auto;
   height: auto;
-  margin-top: 50px;
+  padding-top: 20px;
+  margin-top: 0px;
   border-width: '0.5';
   box-shadow: '11px 14px 9px 1px  silver'
 }
-.btn {
+.img {
   display: flex;
-  justify-content: space-around;
-  outline: 2px outset white;
-  background-color: black;
-  margin-top: 15px;
+  margin: 40px, 40px, 40px, 40px;
  }
-.name {
+ .borderCard {
+  display: flex;
+  width: 500px;
+  height: 500px;
+ }
+ .desc {
+  margin-top: 3px;
   display: contents;
   color: white;
   outline: 2px outset white;
 }
-.desc {
-  margin-top: 3px;
+.name {
   display: contents;
   color: white;
   outline: 2px outset white;
@@ -46,18 +43,10 @@
   color: white;
   margin-top: 3px;
   }
-  .del {
+  .btn {
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
-  }
- .img {
-  display: flex;
-  width: auto;
-  height: 310px;
- }
- /* .card-body {
-  display: flex;
-  width: auto;
-  height: 300px;
- } */
+    justify-content: space-around;
+    outline: 2px outset white;
+    background-color: black;
+    margin-top: 15px;
+   }

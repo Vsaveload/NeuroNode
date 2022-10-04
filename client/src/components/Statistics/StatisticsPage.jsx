@@ -33,38 +33,26 @@ function CustomTooltip({
   return null;
 }
 
-export default function StatisticsPage() {
-  const [projectStat, setProjectStat] = useState([]);
-  const [projectStatName, setProjectStatName] = useState([]);
-  const { staticId } = useParams();
+export default function StatisticsPage({ projectStat, projectStatName }) {
+  console.log('PROJECTSTATNAME', projectStatName);
+  console.log('STAT', projectStat);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    axios(`http://localhost:3001/stat/byid/${staticId}`)
-      .then((res) => {
-        console.log(res.data.projectStat);
-        setProjectStat(res.data.newData);
-        setProjectStatName(res.data.namesArr);
-        console.log('NEW DATA', res.data.newData);
-        console.log('NAMES ARR', res.data.namesArr);
-      });
-  }, []);
   const toProject = () => {
     const path = '/myprojects/';
     navigate(path);
   };
   return (
     <>
-      <ResponsiveContainer width="40%" aspect={3}>
+      <ResponsiveContainer width="60%" aspect={2}>
         <BarChart
-          width={500}
+          width={300}
           height={300}
           data={projectStat}
           margin={{
             top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
+            right: 50,
+            left: 0,
+            bottom: 0,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
@@ -72,10 +60,9 @@ export default function StatisticsPage() {
           <YAxis />
           <Tooltip content={<CustomTooltip namesArr={projectStatName} />} />
           <Legend />
-          <Bar dataKey="Nodes" barSize={10} fill="#000000" />
+          <Bar dataKey="Nodes" barSize={20} fill="#ffffff" />
         </BarChart>
       </ResponsiveContainer>
-      <Button onClick={() => toProject(staticId)}>Back to project</Button>
     </>
   );
 }
