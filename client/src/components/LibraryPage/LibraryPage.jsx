@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import CardCategoriesPage from '../Cards/CardCategoriesPage';
 import Navbar from '../Navbar/NavBar';
+import './LibraryPage.css';
 
 export default function LibraryPage() {
   const [categories, setCategories] = useState([]);
@@ -16,11 +17,14 @@ export default function LibraryPage() {
 
   return (
     <>
-    <Navbar />
-    <div className="d-flex" style={{ justifyContent: 'space-around' }}>
-      {categories?.map((category) => (
-        <CardCategoriesPage key={category.id} category={category} />))}
-    </div>
+      <Navbar />
+
+      <div className="library">
+        <div className="d-flex" style={{ justifyContent: 'space-around' }}>
+          {categories?.map((category) => (
+            <CardCategoriesPage key={category.id} category={category} />))}
+        </div>
+      </div>
     </>
   );
 }
