@@ -33,6 +33,7 @@ export default function CardProjectPage({ project, projectStat, namesArr }) {
 
   return (
     <div className="cardPage">
+
       <Card className="card">
         <img
           className="img"
@@ -56,13 +57,7 @@ export default function CardProjectPage({ project, projectStat, namesArr }) {
           {user ? (
             <>
               <Button onClick={() => toFirstNode(project.id)} className="btn">Explore project</Button>
-              {/* <Button
-                onClick={() => toStatistic(project.id)}
-                className="btn"
-              >
-                Statistics
-              </Button> */}
-              <StatisticsPage projectStat={projectStat} namesArr={namesArr} />
+
               <Button onClick={() => toEdit(project.id)} type="submit" className="btn">Edit</Button>
               <Button
                 onClick={() => deleteProject(project.id, dispatch)}
@@ -75,8 +70,11 @@ export default function CardProjectPage({ project, projectStat, namesArr }) {
           ) : (
             <Button onClick={() => toFirstNode(project.id)}>Explore project</Button>
           )}
+
         </CardBody>
+
       </Card>
+      <StatisticsPage projectStat={projectStat} namesArr={namesArr} />
     </div>
   );
 }
