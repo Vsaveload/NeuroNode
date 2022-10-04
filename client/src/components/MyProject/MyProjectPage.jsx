@@ -26,11 +26,9 @@ export default function MyProjectPage() {
         .catch(console.log);
     }
   }, [signup]);
-
   return (
     <>
-      <h1>My Project</h1>
-      <div className="d-flex" style={{ flexDirection: 'column' }}>
+      <div className="myDiv">
         {currentUserProjects?.map((project) => (
           <CardProjectPage
             key={project.id}
@@ -40,8 +38,8 @@ export default function MyProjectPage() {
         {/* <Button onClick={toCategories}>Back to library</Button> */}
       </div>
       <div>
-        <div>
-          <Button color="secondary" onClick={() => navigate('/home')} className="btn">Back to home</Button>
+        <div className="projectDiv">
+          <Button onClick={() => navigate('/home')} className="btn1">Back to home</Button>
         </div>
       </div>
     </>

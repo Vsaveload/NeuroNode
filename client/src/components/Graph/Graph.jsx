@@ -34,14 +34,14 @@ export default function GraphVizual() {
   return (
     <div>
 
-    <Graph
-      id="graph-id" // id is mandatory
-      data={data}
-      config={myConfig}
-      onClickNode={onClickNode}
-      onClickLink={onClickLink}
-    />
-;
+      <Graph
+        id="graph-id" // id is mandatory
+        data={data}
+        config={myConfig}
+        onClickNode={onClickNode}
+        onClickLink={onClickLink}
+      />
+      ;
 
     </div>
   );

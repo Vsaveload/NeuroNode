@@ -1,4 +1,26 @@
-.btn{
-  align-self: flex-start;
-  margin-top:20px;
+.btn1 {
+  display: flex;
+  justify-content: center;
+  outline: 2px outset white;
+  background-color: black;
 }
+.projectDiv {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  width: auto;
+  background-color: black;
+  }
+.myDiv {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    justify-content: column;
+    align-items: center;
+    height: auto;
+    width: auto;
+    flex-direction: column;
+  }
+ 

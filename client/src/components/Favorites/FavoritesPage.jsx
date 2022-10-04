@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import CardProjectPage from '../Cards/CardProjectPage';
 import Graph from '../Graph';
 
-
 export default function FavoritesPage() {
   const { project } = useParams();
   const [list, setList] = useState([]);
@@ -20,5 +19,6 @@ export default function FavoritesPage() {
         project={project}
       />
       <Graph />
+    </div>
   );
 }
