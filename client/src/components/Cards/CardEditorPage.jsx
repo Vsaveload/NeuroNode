@@ -26,9 +26,9 @@ export default function CardEditorPage({ project, projectStat, projectStatName }
     navigate(path);
   };
 
-  useEffect(() => {
-    dispatch(deleteProjectAsync());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(deleteProjectAsync());
+  // }, []);
 
   return (
     <div className="cardPage">

@@ -7,7 +7,6 @@ import './CardEditorPage.css';
 
 export default function EditorCard({ project }) {
   const [isEditing, setIsEditing] = useState(false);
-
   const [input, setInput] = useState({
     name: '',
     desc: '',

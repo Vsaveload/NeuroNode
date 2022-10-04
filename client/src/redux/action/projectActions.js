@@ -9,7 +9,7 @@ export const updateProject = (payload) => ({ type: UPDATE_PROJECT, payload });
 export const setProjects = (payload) => ({ type: SET_PROJECTS, payload });
 
 export const setProjectsAsync = (id) => (dispatch) => {
-  axios(`http://localhost:3001/myprojects/${id}`)
+  axios.post('http://localhost:3001/myprojects', { id })
     .then((res) => dispatch(setProjects(res.data)))
     .catch(console.log);
 };
