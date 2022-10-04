@@ -19,7 +19,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="navbar">
+    <div className="navbar border">
       <nav className="navbar navbar-expand-lg bg-black" id="navbar">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">NeuroNode</NavLink>
