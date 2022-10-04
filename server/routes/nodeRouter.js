@@ -40,7 +40,23 @@ router.post('/new', async (req, res) => {
 router.patch('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, content, isFirst } = req.body;
+    const { name, content } = req.body;
+    let { isFirst } = req.body;
+    switch (isFirst) {
+      case 'true':
+        isFirst = true;
+        break;
+      case 'false':
+        isFirst = false;
+        break;
+      case 'null':
+        isFirst = null;
+        break;
+      case undefined:
+        break;
+      default:
+        break;
+    }
     const editedNode = await Node.findByPk(id);
     await editedNode.update({ name, content, isFirst });
     res.json(editedNode);

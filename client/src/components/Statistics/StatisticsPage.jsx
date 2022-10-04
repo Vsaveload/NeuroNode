@@ -42,12 +42,15 @@ export default function StatisticsPage() {
   useEffect(() => {
     axios(`http://localhost:3001/stat/byid/${staticId}`)
       .then((res) => {
+        console.log(res.data.projectStat);
         setProjectStat(res.data.newData);
         setProjectStatName(res.data.namesArr);
+        console.log('NEW DATA', res.data.newData);
+        console.log('NAMES ARR', res.data.namesArr);
       });
   }, []);
-  const toProject = (projectId) => {
-    const path = `/category/${projectId}`;
+  const toProject = () => {
+    const path = '/myprojects/';
     navigate(path);
   };
   return (

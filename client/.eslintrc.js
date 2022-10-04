@@ -34,5 +34,6 @@ module.exports = {
     'no-plusplus': 0,
     'no-restricted-syntax': 0,
     'guard-for-in': 0,
+    'react/jsx-no-useless-fragment':0
   },
 };

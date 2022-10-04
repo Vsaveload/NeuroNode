@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.Category, { foreignKey: 'category_id' });
-      this.belongsTo(models.User, { foreignKey: 'user_id' });
-      this.hasMany(models.Node, { foreignKey: 'project_id' });
-      this.hasMany(models.Statistic, { foreignKey: 'project_id' });
-      this.hasMany(models.Rate, { foreignKey: 'project_id' });
+      this.belongsTo(models.Category, { foreignKey: 'category_id', onDelete: 'CASCADE' });
+      this.belongsTo(models.User, { foreignKey: 'user_id', onDelete: 'CASCADE' });
+      this.hasMany(models.Node, { foreignKey: 'project_id', onDelete: 'CASCADE' });
+      this.hasMany(models.Statistic, { foreignKey: 'project_id', onDelete: 'CASCADE' });
+      this.hasMany(models.Rate, { foreignKey: 'project_id', onDelete: 'CASCADE' });
     }
   }
   Project.init({

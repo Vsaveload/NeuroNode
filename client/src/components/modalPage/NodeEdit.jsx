@@ -74,7 +74,12 @@ export default function NodeEdit() {
     }
   };
 
-  const connectionChecker = (projectNodeID) => connections.includes(projectNodeID);
+  const alreadyHasFirstChecker = () => {
+    if (allProjectNodes.find((el) => el.isFirst === true).id === node.id) {
+      return false;
+    }
+    return allProjectNodes.find((el) => el.isFirst === true);
+  };
 
   return (
     <Card style={{ width: '18rem' }}>
@@ -117,11 +122,43 @@ export default function NodeEdit() {
             {isEditingIsFirst
               ? (
                 <>
-                  <Input type="radio" name="isFirst" value={true} onChange={changeHandler} />
+                  <Input
+                    type="radio"
+                    name="isFirst"
+                    value="true"
+                    onChange={(e) => {
+                      if (alreadyHasFirstChecker(node.id)) {
+                        // eslint-disable-next-line no-alert
+                        alert(`${alreadyHasFirstChecker().name} is the first node in this project\nThere can be only one first node`);
+                      } else {
+                        changeHandler(e);
+                      }
+                    }}
+                  />
                   First
-                  <Input type="radio" name="isFirst" value={null} onChange={changeHandler} />
+                  <Input
+                    type="radio"
+                    name="isFirst"
+                    value="null"
+                    onChange={changeHandler}
+                  />
                   Transitional
-                  <Input type="radio" name="isFirst" value={false} onChange={changeHandler} />
+                  <Input
+                    type="radio"
+                    name="isFirst"
+                    value="false"
+                    onChange={async (e) => {
+                      if (node.Connections.reduce((acc, connection) => {
+                        acc.push(connection.to);
+                        return acc;
+                      }, []).length > 0) {
+                        // eslint-disable-next-line no-alert
+                        alert('Finish node can not have outgoing connections\nRemove them to set this node as finish');
+                      } else {
+                        changeHandler(e);
+                      }
+                    }}
+                  />
                   Finishing
                   <Button onClick={() => { setIsEditingIsFirst(!isEditingIsFirst); console.log(input); }}>Save</Button>
                   <Button onClick={() => { setInput({ ...input, isFirst: node.isFirst }); setIsEditingIsFirst(!isEditingIsFirst); }}>Cancel</Button>
@@ -129,7 +166,7 @@ export default function NodeEdit() {
               )
               : (
                 <>
-                   {switchForIsFirst(node.isFirst)}
+                   {switchForIsFirst(input.isFirst || node.isFirst)}
                    <Button onClick={() => { setInput({ ...input, isFirst: node.isFirst }); setIsEditingIsFirst(!isEditingIsFirst); }}>Edit isFirst</Button>
                 </>
               )}
@@ -141,7 +178,7 @@ export default function NodeEdit() {
               {projectNode.name}
               <Input
                 type="checkbox"
-                checked={connectionChecker(projectNode.id)}
+                checked={connections.includes(projectNode.id)}
                 onChange={() => {
                   setConnections((prev) => {
                     if (prev.includes(projectNode.id)) {
@@ -166,13 +203,10 @@ export default function NodeEdit() {
           </ModalFooter>
         </Modal>
             Connections:
-            {node?.Connections?.map((connection) => (
-              <div key={connection.id}>
-              {connection.from}
-              -
-              {connection.to}
-              </div>
-            ))}
+            {allProjectNodes.filter((projNode) => node.Connections.reduce((acc, connection) => {
+              acc.push(connection.to);
+              return acc;
+            }, []).includes(projNode.id)).map((proNode) => <div key={proNode.id}>{proNode.name}</div>)}
             <Button onClick={() => {
               setConnections(node.Connections.reduce((acc, connection) => {
                 acc.push(connection.to);
