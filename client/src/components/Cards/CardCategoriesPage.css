@@ -2,8 +2,8 @@
   width: 70rem;
   height: 40rem;
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   background-color: rgb(30, 29, 29);
   outline: 2px outset white;
 }

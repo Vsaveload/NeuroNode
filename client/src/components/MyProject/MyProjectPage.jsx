@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {
   Form, FormGroup, Label, Input, Button,
 } from 'reactstrap';
-import CardProjectPage from '../Cards/CardProjectPage';
+import CardEditorPage from '../Cards/CardEditorPage';
 import './MyProjectPage.css';
 
 export default function MyProjectPage() {
@@ -46,7 +46,7 @@ export default function MyProjectPage() {
       <div className="myDiv">
         {currentUserProjects && projectStatName
          && projectStat && currentUserProjects.map((project) => (
-          <CardProjectPage
+          <CardEditorPage
             key={project.id}
             project={project}
             projectStat={projectStat}

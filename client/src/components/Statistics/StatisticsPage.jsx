@@ -34,6 +34,8 @@ function CustomTooltip({
 }
 
 export default function StatisticsPage({ projectStat, projectStatName }) {
+  console.log('PROJECTSTATNAME', projectStatName);
+  console.log('STAT', projectStat);
   const navigate = useNavigate();
   const toProject = () => {
     const path = '/myprojects/';

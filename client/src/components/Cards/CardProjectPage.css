@@ -3,8 +3,8 @@
   /* height: 40rem; */
   height: unset !important;
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   background-color: rgb(30, 29, 29);
   outline: 2px outset white;
 
@@ -13,8 +13,8 @@
 .cardPage {
   background-color: black;
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   height: auto;
   margin-top: 50px;
   /* border-width: '0.5'; */
@@ -61,6 +61,7 @@
   width: 450px;
   height: 300px;
   margin: 40px;
+  border-radius: 1%;
 }
 
 .card-body {
