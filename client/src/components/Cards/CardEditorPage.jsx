@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {
   Card, CardBody, CardTitle, CardText, Button, CardSubtitle,
 } from 'reactstrap';
-import { deleteProject, setDelete } from '../../redux/action/deleteAction';
+import { deleteProject, deleteProjectAsync } from '../../redux/action/projectActions';
 import StatisticsPage from '../Statistics/StatisticsPage';
 import './CardProjectPage.css';
 
@@ -28,7 +28,7 @@ export default function CardEditorPage({ project, projectStat, projectStatName }
   };
 
   useEffect(() => {
-    dispatch(setDelete());
+    dispatch(deleteProjectAsync());
   }, [project]);
 
   return (
