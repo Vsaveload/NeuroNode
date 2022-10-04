@@ -18,22 +18,24 @@ router.patch('/:id', async (req, res) => {
   }
 });
 
-// router.get('/:id', async (req, res) => {
-//   const { id } = req.params;
-//   const project = await Project.findByPk(id, { include: [{ model: Node, include: [{ model: Connection }] }] });
-//   res.json(project);
-// });
-
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   const project = await Project.findByPk(id, {
-    include:
-      [{
-        model: Statistic, include: [{ model: Connection, include: [{ model: Node }] }],
-      }],
+    include: [{ model: Node, include: [{ model: Connection }] }],
   });
+
   res.json(project);
 });
+// router.get('/:id', async (req, res) => {
+//   const { id } = req.params;
+//   const project = await Project.findByPk(id, {
+//     include:
+//       [{
+//         model: Statistic, include: [{ model: Connection, include: [{ model: Node }] }],
+//       }],
+//   });
+//   res.json(project);
+// });
 router.post('/', async (req, res) => {
   // console.log('REQBODY:', req.body);
   const { id } = req.body;

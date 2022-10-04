@@ -12,6 +12,7 @@ const projectRouter = require('./routes/projectRouter');
 const categoryRouter = require('./routes/categoryRouter');
 const nodeRouter = require('./routes/nodeRouter');
 const userProjectRouter = require('./routes/userProjectRouter');
+const connectionsRouter = require('./routes/connectionsRouter');
 const favoriteRouter = require('./routes/favoriteRouter');
 
 const app = express();
@@ -46,6 +47,7 @@ app.use('/project', projectRouter);
 app.use('/category', categoryRouter);
 app.use('/node', nodeRouter);
 app.use('/myprojects', userProjectRouter);
+app.use('/connections', connectionsRouter);
 app.use('/favorites', favoriteRouter);
 
 app.listen(process.env.PORT, () => {

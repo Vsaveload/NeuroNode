@@ -17,11 +17,14 @@ export default function LibraryPage() {
 
   return (
     <>
-    <Navbar />
-    <div className="library">
-      {categories?.map((category) => (
-        <CardCategoriesPage key={category.id} category={category} />))}
-    </div>
+      <Navbar />
+
+      <div className="library">
+        <div className="d-flex" style={{ justifyContent: 'space-around' }}>
+          {categories?.map((category) => (
+            <CardCategoriesPage key={category.id} category={category} />))}
+        </div>
+      </div>
     </>
   );
 }

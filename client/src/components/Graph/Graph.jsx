@@ -1,26 +1,17 @@
 import React from 'react';
 import { Graph } from 'react-d3-graph';
+import './Graph.css';
 
-export default function GraphVizual() {
-  // graph payload (with minimalist structure)
-  const data = {
-    nodes: [{ id: 'Harry' }, { id: 'Sally' }, { id: 'Alice' }],
-    links: [
-      { source: 'Harry', target: 'Sally' },
-      { source: 'Harry', target: 'Alice' },
-    ],
-  };
-
-  // the graph configuration, just override the ones you need
+export default function GraphVizual({ data }) {
   const myConfig = {
     nodeHighlightBehavior: true,
     node: {
       color: 'lightgreen',
-      size: 120,
-      highlightStrokeColor: 'blue',
+      size: 200,
+      highlightStrokeColor: 'white',
     },
     link: {
-      highlightColor: 'lightblue',
+      highlightColor: 'white',
     },
   };
 
@@ -32,17 +23,14 @@ export default function GraphVizual() {
     console.log(`Clicked link between ${source} and ${target}`);
   };
   return (
-    <div>
-
-      <Graph
-        id="graph-id" // id is mandatory
-        data={data}
-        config={myConfig}
-        onClickNode={onClickNode}
-        onClickLink={onClickLink}
-      />
-      ;
-
-    </div>
+<div className="graph">
+    <Graph
+      id="graph-id" // id is mandatory
+      data={data}
+      config={myConfig}
+      onClickNode={onClickNode}
+      onClickLink={onClickLink}
+    />
+</div>
   );
 }

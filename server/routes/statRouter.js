@@ -29,7 +29,13 @@ router.get('/byid/:id', async (req, res) => {
   const { id } = req.params;
   const projectStat = await Project.findByPk(id, {
     include:
-          [{ model: Statistic, include: [{ model: Connection, include: [{ model: Node }] }] }],
+          [{
+            model: Statistic,
+            include: [{
+              model: Connection,
+              include: [{ model: Node, where: { project_id: id } }],
+            }],
+          }],
   });
   // console.log(JSON.parse(JSON.stringify(projectStat)));
   const tempArr = [];
