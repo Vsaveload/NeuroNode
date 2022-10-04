@@ -25,9 +25,11 @@ export default function CardProjectPage({ project }) {
     const path = `/myprojects/${id}`;
     navigate(path);
   };
+
   useEffect(() => {
     dispatch(setDelete());
   }, [project]);
+
   return (
     <div className="cardPage">
       <Card className="card">
@@ -49,6 +51,7 @@ export default function CardProjectPage({ project }) {
           <CardText className="desc">
             {project.desc}
           </CardText>
+
           {user ? (
             <>
               <Button onClick={() => toFirstNode(project.id)} className="btn">Explore project</Button>
@@ -57,7 +60,6 @@ export default function CardProjectPage({ project }) {
                 className="btn"
               >
                 Statistics
-
               </Button>
               <Button onClick={() => toEdit(project.id)} type="submit" className="btn">Edit</Button>
               <Button
