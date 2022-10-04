@@ -49,7 +49,7 @@ const config = {
       directions: 'none',
       enable: true,
       outModes: {
-        default: 'bounce',
+        default: 'out',
       },
       random: false,
       speed: 3,
@@ -72,6 +72,5 @@ const config = {
       value: { min: 1, max: 5 },
     },
   },
-  detectRetina: true,
 };
 export default config;

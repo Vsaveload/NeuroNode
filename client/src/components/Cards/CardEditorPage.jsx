@@ -2,34 +2,32 @@ import React from 'react';
 import {
   Card, CardBody, CardTitle, CardText, Button, CardSubtitle,
 } from 'reactstrap';
+import './CardEditorPage.css';
 
 export default function CardProjectPage({ project }) {
   return (
 
     <Card
-      style={{
-        width: '18rem',
-      }}
+      className="card"
     >
       <img
-        style={{ width: '18rem', height: '16rem' }}
+        className="img"
         src={project.img}
         alt="Not provided"
       />
-      <CardBody>
-        <CardTitle tag="h5">
+      <CardBody className="card-body">
+        <CardTitle tag="h5" className="name">
           {project.name}
         </CardTitle>
         <CardSubtitle
-          className="mb-2 text-muted"
+          className="title"
           tag="h6"
         />
-          <CardText>
+          <CardText className="desc">
             {project.desc}
           </CardText>
 
       </CardBody>
     </Card>
-
   );
 }
