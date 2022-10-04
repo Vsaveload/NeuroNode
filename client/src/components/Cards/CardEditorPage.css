@@ -12,7 +12,7 @@
 .cardPage {
   background-color: black;
   outline: 2px outset white;
-  justify-content: space-around;
+  justify-content:first baseline;
   justify-items: center;
   align-self: center;
   align-content: center;
