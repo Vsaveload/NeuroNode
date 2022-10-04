@@ -12,10 +12,10 @@ const getIntroOfPage = (label, namesArr) => {
     obj = { ...obj, ...namesArr[i] };
   }
   if (obj[label]) {
-    return `Переходы из ноды: ${obj[label]}`;
+    return `From: ${obj[label]}`;
   }
 
-  return '';
+  return 'There is no transition';
 };
 
 function CustomTooltip({
@@ -23,8 +23,19 @@ function CustomTooltip({
 }) {
   if (active && payload && payload.length) {
     return (
-      <div className="custom-tooltip">
-        <p className="label">{`${label} : ${payload[0].value}`}</p>
+      <div
+        className="custom-tooltip"
+        style={{
+          color: 'black',
+          background: 'white',
+          borderRadius: '10%',
+          fontSize: '1.2em',
+          fontFamily: 'Arial',
+          letterSpacing: '2px',
+          fontWeight: 'inherit',
+        }}
+      >
+        <p className="label">{`${label} nodes: ${payload[0].value} times`}</p>
         <p className="intro">{getIntroOfPage(label, namesArr)}</p>
       </div>
     );
@@ -34,13 +45,11 @@ function CustomTooltip({
 }
 
 export default function StatisticsPage({ projectStat, projectStatName }) {
-  console.log('PROJECTSTATNAME', projectStatName);
-  console.log('STAT', projectStat);
   const navigate = useNavigate();
-  const toProject = () => {
-    const path = '/myprojects/';
-    navigate(path);
-  };
+  // const toProject = () => {
+  //   const path = '/myprojects/';
+  //   navigate(path);
+  // };
   return (
     <>
       <ResponsiveContainer width="60%" aspect={2}>
@@ -54,6 +63,7 @@ export default function StatisticsPage({ projectStat, projectStatName }) {
             left: 0,
             bottom: 0,
           }}
+
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
