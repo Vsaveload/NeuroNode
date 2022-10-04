@@ -9,22 +9,22 @@ export default function HomePage() {
   const navigate = useNavigate();
   return (
 
-      <>
+      <div className="homeDiv">
          <NavBar />
-         <ButtonGroup vertical size="lg">
+         <ButtonGroup vertical size="lg" className="bg">
             <Button color="dark" onClick={() => navigate('/library')} className="button">
-               Library
+              <h2><strong>Library</strong></h2>
             </Button>
-         <Button color="dark" onClick={() => navigate('/addproject')} className="button">
-            New Project
+         <Button color="dark" onClick={() => navigate('/addproject')} className="button1">
+            <h2><strong>New Project</strong></h2>
          </Button>
             <Button color="dark" onClick={() => navigate('/myprojects')} className="button2">
-               My Projects
+              <h2><strong>My Projects</strong></h2>
             </Button>
             <Button color="dark" onClick={() => navigate('/favorites')} className="button3">
-               Favorites
+               <h2><strong>Favorites</strong></h2>
             </Button>
          </ButtonGroup>
-      </>
+      </div>
   );
 }

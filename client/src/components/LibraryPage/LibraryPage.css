@@ -1,10 +1,10 @@
-/* .library {
-  width: auto;
-  height: 40rem;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
+.library {
   background-color: black;
-  outline: 2px outset white;
-  flex-direction: column;
-} */
+  height: 100vh;
+  width: auto;
+
+}
+
+#navbar {
+  
+}
