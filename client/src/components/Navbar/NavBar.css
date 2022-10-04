@@ -1,4 +1,11 @@
-.collapse navbar-collapse {
-  display: flex;
-  justify-content: space-between;
+.navbar-brand {
+  outline: 2px outset white;
+  color: white;
+  border-radius: 5px;
+}
+.navbar{
+  direction: block;
+  border-bottom: white;
+  /* border-bottom: beige; */
+  outline: 3px outset white;
 }
