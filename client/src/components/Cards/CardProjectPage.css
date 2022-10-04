@@ -7,6 +7,7 @@
   margin-right: auto; */
   background-color: black;
   outline: 2px outset white;
+  height: auto;
 
  }
 
@@ -29,7 +30,6 @@
   outline: 2px outset white;
   background-color: black;
   margin-top: 5px;
-  
 }
 
 .del {
