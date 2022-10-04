@@ -28,18 +28,20 @@ export default function MyProjectPage() {
   }, [signup]);
   return (
     <>
-      <div className="myDiv">
-        {currentUserProjects?.map((project) => (
-          <CardProjectPage
-            key={project.id}
-            project={project}
-          />
-        ))}
-        {/* <Button onClick={toCategories}>Back to library</Button> */}
-      </div>
-      <div>
-        <div className="projectDiv">
-          <Button onClick={() => navigate('/home')} className="btn1">Back to home</Button>
+      <div className="mainDiv">
+        <div className="myDiv">
+          {currentUserProjects?.map((project) => (
+            <CardProjectPage
+              key={project.id}
+              project={project}
+            />
+          ))}
+          {/* <Button onClick={toCategories}>Back to library</Button> */}
+        </div>
+        <div>
+          <div className="projectDiv">
+            <Button onClick={() => navigate('/home')} className="btn1">Back to home</Button>
+          </div>
         </div>
       </div>
     </>
