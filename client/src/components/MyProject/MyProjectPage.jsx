@@ -11,6 +11,7 @@ import './MyProjectPage.css';
 export default function MyProjectPage() {
   const [currentUserProjects, setCurrentUserProjects] = useState([]);
   const navigate = useNavigate();
+
   const { id } = useParams();
   const signup = useSelector((state) => state.signup);
 
