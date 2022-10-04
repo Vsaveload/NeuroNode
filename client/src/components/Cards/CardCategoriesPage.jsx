@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   Card, CardBody, CardTitle, CardText, Button, CardSubtitle,
 } from 'reactstrap';
+import './CardCategoriesPage.css';
 
 export default function CardProjectPage({ category }) {
   const navigate = useNavigate();
@@ -13,31 +14,29 @@ export default function CardProjectPage({ category }) {
   };
 
   return (
-
-    <Card
-      style={{
-        width: '18rem',
-      }}
-    >
-      <img
-        style={{ width: '18rem', height: '16rem' }}
-        src={category.img}
-        alt="Not provided"
-      />
-      <CardBody>
-        <CardTitle tag="h5">
-          {category.name}
-        </CardTitle>
-        <CardSubtitle
-          className="mb-2 text-muted"
-          tag="h6"
-        />
-          <CardText>
+    <div className="cardPage">
+      <Card className="card">
+        <div className="borderCard">
+          <img
+            className="img"
+            src={category.img}
+            alt="Not provided"
+          />
+        </div>
+        <CardBody className="card-body">
+          <CardTitle tag="h5" className="name">
+            {category.name}
+          </CardTitle>
+          <CardSubtitle
+            className="title"
+            tag="h6"
+          />
+          <CardText className="desc">
             {category.desc}
           </CardText>
-        <Button onClick={() => toProjects(category.id)}>See projects</Button>
-      </CardBody>
-    </Card>
-
+          <Button onClick={() => toProjects(category.id)} className="btn">See projects</Button>
+        </CardBody>
+      </Card>
+    </div>
   );
 }

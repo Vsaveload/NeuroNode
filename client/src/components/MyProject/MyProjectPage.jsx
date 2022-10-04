@@ -41,7 +41,8 @@ export default function MyProjectPage() {
     }
   }, [signup]);
   return (
-  <>
+
+<div className="mainDiv">
       <div className="myDiv">
         {currentUserProjects && projectStatName
          && projectStat && currentUserProjects.map((project) => (
@@ -58,6 +59,6 @@ export default function MyProjectPage() {
           <Button onClick={() => navigate('/home')} className="btn1">Back to home</Button>
         </div>
       </div>
-  </>
+</div>
   );
 }
