@@ -45,7 +45,7 @@ h1 {
 	align-items: center; 
 	flex-direction: column;
 	text-transform: uppercase;
-	top: 15vh;
+	top: 36vh;
 	overflow: auto;
 	left:15vh;
 	width: 80vw;
@@ -123,16 +123,16 @@ h1 {
 	
 }
 .in {
-	right: 10vw;
+	right: 5vw;
 	top: 2vh;
 	
 }
 .reg {
-	left: 2vw;
+	left: 5vw;
 	top: 2vh;
 }
 .lib {
-	left:39vw;
+	left:41vw;
 	top: 2vh;
 	/* font-size: 2rem; */
 	

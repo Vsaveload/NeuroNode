@@ -1,0 +1,59 @@
+.card {
+  width: 33rem;
+  height: 40rem;
+  display: flex;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(30, 29, 29);
+  outline: 2px outset white;
+}
+
+.cardPage {
+  background-color: black;
+  outline: 2px outset white;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  margin-top: 50px;
+  border-width: '0.5';
+  box-shadow: '11px 14px 9px 1px  silver'
+}
+.btn {
+  display: flex;
+  justify-content: space-around;
+  outline: 2px outset white;
+  background-color: black;
+  margin-top: 15px;
+ }
+.name {
+  display: contents;
+  color: white;
+  outline: 2px outset white;
+}
+.desc {
+  margin-top: 3px;
+  display: contents;
+  color: white;
+  outline: 2px outset white;
+}
+.title {
+  color: white;
+  margin-top: 3px;
+  }
+  .del {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+ .img {
+  display: flex;
+  width: auto;
+  height: 310px;
+ }
+ /* .card-body {
+  display: flex;
+  width: auto;
+  height: 300px;
+ } */
