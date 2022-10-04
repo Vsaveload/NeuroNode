@@ -65,4 +65,14 @@ router.patch('/:id', async (req, res) => {
   }
 });
 
+router.delete('./:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Node.destroy({ where: { id } });
+    res.sendStatus(200);
+  } catch (e) {
+    console.log(e);
+  }
+});
+
 module.exports = router;

@@ -4,14 +4,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {
   Card, CardBody, CardTitle, CardText, Button, CardSubtitle,
 } from 'reactstrap';
-import { deleteProject, setDelete } from '../../redux/action/deleteAction';
+import { deleteProject, deleteProjectAsync } from '../../redux/action/projectActions';
 import StatisticsPage from '../Statistics/StatisticsPage';
 import './CardProjectPage.css';
 
 export default function CardProjectPage({ project, projectStat, namesArr }) {
   const navigate = useNavigate();
   const user = useSelector((state) => state.signup);
-  const del = useSelector((state) => state.setDelete);
+  const del = useSelector((state) => state.project);
   const dispatch = useDispatch();
 
   const toFirstNode = (ProjectId) => {
@@ -28,7 +28,7 @@ export default function CardProjectPage({ project, projectStat, namesArr }) {
   };
 
   useEffect(() => {
-    dispatch(setDelete());
+    dispatch(deleteProjectAsync());
   }, [project]);
 
   return (

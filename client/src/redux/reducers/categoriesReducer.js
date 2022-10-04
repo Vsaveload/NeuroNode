@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import { GET_CATEGORIES, UPDATE_CATEGORIES } from '../types';
 
 export default function categoriesReducer(state = [], action) {
