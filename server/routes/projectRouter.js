@@ -33,6 +33,18 @@ router.get('/bycategory/:id', async (req, res) => {
   res.json(projectsInCategory);
 });
 
+router.patch('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, desc, img } = req.body;
+    const editedProject = await Project.findByPk(id);
+    await editedProject.update({ name, desc, img });
+    res.json(editedProject);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 router.get('/cards', async (req, res) => {
   const firstCard = await Project.findAll({
     include: [{ model: Category }],

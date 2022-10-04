@@ -34,7 +34,7 @@ export default function Login() {
       dispatch(setLogin(data));
       navigate('/home');
     } else {
-      setError('Вы не зарегистрировались или ввели неправильные данные');
+      setError('Not registered or credentials are wrong');
     }
   };
 
@@ -43,7 +43,7 @@ export default function Login() {
       <div className="col-5">
         <form onSubmit={submitHandler}>
           <div className="mb-3">
-            <label htmlFor="loginName" className="form-label">Имя</label>
+            <label htmlFor="loginName" className="form-label">Name</label>
             <input
               value={input.name}
               onChange={changeHandler}
@@ -54,7 +54,7 @@ export default function Login() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="loginPassword" className="form-label">Пароль</label>
+            <label htmlFor="loginPassword" className="form-label">Password</label>
             <input
               value={input.password}
               onChange={changeHandler}
@@ -65,8 +65,8 @@ export default function Login() {
             />
           </div>
           <div className="row justify-content-center mt-3">
-            <button type="submit" className="btn btn-outline-success">Вход</button>
-            {error && <div style={{ color: 'red', background: 'yellow' }}>Неправильный пароль</div>}
+            <button type="submit" className="btn btn-outline-success">Enter</button>
+            {error && <div style={{ color: 'red', background: 'yellow' }}>Wrong password</div>}
           </div>
         </form>
       </div>

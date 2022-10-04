@@ -9,7 +9,7 @@ function ModalPage({ modal, toggle, modalType }) {
   return (
     <div>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>{modalType === 'login' ? 'Авторизация' : 'Регистрация'}</ModalHeader>
+        <ModalHeader toggle={toggle}>{modalType === 'login' ? 'Login' : 'Register'}</ModalHeader>
         <ModalBody>
           {modalType === 'login' ? <LoginPage toggle={toggle} /> : <SignUpPage toggle={toggle} />}
 
