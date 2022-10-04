@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -11,6 +12,7 @@ module.exports = {
       from: {
         allowNull: true,
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         references: {
           model: 'Nodes',
           key: 'id',
@@ -19,6 +21,7 @@ module.exports = {
       to: {
         allowNull: true,
         type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
         references: {
           model: 'Nodes',
           key: 'id',

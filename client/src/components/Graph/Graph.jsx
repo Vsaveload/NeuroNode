@@ -23,7 +23,6 @@ export default function GraphVizual({ data }) {
   };
   return (
     <div>
-
     <Graph
       id="graph-id" // id is mandatory
       data={data}

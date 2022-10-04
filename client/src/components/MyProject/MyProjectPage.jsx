@@ -13,7 +13,6 @@ export default function MyProjectPage() {
   const navigate = useNavigate();
   const { id } = useParams();
   const signup = useSelector((state) => state.signup);
-  console.log('signup:', signup);
 
   useEffect(() => {
     console.log(signup);
@@ -28,13 +27,8 @@ export default function MyProjectPage() {
     }
   }, [signup]);
   return (
-    <>
-      <h1>My Project</h1>
-
-      <div style={{
-        display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gridColumnGap: '50px', gridRowGap: '10em',
-      }}
-      >
+  <>
+      <div className="myDiv">
         {currentUserProjects?.map((project) => (
           <CardProjectPage
             key={project.id}
@@ -42,10 +36,11 @@ export default function MyProjectPage() {
           />
         ))}
       </div>
-
-        <div>
-          <Button color="secondary" onClick={() => navigate('/home')} className="btn">Back to home</Button>
+      <div>
+        <div className="projectDiv">
+          <Button onClick={() => navigate('/home')} className="btn1">Back to home</Button>
         </div>
-    </>
+      </div>
+  </>
   );
 }
