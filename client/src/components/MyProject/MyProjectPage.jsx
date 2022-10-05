@@ -6,7 +6,7 @@ import {
   Form, FormGroup, Label, Input, Button,
 } from 'reactstrap';
 import { setProjectsAsync } from '../../redux/action/projectActions';
-import { setProjectForEditAsync } from '../../redux/action/projectForEditActions';
+import { setProjectForEditAsync, setProjectForMyProjectsAsync } from '../../redux/action/projectForEditActions';
 import CardEditorPage from '../Cards/CardEditorPage';
 import Navbar from '../Navbar/NavBar';
 import './MyProjectPage.css';
@@ -31,7 +31,7 @@ export default function MyProjectPage() {
 
   useEffect(() => {
     if (signup) {
-      dispatch(setProjectForEditAsync(signup.id));
+      dispatch(setProjectForMyProjectsAsync(signup.id));
       console.log('axios sent');
 
       // console.log('Res.Data:', res.data);
