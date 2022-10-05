@@ -1,7 +1,4 @@
-import axios from 'axios';
-import React, { PureComponent, useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import React from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
@@ -46,19 +43,14 @@ function CustomTooltip({
   return null;
 }
 
-export default function StatisticsPage({ projectStat, projectStatName }) {
-  const navigate = useNavigate();
-  // const toProject = () => {
-  //   const path = '/myprojects/';
-  //   navigate(path);
-  // };
+export default function StatisticsPage({ currStat }) {
   return (
     <>
       <ResponsiveContainer width="60%" aspect={2}>
         <BarChart
           width={300}
           height={300}
-          data={projectStat}
+          data={currStat?.newData}
           margin={{
             top: 50,
             right: 50,
@@ -70,7 +62,7 @@ export default function StatisticsPage({ projectStat, projectStatName }) {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
-          <Tooltip content={<CustomTooltip namesArr={projectStatName} />} />
+          <Tooltip content={<CustomTooltip namesArr={currStat?.namesArr} />} />
           <Legend />
           <Bar dataKey="Nodes" barSize={20} fill="#ffffff" />
         </BarChart>

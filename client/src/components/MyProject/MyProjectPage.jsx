@@ -1,22 +1,26 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   Form, FormGroup, Label, Input, Button,
 } from 'reactstrap';
+import { setProjectsAsync } from '../../redux/action/projectActions';
+import { setProjectForEditAsync } from '../../redux/action/projectForEditActions';
 import CardEditorPage from '../Cards/CardEditorPage';
 import Navbar from '../Navbar/NavBar';
 import './MyProjectPage.css';
 
 export default function MyProjectPage() {
-  const [currentUserProjects, setCurrentUserProjects] = useState([]);
-  const [projectStat, setProjectStat] = useState([]);
+  // const [currentUserProjects, setCurrentUserProjects] = useState([]);
+  // const [projectStat, setProjectStat] = useState([]);
   const [projectStatName, setProjectStatName] = useState([]);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const signup = useSelector((state) => state.signup);
-
+  const currentUserProjects = useSelector((state) => state.projectForEdit);
+  console.log('CUR USER PROJECT', currentUserProjects);
   // useEffect(() => {
   //   axios(`http://localhost:3001/stat/byid/${currentUserProjects.id}`)
   //     .then((res) => {
@@ -27,32 +31,33 @@ export default function MyProjectPage() {
 
   useEffect(() => {
     if (signup) {
+      dispatch(setProjectForEditAsync(signup.id));
       console.log('axios sent');
-      axios.post('http://localhost:3001/myprojects/', { id: signup.id })
-        .then((res) => {
-          console.log('Res.Data:', res.data);
-          setCurrentUserProjects(res.data);
-          axios(`http://localhost:3001/stat/byid/${res.data[0].id}`)
-            .then((data) => {
-              setProjectStat(data.data.newData);
-              setProjectStatName(data.data.namesArr);
-            });
-        })
-        .catch(console.log);
+      // console.log('Res.Data:', res.data);
+      // setCurrentUserProjects(res.data);
+      // axios(`http://localhost:3001/stat/byid/${currentUserProjects[0]?.id}`)
+      //   .then((data) => {
+      //   //     setProjectStat(data.data.newData);
+      //     setProjectStatName(data.data.namesArr);
+      //   });
     }
   }, [signup]);
   return (
     <div>
+      {
+      // console.log('SELECTOR', currentUserProjects)
+
+      }
       <div className="mainDiv">
 <Navbar />
         <div className="myDiv">
-          {currentUserProjects && projectStatName
-            && projectStat && currentUserProjects.map((project) => (
+          {currentUserProjects && currentUserProjects?.map((project, i) => (
               <CardEditorPage
                 key={project.id}
                 project={project}
-                projectStat={projectStat}
-                projectStatName={projectStatName}
+                index={i}
+                // projectStat={project.Statistics}
+                // projectStatName={projectStatName}
               />
           ))}
         </div>

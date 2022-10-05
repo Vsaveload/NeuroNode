@@ -9,9 +9,12 @@ import './EditorCard.css';
 
 export default function EditorCard({ project, nodes }) {
   const [isEditing, setIsEditing] = useState(false);
+<<<<<<< HEAD
+=======
   const [node, setNode] = useState({});
   const [modal, setModal] = useState(false);
 
+>>>>>>> a8214d31c96680f8a343433732cbbd55d79e561a
   const [input, setInput] = useState({
     name: '',
     desc: '',

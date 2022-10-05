@@ -22,6 +22,21 @@ router.get('/allinproject/:id', async (req, res) => {
   });
   res.json(firstNode);
 });
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  const allNodes = await Node.findAll({
+    include: [{ model: Connection }],
+    where: { project_id: id },
+  });
+  let newData = {};
+  const nodesNew = [];
+  const linksNew = [];
+  allNodes?.map((node) => node.Connections
+    .map((connection) => linksNew.push({ source: connection.from, target: connection.to })));
+  allNodes?.map((node) => nodesNew.push({ id: node.id }));
+  newData = { nodes: nodesNew, links: linksNew };
+  res.json(newData);
+});
 
 router.get('/byid/:id', async (req, res) => {
   const { id } = req.params;
@@ -71,6 +86,12 @@ router.patch('/:id', async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
+router.delete('./:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Node.destroy({ where: { id } });
+=======
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -78,6 +99,7 @@ router.delete('/:id', async (req, res) => {
     await Connection.destroy({
       where: { from: id },
     });
+>>>>>>> a8214d31c96680f8a343433732cbbd55d79e561a
     res.sendStatus(200);
   } catch (e) {
     console.log(e);

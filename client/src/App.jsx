@@ -22,12 +22,11 @@ import EditProjectPage from './components/EditProjectPage/EditProjectPage';
 
 export default function App({ userSession, notes }) {
   // const signup = useSelector((state) => state.signup);
-  const State = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(checkAuth());
-  }, []);
+  }, [dispatch]);
   return (
 
     <Routes>
