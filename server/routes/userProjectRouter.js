@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 const express = require('express');
 const {
-  Project, Node, Connection, Statistic, Category
+  Project, Node, Connection, Statistic, Category,
 } = require('../db/models');
 
 const router = express.Router();

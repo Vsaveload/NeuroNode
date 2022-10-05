@@ -7,24 +7,27 @@
   position: relative;
   margin-left: 50%;
   outline: solid white;
+  margin-top: 20%;
  }
 .cardPage {
   left: 50%;
   justify-content: center;
   height: unset !important;
   width: auto;
-  outline: solid white;
+  /* outline: solid white; */
   background-color: black;
-  margin-top: %;
-  }
+
+    }
 .graph {
   margin-left: 100px;
   justify-content: center;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  /* margin-top: 50px; */
+  /* /* margin-top: 50px; */
  }
  .cardEditor {
- 
+  background-color: black;
+  height: 100vh;
+  width: auto;
  }
