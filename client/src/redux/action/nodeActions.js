@@ -32,7 +32,7 @@ export const firstNodeAsync = (id) => (dispatch) => {
 };
 
 export const getNodesAsync = (id) => (dispatch) => {
-  axios(`http://localhost:3001/node/allinproject${id}`)
+  axios(`http://localhost:3001/node/${id}`)
     .then((res) => dispatch(getNodes(res.data)))
     .catch(console.log);
 };

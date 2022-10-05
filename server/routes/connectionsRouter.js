@@ -1,6 +1,6 @@
 const express = require('express');
 const {
-  Category, Project, Connection, Node,
+  Connection, Node,
 } = require('../db/models');
 
 const router = express.Router();

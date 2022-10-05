@@ -5,7 +5,7 @@ export default function statReducer(state = [], action) {
   const { type, payload } = action;
   switch (type) {
     case STATISTICS:
-      return payload;
+      return [...state, payload];
     default:
       return state;
   }

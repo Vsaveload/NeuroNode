@@ -5,6 +5,8 @@ import categoriesReducer from './categoriesReducer';
 import projectReducer from './projectReducer';
 import statReducer from './statReducer';
 import nodeReducer from './nodeReducer';
+import connectionReducer from './connectionReducer';
+import projectForEditReducer from './projectForEditReducer';
 
 const rootReducer = combineReducers({
   category: categoriesReducer,
@@ -12,6 +14,8 @@ const rootReducer = combineReducers({
   project: projectReducer,
   stat: statReducer,
   node: nodeReducer,
+  connection: connectionReducer,
+  projectForEdit: projectForEditReducer,
 });
 
 export default rootReducer;

@@ -35,3 +35,9 @@ export const updateProjectAsync = (project, input) => (dispatch) => {
     .then((res) => dispatch(updateProject(res.data)))
     .catch(console.log);
 };
+
+// export const setProjectForEdit = (id) => (dispatch) => {
+//   axios(`http://localhost:3001/project/${id}`)
+//     .then((res) => dispatch(setProjects(res.data)))
+//     .catch(console.log);
+// };
