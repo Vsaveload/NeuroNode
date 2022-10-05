@@ -1,0 +1,16 @@
+.psp {
+  /* background-color: black;
+  height: 100vh;
+  width: auto; */
+}
+.butPsp {
+  position: absolute;
+  left: 50%;
+  justify-content: center;
+  outline: 3px outset white;
+  background-color: black;
+  margin-top: 30px;
+}
+.d-flex {
+  
+}
