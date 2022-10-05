@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Card, CardBody, CardTitle, CardText, Button, CardSubtitle,
+  Card, CardBody, CardTitle, CardText, Button, CardSubtitle, Container,
 } from 'reactstrap';
 import './CardEditorPage.css';
 
@@ -29,11 +29,12 @@ export default function CardProjectPage({ project }) {
           className="title"
           tag="h6"
         />
-          <CardText className="desc">
-            {project.desc}
-          </CardText>
+        <CardText className="desc">
+          {project.desc}
+        </CardText>
       </CardBody>
       <Button onClick={() => toFirstNode(project.id)}>Explore project</Button>
     </Card>
+
   );
 }

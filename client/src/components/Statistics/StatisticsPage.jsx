@@ -2,6 +2,7 @@ import React from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
+import './StatisticsPage.css';
 
 const getIntroOfPage = (label, namesArr) => {
   let obj = {};
@@ -23,6 +24,7 @@ function CustomTooltip({
       <div
         className="custom-tooltip"
         style={{
+          marginTop: '50px',
           color: 'black',
           background: 'white',
           borderRadius: '10%',
@@ -50,7 +52,7 @@ export default function StatisticsPage({ currStat }) {
           height={300}
           data={currStat?.newData}
           margin={{
-            top: 5,
+            top: 50,
             right: 50,
             left: 0,
             bottom: 0,

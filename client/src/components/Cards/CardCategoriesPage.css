@@ -1,5 +1,5 @@
 .card {
-  width: 70rem;
+  /* width: 70rem; */
   height: 40rem;
   display: flex;
   /* margin-left: auto;
@@ -17,7 +17,9 @@
   /* padding-top: 20px; */
   margin-top: 0px;
   border-width: '0.5';
-  box-shadow: '11px 14px 9px 1px  silver'
+  box-shadow: '11px 14px 9px 1px  silver';
+ /* flex-wrap:wrap */
+  
 }
 .img {
   display: flex;
