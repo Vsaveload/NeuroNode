@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Container } from 'reactstrap';
 import CardCategoriesPage from '../Cards/CardCategoriesPage';
 import Navbar from '../Navbar/NavBar';
 import './LibraryPage.css';
@@ -20,10 +21,8 @@ export default function LibraryPage() {
       <Navbar className="navbar border" />
 
       <div className="library">
-        <div className="d-flex">
-          {categories?.map((category) => (
-            <CardCategoriesPage key={category.id} category={category} />))}
-        </div>
+        {categories?.map((category) => (
+          <CardCategoriesPage key={category.id} category={category} className="libraryCard" />))}
       </div>
     </>
   );

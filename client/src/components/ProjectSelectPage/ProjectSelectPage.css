@@ -3,14 +3,32 @@
   height: 100vh;
   width: auto; */
 }
+
 .butPsp {
-  position: absolute;
-  left: 50%;
-  justify-content: center;
   outline: 3px outset white;
   background-color: black;
-  margin-top: 30px;
+  margin-left: 50%;
+  margin-right: 50%;
+
 }
-.d-flex {
-  
+
+.d-flex-psp {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  margin-top: 50px;
+  margin-right: 10px;
+  background-color: black;
+
+}
+
+.projectPage {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: black;
+  height: 100vh;
+  width: auto;
+
 }

@@ -53,9 +53,9 @@ export default function EditProjectPage() {
         horizontal
         numbered
       />
-      <>
-      </>
+      <div>
       <Button color="secondary" onClick={() => navigate('/myprojects')} className="btnEdit">Back to projects</Button>
+      </div>
     </div>
   );
 }

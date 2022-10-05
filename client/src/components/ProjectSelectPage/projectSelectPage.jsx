@@ -24,7 +24,7 @@ export default function projectSelectPage() {
   return (
     <div>
       <Navbar />
-      <div className="d-flex psp">
+      <div className="projectPage">
         {projects?.map((project) => (
           <CardProjectPage key={project.id} project={project} />))}
         <Button onClick={toCategories} className="butPsp">Back to library</Button>
