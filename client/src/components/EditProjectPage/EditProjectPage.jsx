@@ -16,6 +16,7 @@ export default function EditProjectPage() {
   const [nodesBack, setNodesBack] = useState([]);
 
   const navigate = useNavigate();
+
   useEffect(() => {
     axios.get(`http://localhost:3001/myprojects/${id}`)
       .then((res) => {
@@ -53,8 +54,6 @@ export default function EditProjectPage() {
         horizontal
         numbered
       />
-      <>
-      </>
       <Button color="secondary" onClick={() => navigate('/myprojects')} className="btnEdit">Back to projects</Button>
     </div>
   );
