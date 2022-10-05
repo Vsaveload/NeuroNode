@@ -42,7 +42,7 @@ export default function CardEditorPage({ project, projectStat, projectStatName }
         />
         <CardBody className="card-body">
           <CardTitle tag="h5" className="name">
-            <h1>{project.name}</h1>
+            {project.name}
           </CardTitle>
           <CardSubtitle
             className="title"

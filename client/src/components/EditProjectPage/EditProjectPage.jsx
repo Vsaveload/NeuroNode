@@ -16,6 +16,7 @@ export default function EditProjectPage() {
   const [nodesBack, setNodesBack] = useState([]);
 
   const navigate = useNavigate();
+
   useEffect(() => {
     axios.get(`http://localhost:3001/myprojects/${id}`)
       .then((res) => {

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const express = require('express');
 const { Node, Connection } = require('../db/models');
 
@@ -32,8 +33,12 @@ router.get('/byid/:id', async (req, res) => {
 });
 
 router.post('/new', async (req, res) => {
-  const { name, content } = req.body;
-  const newNode = await Node.create({ name, content });
+  const {
+    name, content, project_id, isFirst,
+  } = req.body;
+  const newNode = await Node.create({
+    name, content, project_id, isFirst,
+  });
   res.json(newNode);
 });
 
@@ -57,11 +62,25 @@ router.patch('/:id', async (req, res) => {
       default:
         break;
     }
+    console.log('assssssssssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaa', isFirst); // aaaaaaaaaaaaaaaaaaaaa
     const editedNode = await Node.findByPk(id);
     await editedNode.update({ name, content, isFirst });
     res.json(editedNode);
   } catch (err) {
     console.log(err);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Node.destroy({ where: { id } });
+    await Connection.destroy({
+      where: { from: id },
+    });
+    res.sendStatus(200);
+  } catch (e) {
+    console.log(e);
   }
 });
 

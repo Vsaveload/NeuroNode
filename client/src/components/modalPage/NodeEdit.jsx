@@ -8,9 +8,11 @@ import {
   Button, Card, CardBody, CardSubtitle, CardText, CardTitle, Input, Modal, ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap';
 
-export default function NodeEdit() {
-  const [node, setNode] = useState({});
-  const [allProjectNodes, setallProjectNodes] = useState([]);
+export default function NodeEdit({ node, allProjectNodes, toggle }) {
+  // console.log(allProjectNodes, node);
+
+  // const [node, setNode] = useState({});
+  // const [allProjectNodes, setallProjectNodes] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [isEditingConnections, setIsEditingConnections] = useState(false);
   const [isEditingContent, setIsEditingContent] = useState(false);
@@ -23,22 +25,23 @@ export default function NodeEdit() {
     isFirst: node.isFirst,
   });
 
-  const { nodeId } = useParams();
+  // const { nodeId } = useParams();
 
-  useEffect(() => {
-    axios(`http://localhost:3001/node/byid/${nodeId}`)
-      .then((res) => setNode(res.data))
-      .catch(console.log);
-    axios(`http://localhost:3001/node/allinproject/${nodeId}`)
-      .then((res) => setallProjectNodes(res.data))
-      .catch(console.log);
-  }, []);
+  // useEffect(() => {
+  //   axios(`http://localhost:3001/node/byid/${nodeId}`)
+  //     .then((res) => setNode(res.data))
+  //     .catch(console.log);
+  //   axios(`http://localhost:3001/node/allinproject/${nodeId}`)
+  //     .then((res) => setallProjectNodes(res.data))
+  //     .catch(console.log);
+  // }, []);
 
   const changeHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const submitHandler = async (updatingNodeId) => {
+    console.log('INPUT CONNECTIONS', input, connections);
     const response = await axios.patch(
       `http://localhost:3001/node/${updatingNodeId}`,
       {
@@ -53,7 +56,7 @@ export default function NodeEdit() {
     const connectionsResponse = await axios.patch(
       `http://localhost:3001/connections/${updatingNodeId}`,
       {
-        arrayOfConnections: connections,
+        connections,
       },
     );
     if (connectionsResponse.ok) {
@@ -74,15 +77,18 @@ export default function NodeEdit() {
     }
   };
 
-  const alreadyHasFirstChecker = () => {
-    if (allProjectNodes.find((el) => el.isFirst === true).id === node.id) {
+  const alreadyHasFirstChecker = (nodeId) => {
+    if (allProjectNodes.find((el) => el.isFirst === true)?.id === nodeId) {
+      return false;
+    } if (allProjectNodes.find((el) => el.isFirst === true)?.id === true) {
       return false;
     }
     return allProjectNodes.find((el) => el.isFirst === true);
   };
+  // console.log(alreadyHasFirstChecker(node.id));
 
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card>
       <CardBody>
         <CardTitle tag="h5">
           {isEditing
@@ -130,9 +136,9 @@ export default function NodeEdit() {
                       if (alreadyHasFirstChecker(node.id)) {
                         // eslint-disable-next-line no-alert
                         alert(`"${alreadyHasFirstChecker().name}" is the first node in this project\nThere can be only one first node`);
-                      } else {
-                        changeHandler(e);
                       }
+                      changeHandler(e);
+                      // console.log('input', input);
                     }}
                   />
                   First
@@ -160,7 +166,7 @@ export default function NodeEdit() {
                     }}
                   />
                   Finishing
-                  <Button onClick={() => { setIsEditingIsFirst(!isEditingIsFirst); console.log(input); }}>Save</Button>
+                  <Button onClick={() => { setIsEditingIsFirst(!isEditingIsFirst); }}>Save</Button>
                   <Button onClick={() => { setInput({ ...input, isFirst: node.isFirst }); setIsEditingIsFirst(!isEditingIsFirst); }}>Cancel</Button>
                 </>
               )
@@ -207,18 +213,26 @@ export default function NodeEdit() {
               acc.push(connection.to);
               return acc;
             }, []).includes(projNode.id)).map((proNode) => <div key={proNode.id}>{proNode.name}</div>)}
-            <Button onClick={() => {
-              setConnections(node.Connections.reduce((acc, connection) => {
-                acc.push(connection.to);
-                return acc;
-              }, []));
-              setIsEditingConnections(!isEditingConnections);
-            }}
-            >
-            Edit connections
-            </Button>
-        <Button onClick={() => submitHandler(node.id)}>Submit changes</Button>
-        <Button>Discard changes</Button>
+          <Button onClick={() => {
+            setConnections(node.Connections.reduce((acc, connection) => {
+              acc.push(connection.to);
+              return acc;
+            }, []));
+            console.log(connections);
+            setIsEditingConnections(!isEditingConnections);
+          }}
+          >
+          Edit connections
+          </Button>
+        <Button onClick={() => {
+          submitHandler(node.id);
+          toggle();
+        }}
+        >
+          Submit changes
+        </Button>
+        <Button onClick={() => toggle()}>Discard changes</Button>
+        <Button onClick={() => console.log(connections)}>Log</Button>
       </CardBody>
     </Card>
   );
