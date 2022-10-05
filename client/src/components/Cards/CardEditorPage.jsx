@@ -31,51 +31,52 @@ export default function CardEditorPage({ project, index }) {
   useEffect(() => { setCurrStat(stat[index]); }, [stat]);
   return (
     <>
-    {currStat && (
-<div className="cardPage">
-  {console.log('staaaat', stat)}
-    <Card className="card">
-      <img
-        className="img"
-        src={project.img}
-        alt="Not provided"
-      />
-      <CardBody className="card-body">
-        <CardTitle className="name">
-          <h1>{project.name}</h1>
-        </CardTitle>
-        <CardSubtitle
-          className="title"
-        >
-          <strong>Card description:</strong>
-        </CardSubtitle>
-        <CardText className="desc">
-          {project.desc}
-        </CardText>
+      {currStat && (
+        <div className="cardPage">
+          {console.log('staaaat', stat)}
+          <Card className="card">
+            <img
+              className="img"
+              src={project.img}
+              alt="Not provided"
+              width="350px"
+            />
+            <CardBody className="card-body">
+              <CardTitle className="name">
+                <h1>{project.name}</h1>
+              </CardTitle>
+              <CardSubtitle
+                className="title"
+              >
+                <strong>Card description:</strong>
+              </CardSubtitle>
+              <CardText className="desc">
+                {project.desc}
+              </CardText>
 
-        {user ? (
-          <>
-            <Button onClick={() => toFirstNode(project.id)} className="btn">Explore project</Button>
-            <Button onClick={() => toEdit(project.id)} type="submit" className="btn">Edit</Button>
-            <Button
-              onClick={() => dispatch(deleteProjectAsync(project.id))}
-              className="del"
-            >
-              Delete
+              {user ? (
+                <>
+                  <Button onClick={() => toFirstNode(project.id)} className="btn">Explore project</Button>
+                  <Button onClick={() => toEdit(project.id)} type="submit" className="btn">Edit</Button>
+                  <Button
+                    onClick={() => dispatch(deleteProjectAsync(project.id))}
+                    className="del"
+                  >
+                    Delete
 
-            </Button>
-          </>
-        ) : (
-          <Button onClick={() => toFirstNode(project.id)}>Explore project</Button>
-        )}
+                  </Button>
+                </>
+              ) : (
+                <Button onClick={() => toFirstNode(project.id)}>Explore project</Button>
+              )}
 
-      </CardBody>
+            </CardBody>
 
-    </Card>
+          </Card>
 
-    <StatisticsPage currStat={currStat} />
-</div>
-    )}
+          <StatisticsPage currStat={currStat} />
+        </div>
+      )}
     </>
   );
 }

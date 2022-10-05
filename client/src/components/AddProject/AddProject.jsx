@@ -43,7 +43,8 @@ export default function AddProject() {
 
   return (
     <div className="main">
-      <NavBar />
+      <NavBar style={{ marginTop: '150px' }} />
+
       <Form onSubmit={submitHandler} className="cardMain">
         <FormGroup className="form">
           <Label for="exampleEmail" className="inpColor">
@@ -105,9 +106,10 @@ export default function AddProject() {
           </Input>
         </FormGroup>
       </Form>
-        <Button type="submit" onClick={submitHandler} className="cardBut">
-          Create
-        </Button>
+      <Button type="submit" onClick={submitHandler} className="cardBut">
+        Create
+      </Button>
     </div>
+
   );
 }
