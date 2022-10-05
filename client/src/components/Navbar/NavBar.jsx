@@ -29,7 +29,7 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 d-md-flex float-right">
               <li className="nav">
-                <NavLink className="btn btn-dark m-2" to="/">Main Page</NavLink>
+                <NavLink className="btn btn-dark m-2" to="/home">HOME</NavLink>
               </li>
               {!signup
                 ? (
@@ -38,7 +38,7 @@ export default function Navbar() {
                   <li>
                     {/* <NavLink to="/game"
                   className="btn btn-outline-dark m-2"><strong>Node</strong></NavLink> */}
-                    <a onClick={logoutHandler} className="btn btn-dark m-2" href="logout">Exit</a>
+                    <a onClick={logoutHandler} className="btn btn-dark m-2" href="logout">EXIT</a>
                   </li>
                 )}
             </ul>

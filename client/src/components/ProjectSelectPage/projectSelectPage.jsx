@@ -4,6 +4,8 @@ import { Button } from 'reactstrap';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import CardProjectPage from '../Cards/CardProjectPage';
+import Navbar from '../Navbar/NavBar';
+import './ProjectSelectPage.css';
 
 export default function projectSelectPage() {
   const [projects, setProjects] = useState([]);
@@ -20,10 +22,13 @@ export default function projectSelectPage() {
     navigate('/library');
   };
   return (
-    <div className="d-flex" style={{ flexDirection: 'column' }}>
-      {projects?.map((project) => (
-    <CardProjectPage key={project.id} project={project} />))}
-      <Button onClick={toCategories}>Back to library</Button>
+    <div>
+      <Navbar />
+      <div className="projectPage">
+        {projects?.map((project) => (
+          <CardProjectPage key={project.id} project={project} />))}
+        <Button onClick={toCategories} className="butPsp">Back to library</Button>
+      </div>
     </div>
   );
 }
