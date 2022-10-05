@@ -21,6 +21,8 @@ export default function AddProject() {
   const inputHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
+  console.log('INPUT', input);
   const submitHandler = async (e) => {
     const data = { ...input, userId };
     e.preventDefault();
@@ -93,16 +95,26 @@ export default function AddProject() {
             Select category
           </Label>
           <Input
-            onChange={inputHandler}
-            value={input.categoryID}
             id="exampleSelect"
             name="categoryID"
             type="select"
             className="input"
+            value={input.categoryID}
+            onChange={inputHandler}
           >
-            {allCategories && allCategories?.map((category) => (
-              <option key={category.id} value={category.id}>{category.name}</option>
-            ))}
+            <option hidden>Select Category</option>
+            {allCategories && allCategories?.map((category) => {
+              console.log('category from map', category);
+              return (
+<option
+  key={category.id}
+  value={category.id}
+  name="categoryID"
+>
+{category.name}
+</option>
+              );
+            })}
           </Input>
         </FormGroup>
       </Form>

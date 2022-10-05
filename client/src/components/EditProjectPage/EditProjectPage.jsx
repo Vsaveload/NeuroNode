@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, ListGroup } from 'reactstrap';
+
 import { useDispatch, useSelector } from 'react-redux';
 import Graph from '../Graph';
 import '../Cards/CardEditorPage.css';
@@ -22,19 +23,27 @@ export default function EditProjectPage() {
     dispatch(setProjectForEditAsync(id));
     dispatch(getNodesAsync(id));
   }, []);
-  console.log(project);
+  let newData = {};
+  const nodesNew = [];
+  const linksNew = [];
+  nodes?.map((node) => node.Connections
+    .map((connection) => linksNew.push({ source: connection.from, target: connection.to })));
+  nodes?.map((node) => nodesNew.push({ id: node.id }));
+  newData = { nodes: nodesNew, links: linksNew };
+  console.log('Project', project);
   return (
     <div className="mainEdit">
       <NavBar style={{ marginTop: '150px' }} />
       <div className="cardPage">
-        {project.id && <EditorCard project={project[0]} className="cardEditor" />}
-        {nodes.nodes && <Graph data={nodes} className="graph" />}
+      {project && <EditorCard project={project[0]} nodes={nodes} className="cardEditor" />}
+        {nodes && <Graph data={newData} className="graph" />}
       </div>
-      <ListGroup
+
+      {/* <ListGroup
         flush
         horizontal
         numbered
-      />
+      /> */}
       <div>
       <Button onClick={() => navigate('/myprojects')} className="btnEdit">Back to projects</Button>
       </div>

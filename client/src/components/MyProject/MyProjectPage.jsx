@@ -33,6 +33,7 @@ export default function MyProjectPage() {
     if (signup) {
       dispatch(setProjectForEditAsync(signup.id));
       console.log('axios sent');
+
       // console.log('Res.Data:', res.data);
       // setCurrentUserProjects(res.data);
       // axios(`http://localhost:3001/stat/byid/${currentUserProjects[0]?.id}`)

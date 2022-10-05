@@ -4,7 +4,6 @@ import {
   Card, CardBody, CardTitle, CardText, Button, CardSubtitle, Input, Modal,
 } from 'reactstrap';
 import NodeModal from '../modalPage/NodeModal';
-import './CardEditorPage.css';
 import './EditorCard.css';
 
 export default function EditorCard({ project, nodes }) {
