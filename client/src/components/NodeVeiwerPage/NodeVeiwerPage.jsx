@@ -1,11 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { updateStatisticsAsync } from '../../redux/action/statActions';
 
 export default function NodeVeiwerPage() {
   const [node, setNode] = useState([]);
   const { projectId } = useParams();
+  const dispatch = useDispatch();
 
   //   const { PORT } = process.env;
   useEffect(() => {
@@ -32,6 +35,7 @@ export default function NodeVeiwerPage() {
   const navigate = useNavigate();
 
   const toProject = (nodeProjectId) => {
+    dispatch(updateStatisticsAsync(nodeProjectId));
     const path = `/category/${nodeProjectId}`;
     navigate(path);
   };

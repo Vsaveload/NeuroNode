@@ -19,47 +19,30 @@ export default function MyProjectPage() {
   const dispatch = useDispatch();
 
   const signup = useSelector((state) => state.signup);
-  const currentUserProjects = useSelector((state) => state.projectForEdit);
+  const currentUserProjects = useSelector((state) => state.project);
   console.log('CUR USER PROJECT', currentUserProjects);
-  // useEffect(() => {
-  //   axios(`http://localhost:3001/stat/byid/${currentUserProjects.id}`)
-  //     .then((res) => {
-  //       setProjectStat(res.data.newData);
-  //       setProjectStatName(res.data.namesArr);
-  //     });
-  // }, []);
 
   useEffect(() => {
     if (signup) {
-      dispatch(setProjectForEditAsync(signup.id));
+      dispatch(setProjectsAsync(signup.id));
       console.log('axios sent');
-
-      // console.log('Res.Data:', res.data);
-      // setCurrentUserProjects(res.data);
-      // axios(`http://localhost:3001/stat/byid/${currentUserProjects[0]?.id}`)
-      //   .then((data) => {
-      //   //     setProjectStat(data.data.newData);
-      //     setProjectStatName(data.data.namesArr);
-      //   });
     }
   }, [signup]);
   return (
     <div>
-      {
-      // console.log('SELECTOR', currentUserProjects)
+          <div className="mainDiv">
 
-      }
-      <div className="mainDiv">
 <Navbar />
         <div className="myDiv">
           {currentUserProjects && currentUserProjects?.map((project, i) => (
+            <>
+  {console.log('prpr', project)}
               <CardEditorPage
                 key={project.id}
                 project={project}
                 index={i}
-                // projectStat={project.Statistics}
-                // projectStatName={projectStatName}
               />
+            </>
           ))}
         </div>
         <div>
@@ -68,7 +51,7 @@ export default function MyProjectPage() {
 
           </div>
         </div>
-      </div>
+          </div>
     </div>
   );
 }

@@ -32,9 +32,10 @@ export default function CardEditorPage({ project, index }) {
   return (
     <>
     {currStat && (
-<div className="cardPage">
-  {console.log('staaaat', stat)}
+      <div className="cardPage">
+  {console.log('staaaat', index)}
     <Card className="card">
+  {console.log(currStat)}
       <img
         className="img"
         src={project.img}
@@ -74,7 +75,7 @@ export default function CardEditorPage({ project, index }) {
     </Card>
 
     <StatisticsPage currStat={currStat} />
-</div>
+      </div>
     )}
     </>
   );
