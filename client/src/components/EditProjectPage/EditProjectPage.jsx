@@ -14,6 +14,7 @@ export default function EditProjectPage() {
   const [nodesBack, setNodesBack] = useState([]);
 
   const navigate = useNavigate();
+
   useEffect(() => {
     axios.get(`http://localhost:3001/myprojects/${id}`)
       .then((res) => {
@@ -42,7 +43,7 @@ export default function EditProjectPage() {
   return (
     <>
     <div className="cardPage">
-      {project.id && <EditorCard project={project} />}
+      {project.id && <EditorCard project={project} nodes={nodesBack} />}
       {newData.nodes && <Graph data={newData} />}
     </div>
     <ListGroup
