@@ -20,6 +20,7 @@ export default function CardProjectPage({ project }) {
         className="img"
         src={project.img}
         alt="Not provided"
+        width="350px"
       />
       <CardBody className="card-body">
         <CardTitle tag="h5" className="name">

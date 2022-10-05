@@ -9,7 +9,7 @@ export default function HomePage() {
   const navigate = useNavigate();
   return (
       <div className="homeDiv">
-         <NavBar />
+         <NavBar style={{ marginTop: '150px' }} />
          <ButtonGroup vertical size="lg" className="bg">
             <Button color="dark" onClick={() => navigate('/library')} className="button">
               <h2><strong>Library</strong></h2>
@@ -20,9 +20,9 @@ export default function HomePage() {
             <Button color="dark" onClick={() => navigate('/myprojects')} className="button2">
               <h2><strong>My Projects</strong></h2>
             </Button>
-            <Button color="dark" onClick={() => navigate('/favorites')} className="button3">
+            {/* <Button color="dark" onClick={() => navigate('/favorites')} className="button3">
                <h2><strong>Favorites</strong></h2>
-            </Button>
+            </Button> */}
          </ButtonGroup>
       </div>
   );

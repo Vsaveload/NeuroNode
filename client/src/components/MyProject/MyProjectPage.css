@@ -1,3 +1,8 @@
+.mainDiv {
+  height: 100vh;
+  width: auto;
+  background-color: black;
+}
 .btn1 {
   position: absolute;
   left: 50%;
@@ -25,10 +30,4 @@
   height: auto;
   width: auto;
   flex-direction: column;
-}
-
-.mainDiv {
-  height: 100vh;
-  width: auto;
-  background-color: black;
 }

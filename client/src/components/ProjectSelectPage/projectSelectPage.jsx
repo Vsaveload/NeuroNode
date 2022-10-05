@@ -22,8 +22,8 @@ export default function projectSelectPage() {
     navigate('/library');
   };
   return (
-    <div>
-      <Navbar />
+    <div className="select">
+     <Navbar style={{ marginTop: '150px' }} />
       <div className="projectPage">
         {projects?.map((project) => (
           <CardProjectPage key={project.id} project={project} />))}
