@@ -21,6 +21,7 @@ export default function CardProjectPage({ category }) {
             className="img"
             src={category.img}
             alt="Not provided"
+            width="350px"
           />
         </div>
         <CardBody className="card-body">

@@ -7,7 +7,7 @@ import Graph from '../Graph';
 import '../Cards/CardEditorPage.css';
 import EditorCard from '../Cards/EditorCard';
 import './EditProjectPage.css';
-import Navbar from '../Navbar/NavBar';
+import NavBar from '../Navbar/NavBar';
 // import { setProjectForEdit } from '../../redux/action/projectActions';
 import { getNodesAsync } from '../../redux/action/nodeActions';
 import { setProjectForEditAsync } from '../../redux/action/projectForEditActions';
@@ -33,7 +33,7 @@ export default function EditProjectPage() {
   console.log('Project', project);
   return (
     <div className="mainEdit">
-      <Navbar />
+      <NavBar style={{ marginTop: '150px' }} />
       <div className="cardPage">
       {project && <EditorCard project={project[0]} nodes={nodes} className="cardEditor" />}
         {nodes && <Graph data={newData} className="graph" />}
@@ -45,7 +45,7 @@ export default function EditProjectPage() {
         numbered
       /> */}
       <div>
-      <Button color="secondary" onClick={() => navigate('/myprojects')} className="btnEdit">Back to projects</Button>
+      <Button onClick={() => navigate('/myprojects')} className="btnEdit">Back to projects</Button>
       </div>
     </div>
   );

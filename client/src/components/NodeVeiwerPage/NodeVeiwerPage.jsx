@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import { updateStatisticsAsync } from '../../redux/action/statActions';
+import Navbar from '../Navbar/NavBar';
+import './NodeVeiwerPage.css';
 
 export default function NodeVeiwerPage() {
   const [node, setNode] = useState([]);
@@ -41,13 +43,16 @@ export default function NodeVeiwerPage() {
   };
 
   return (
-    <>
-      <div>{node?.content}</div>
-      <div>
-        {node?.isFirst === false
-          ? <Button onClick={() => toProject(node.project_id)}>Finish project</Button>
-          : node?.Connections?.map((el) => <Button onClick={() => { console.log('el', el); nextNode(el.to, el.from, projectId); }} key={el.id}>{`${el.from}-${el.to}`}</Button>)}
-      </div>
-    </>
+    <div className="node">
+      {/* <Navbar /> */}
+      <>
+        <div>{node?.content}</div>
+        <div>
+          {node?.isFirst === false
+            ? <Button onClick={() => toProject(node.project_id)}>Finish project</Button>
+            : node?.Connections?.map((el) => <Button onClick={() => { console.log('el', el); nextNode(el.to, el.from, projectId); }} key={el.id}>{`${el.from}-${el.to}`}</Button>)}
+        </div>
+      </>
+    </div>
   );
 }

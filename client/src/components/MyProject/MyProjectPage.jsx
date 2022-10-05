@@ -30,9 +30,8 @@ export default function MyProjectPage() {
   }, [signup]);
   return (
     <div>
-          <div className="mainDiv">
-
-<Navbar />
+      <div className="mainDiv">
+      <Navbar style={{ marginTop: '150px' }} />
         <div className="myDiv">
           {currentUserProjects && currentUserProjects?.map((project, i) => (
             <>
@@ -51,7 +50,7 @@ export default function MyProjectPage() {
 
           </div>
         </div>
-          </div>
+      </div>
     </div>
   );
 }
