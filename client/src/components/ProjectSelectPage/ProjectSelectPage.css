@@ -1,16 +1,16 @@
-.psp {
-  /* background-color: black;
+/* .psp {
+  background-color: black;
   height: 100vh;
-  width: auto; */
-}
+  width: auto;
+} */
 
 .butPsp {
-  outline: 3px outset white;
+  width: 150px;
   background-color: black;
-  margin-left: 50%;
-  margin-right: 50%;
-
-}
+  margin-left: 45%;
+  margin-right: 55%;
+  outline: solid white;
+  }
 
 .d-flex-psp {
   display: flex;
@@ -24,11 +24,16 @@
 
 .projectPage {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  /* justify-content: space-around; */
+  /* flex-wrap: wrap; */
   flex-direction: column;
   background-color: black;
   height: 100vh;
   width: auto;
 
+}
+.select {
+  background-color: black;
+  height: 100vh;
+  width: auto;
 }

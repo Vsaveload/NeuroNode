@@ -50,7 +50,7 @@ export default function MyProjectPage() {
 
       }
       <div className="mainDiv">
-<Navbar />
+      <Navbar style={{ marginTop: '150px' }} />
         <div className="myDiv">
           {currentUserProjects && currentUserProjects?.map((project, i) => (
               <CardEditorPage
