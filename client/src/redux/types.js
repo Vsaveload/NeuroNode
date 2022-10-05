@@ -25,3 +25,5 @@ export const GET_NODES = 'GET_NODES';
 export const DELETE_NODE = 'DELETE_NODE';
 
 export const SET_PROJECT_FOR_EDIT = 'SET_PROJECT_FOR_EDIT';
+
+export const SET_NODES_FOREDIT = 'SET_NODES_FOREDIT';
