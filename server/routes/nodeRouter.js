@@ -86,12 +86,6 @@ router.patch('/:id', async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-router.delete('./:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    await Node.destroy({ where: { id } });
-=======
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -99,7 +93,6 @@ router.delete('/:id', async (req, res) => {
     await Connection.destroy({
       where: { from: id },
     });
->>>>>>> a8214d31c96680f8a343433732cbbd55d79e561a
     res.sendStatus(200);
   } catch (e) {
     console.log(e);

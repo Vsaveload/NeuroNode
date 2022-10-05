@@ -15,7 +15,7 @@ export default function EditProjectPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const nodes = useSelector((state) => state.node);
-  const project = useSelector((state) => state.project);
+  const project = useSelector((state) => state.projectForEdit);
   const navigate = useNavigate();
 
   useEffect(() => {

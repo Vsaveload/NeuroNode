@@ -53,32 +53,9 @@ export default function CardEditorPage({ project, index }) {
           {project.desc}
         </CardText>
 
-<<<<<<< HEAD
         {user ? (
           <>
             <Button onClick={() => toFirstNode(project.id)} className="btn">Explore project</Button>
-=======
-      <Card className="card">
-        <img
-          className="img"
-          src={project.img}
-          alt="Not provided"
-        />
-        <CardBody className="card-body">
-          <CardTitle tag="h5" className="name">
-            {project.name}
-          </CardTitle>
-          <CardSubtitle
-            className="title"
-            tag="h6"
-          >
-            <strong>Card description:</strong>
-          </CardSubtitle>
-          <CardText className="desc">
-            {project.desc}
-          </CardText>
->>>>>>> a8214d31c96680f8a343433732cbbd55d79e561a
-
             <Button onClick={() => toEdit(project.id)} type="submit" className="btn">Edit</Button>
             <Button
               onClick={() => dispatch(deleteProjectAsync(project.id))}
