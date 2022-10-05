@@ -32,6 +32,7 @@ export default function MyProjectPage() {
         .then((res) => {
           console.log('Res.Data:', res.data);
           setCurrentUserProjects(res.data);
+          console.log(res.data);
           axios(`http://localhost:3001/stat/byid/${res.data[0].id}`)
             .then((data) => {
               setProjectStat(data.data.newData);

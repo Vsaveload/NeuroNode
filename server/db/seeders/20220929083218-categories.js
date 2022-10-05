@@ -12,23 +12,23 @@ module.exports = {
     */
     await queryInterface.bulkInsert('Categories', [
       {
-        name: 'Super blockbusteri',
-        desc: 'Okunites v preklucheniya',
-        img: 'https://i.scdn.co/image/ab6761610000e5ebc94fb92f8143c3637c6f7b80',
+        name: 'Interactive books',
+        desc: 'Be not just a reader, help the heroes to make their choice!',
+        img: 'https://www.mgpu.ru/wp-content/uploads/2018/10/s1200.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Religioznaya fantastica',
-        desc: 'O prevet ya tebya znau',
-        img: 'https://2ch.hk/b/thumb/206628817/15726969319170s.jpg',
+        name: 'Interactive instructions',
+        desc: 'You will get a detail info about many different things',
+        img: 'https://i.pinimg.com/originals/67/5b/f5/675bf5fcea0a39aa0186587e00193720.jpg',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Kulinaria',
-        desc: 'Recepti joskih pelmenei',
-        img: 'https://www.difoodlover.com/wp-content/uploads/2022/02/photo_2022-02-06_20-41-55.jpg',
+        name: 'Interactive videos',
+        desc: 'Choose the faith of you heros',
+        img: 'https://images.squarespace-cdn.com/content/v1/57601bd0d51cd4f0854758bd/1466170112861-7XKP0KULV5ROGN1ORLIP/tvis.jpg?format=1500w',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
