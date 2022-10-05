@@ -28,16 +28,25 @@ router.get('/:id', async (req, res) => {
     include: [{ model: Connection }],
     where: { project_id: id },
   });
-  let newData = {};
-  const nodesNew = [];
-  const linksNew = [];
-  allNodes?.map((node) => node.Connections
-    .map((connection) => linksNew.push({ source: connection.from, target: connection.to })));
-  allNodes?.map((node) => nodesNew.push({ id: node.id }));
-  newData = { nodes: nodesNew, links: linksNew };
-  res.json(newData);
+  // let newData = {};
+  // const nodesNew = [];
+  // const linksNew = [];
+  // allNodes?.map((node) => node.Connections
+  //   .map((connection) => linksNew.push({ source: connection.from, target: connection.to })));
+  // allNodes?.map((node) => nodesNew.push({ id: node.id }));
+  // newData = { nodes: nodesNew, links: linksNew };
+  res.json(allNodes);
 });
 
+// router.get('/list/:id', async (req, res) => {
+//   const { id } = req.params;
+//   console.log('----------------------------------', id);
+//   const allNodes = await Node.findAll({
+//     include: [{ model: Connection }],
+//     where: { project_id: id },
+//   });
+//   res.json(allNodes);
+// });
 router.get('/byid/:id', async (req, res) => {
   const { id } = req.params;
   const node = await Node.findByPk(id, {
