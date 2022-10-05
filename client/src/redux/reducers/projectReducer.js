@@ -9,7 +9,7 @@ export default function projectReducer(state = [], action) {
     case ADD_PROJECT:
       return [...state, payload];
     case SET_PROJECTS:
-      return payload;//need arr
+      return payload;// need arr
     case DELETE_PROJECT:
       return state.filter((project) => project.id !== payload);
     case UPDATE_PROJECT:
