@@ -31,10 +31,10 @@ export default function CardEditorPage({ project, index }) {
   useEffect(() => { setCurrStat(stat[index]); }, [stat]);
   return (
     <>
+
       {currStat && (
         <div className="cardPage">
-          {console.log('staaaat', stat)}
-          <Card className="card">
+         <Card className="card">
             <img
               className="img"
               src={project.img}
@@ -69,14 +69,12 @@ export default function CardEditorPage({ project, index }) {
               ) : (
                 <Button onClick={() => toFirstNode(project.id)}>Explore project</Button>
               )}
-
             </CardBody>
-
-          </Card>
-
+         </Card>
           <StatisticsPage currStat={currStat} />
         </div>
       )}
+
     </>
   );
 }
