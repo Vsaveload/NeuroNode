@@ -12,18 +12,18 @@ module.exports = {
     */
     await queryInterface.bulkInsert('Projects', [
       {
-        name: 'Shrek',
-        desc: 'Super klassniy blockbuster',
-        img: 'https://media.2x2tv.ru/content/images/2022/05/ssssss.jpg',
+        name: 'Красная шапочка',
+        desc: 'Эксперементальное интерактивное издание',
+        img: 'https://get.wallhere.com/photo/red-food-girl-fairytale-wolf-basket-littleredridinghood-fantasy-hood-imagination-redridinghood-734466.jpg',
         category_id: 1,
         user_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Osel',
-        desc: 'Prosto otriv boshki',
-        img: 'https://kartinkof.club/uploads/posts/2022-03/thumbs/1648243473_3-kartinkof-club-p-osel-shrek-mem-3.jpg',
+        name: 'Фильм',
+        desc: 'Пример фильма',
+        img: 'https://www.kino-teatr.ru/news/8550/86210.jpg',
         category_id: 2,
         user_id: 2,
         createdAt: new Date(),

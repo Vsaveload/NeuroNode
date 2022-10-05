@@ -59,6 +59,7 @@ h1 {
 	font-size: 90px;
 	color: #fff;
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	cursor: default;
 
 }
 .full-screen__text {
@@ -67,6 +68,7 @@ h1 {
 	font-size: 18px;
 	color: #fff;
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	cursor: default;
 
 }
 

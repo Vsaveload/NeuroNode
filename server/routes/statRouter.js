@@ -37,7 +37,7 @@ router.get('/byid/:id', async (req, res) => {
             }],
           }],
   });
-  // console.log(JSON.parse(JSON.stringify(projectStat)));
+
   const tempArr = [];
   const countObj = {};
   const namesArr = [];
