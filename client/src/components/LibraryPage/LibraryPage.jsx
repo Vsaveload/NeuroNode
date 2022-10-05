@@ -17,7 +17,7 @@ export default function LibraryPage() {
 
   return (
     <>
-      <Navbar />
+      <Navbar className="navbar border" />
 
       <div className="library">
         <div className="d-flex" style={{ justifyContent: 'space-around' }}>

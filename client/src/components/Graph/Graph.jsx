@@ -6,12 +6,16 @@ export default function GraphVizual({ data }) {
   const myConfig = {
     nodeHighlightBehavior: true,
     node: {
-      color: 'lightgreen',
+      color: 'black',
+      fontColor: 'black',
+      fontSize: 25,
       size: 200,
-      highlightStrokeColor: 'white',
+      highlightStrokeColor: 'black',
+      highlightFontSize: 30,
+      mouseCursor: 'crosshair',
     },
     link: {
-      highlightColor: 'white',
+      highlightColor: 'black',
     },
   };
 

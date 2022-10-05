@@ -5,6 +5,7 @@ import {
 } from 'reactstrap';
 import NodeModal from '../modalPage/NodeModal';
 import './CardEditorPage.css';
+import './EditorCard.css';
 
 export default function EditorCard({ project, nodes }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -68,9 +69,7 @@ export default function EditorCard({ project, nodes }) {
 <>
     {isEditing
       ? (
-<Card
-  className="card"
->
+<Card className="cardEditor">
 <CardBody className="card-body">
 <Input value={input.name} onChange={changeHandler} name="name" />
 <Input value={input.desc} onChange={changeHandler} name="desc" />

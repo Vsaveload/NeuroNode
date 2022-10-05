@@ -7,6 +7,8 @@ import NodeListPage from '../NodeList/NodeListPage';
 import Graph from '../Graph';
 import '../Cards/CardEditorPage.css';
 import EditorCard from '../Cards/EditorCard';
+import './EditProjectPage.css';
+import Navbar from '../Navbar/NavBar';
 
 export default function EditProjectPage() {
   const { id } = useParams();
@@ -41,20 +43,18 @@ export default function EditProjectPage() {
   newData = { nodes: nodesNew, links: linksNew };
 
   return (
-    <>
-    <div className="cardPage">
-      {project.id && <EditorCard project={project} nodes={nodesBack} />}
-      {newData.nodes && <Graph data={newData} />}
+    <div className="mainEdit">
+      <Navbar />
+      <div className="cardPage">
+        {project.id && <EditorCard project={project} className="cardEditor" />}
+        {newData.nodes && <Graph data={newData} className="graph" />}
+      </div>
+      <ListGroup
+        flush
+        horizontal
+        numbered
+      />
+      <Button color="secondary" onClick={() => navigate('/myprojects')} className="btnEdit">Back to projects</Button>
     </div>
-    <ListGroup
-      flush
-      horizontal
-      numbered
-    />
-    <>
-
-    </>
-    <Button color="secondary" onClick={() => navigate('/myprojects')} className="btn">Back to projects</Button>
-    </>
   );
 }

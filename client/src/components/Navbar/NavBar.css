@@ -1,4 +1,16 @@
-.collapse navbar-collapse {
-  display: flex;
-  justify-content: space-between;
+.navbar-brand {
+  outline: 2px outset white;
+  color: white;
+  border-radius: 5px;
+ }
+.navbar{
+/* outline: 3px outset white; */
+}
+.container-fluid {
+  outline: unset !important;
+  /* border-bottom: white; */
+
+}
+.border {
+  outline: 3px outset white;
 }

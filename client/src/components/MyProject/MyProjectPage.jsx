@@ -6,6 +6,7 @@ import {
   Form, FormGroup, Label, Input, Button,
 } from 'reactstrap';
 import CardEditorPage from '../Cards/CardEditorPage';
+import Navbar from '../Navbar/NavBar';
 import './MyProjectPage.css';
 
 export default function MyProjectPage() {
@@ -41,24 +42,27 @@ export default function MyProjectPage() {
     }
   }, [signup]);
   return (
+    <div>
+      <div className="mainDiv">
+<Navbar />
+        <div className="myDiv">
+          {currentUserProjects && projectStatName
+            && projectStat && currentUserProjects.map((project) => (
+              <CardEditorPage
+                key={project.id}
+                project={project}
+                projectStat={projectStat}
+                projectStatName={projectStatName}
+              />
+          ))}
+        </div>
+        <div>
+          <div className="projectDiv">
+            <Button onClick={() => navigate('/home')} className="btn1">Back to home</Button>
 
-<div className="mainDiv">
-      <div className="myDiv">
-        {currentUserProjects && projectStatName
-         && projectStat && currentUserProjects.map((project) => (
-          <CardEditorPage
-            key={project.id}
-            project={project}
-            projectStat={projectStat}
-            projectStatName={projectStatName}
-          />
-        ))}
-      </div>
-      <div>
-        <div className="projectDiv">
-          <Button onClick={() => navigate('/home')} className="btn1">Back to home</Button>
+          </div>
         </div>
       </div>
-</div>
+    </div>
   );
 }

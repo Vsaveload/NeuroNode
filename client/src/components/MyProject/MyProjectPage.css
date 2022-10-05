@@ -1,9 +1,12 @@
 .btn1 {
-  display:inline-block;
+  position: absolute;
+  left: 50%;
   justify-content: center;
   outline: 2px outset white;
   background-color: black;
-}
+  margin-top: 30px;
+  }
+
 .projectDiv {
   display: flex;
   margin-left: auto;
@@ -11,20 +14,21 @@
   height: 100px;
   width: auto;
   background-color: black;
-  }
+}
+
 .myDiv {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: black;
-    align-items: center;
-    height: auto;
-    width: auto;
-    flex-direction: column;
-  } 
-   
-   .mainDiv {
-    height: 500px;
-    width: auto;
-    background-color: black;
-   }
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  align-items: center;
+  height: auto;
+  width: auto;
+  flex-direction: column;
+}
+
+.mainDiv {
+  height: 100vh;
+  width: auto;
+  background-color: black;
+}

@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import {
   Form, FormGroup, Label, Input, Button,
 } from 'reactstrap';
+import NavBar from '../Navbar/NavBar';
+import './AddProject.css';
 
 export default function AddProject() {
   const userId = useSelector((state) => state.signup.id);
@@ -40,65 +42,72 @@ export default function AddProject() {
   }, []);
 
   return (
-    <Form onSubmit={submitHandler}>
-      <FormGroup>
-        <Label for="exampleEmail">
-          Name
-        </Label>
-        <Input
-          onChange={inputHandler}
-          value={input.name}
-          id="exampleEmail"
-          name="name"
-          placeholder="name"
-          type="name"
-        />
-      </FormGroup>
-      <FormGroup>
-        <Label for="examplePassword">
-          Description
-        </Label>
-        <Input
-          onChange={inputHandler}
-          value={input.desc}
-          id="examplePassword"
-          name="desc"
-          placeholder="description"
-          type="text"
-        />
-      </FormGroup>
-      <FormGroup>
-        <Label for="exampleSelect">
-          Image
-        </Label>
-        <Input
-          onChange={inputHandler}
-          value={input.img}
-          id="examplePassword"
-          name="img"
-          placeholder="url"
-          type="url"
-        />
-      </FormGroup>
-      <FormGroup>
-        <Label for="exampleSelectMulti">
-          Select category
-        </Label>
-               <Input
-                 onChange={inputHandler}
-                 value={input.categoryID}
-                 id="exampleSelect"
-                 name="categoryID"
-                 type="select"
-               >
-      {allCategories && allCategories?.map((category) => (
-            <option key={category.id} value={category.id}>{category.name}</option>
-      ))}
-               </Input>
-      </FormGroup>
-      <Button type="submit" onClick={submitHandler}>
-        Create
-      </Button>
-    </Form>
+    <div className="main">
+      <NavBar />
+      <Form onSubmit={submitHandler} className="cardMain">
+        <FormGroup className="form">
+          <Label for="exampleEmail" className="inpColor">
+            Name
+          </Label>
+          <Input
+            onChange={inputHandler}
+            value={input.name}
+            id="exampleEmail"
+            name="name"
+            placeholder="name"
+            type="name"
+            className="input"
+          />
+        </FormGroup>
+        <FormGroup className="form">
+          <Label for="examplePassword" className="inpColor">
+            Description
+          </Label>
+          <Input
+            onChange={inputHandler}
+            value={input.desc}
+            id="examplePassword"
+            name="desc"
+            placeholder="description"
+            type="text"
+            className="input"
+          />
+        </FormGroup>
+        <FormGroup className="form">
+          <Label for="exampleSelect" className="inpColor">
+            Image
+          </Label>
+          <Input
+            onChange={inputHandler}
+            value={input.img}
+            id="examplePassword"
+            name="img"
+            placeholder="url"
+            type="url"
+            className="input"
+          />
+        </FormGroup>
+        <FormGroup className="form">
+          <Label for="exampleSelectMulti" className="inpColor">
+            Select category
+          </Label>
+          <Input
+            onChange={inputHandler}
+            value={input.categoryID}
+            id="exampleSelect"
+            name="categoryID"
+            type="select"
+            className="input"
+          >
+            {allCategories && allCategories?.map((category) => (
+              <option key={category.id} value={category.id}>{category.name}</option>
+            ))}
+          </Input>
+        </FormGroup>
+      </Form>
+        <Button type="submit" onClick={submitHandler} className="cardBut">
+          Create
+        </Button>
+    </div>
   );
 }

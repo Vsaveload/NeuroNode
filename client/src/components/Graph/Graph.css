@@ -1,5 +1,8 @@
 .graph {
     align-self: center;
     align-items: center;
+    background-color: white;
+    border-radius: 5%;
+    outline: solid white
     
 }
