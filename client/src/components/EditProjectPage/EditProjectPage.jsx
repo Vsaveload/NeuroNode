@@ -30,9 +30,7 @@ export default function EditProjectPage() {
     .map((connection) => linksNew.push({ source: connection.from, target: connection.to })));
   nodes?.map((node) => nodesNew.push({ id: node.id }));
   newData = { nodes: nodesNew, links: linksNew };
-  console.log('NODAAAAAA BLEAT', nodes);
-  console.log('PROJECT', project);
-  console.log('DATA FRO GRAPH', newData);
+  console.log('Project', project);
   return (
     <div className="mainEdit">
       <Navbar />

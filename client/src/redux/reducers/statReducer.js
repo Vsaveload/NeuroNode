@@ -1,10 +1,11 @@
 /* eslint-disable default-param-last */
-import { STATISTICS } from '../types';
+import { UPDATE_STATISTICS, SET_STATISTICS } from '../types';
 
 export default function statReducer(state = [], action) {
   const { type, payload } = action;
   switch (type) {
-    case STATISTICS:
+    case SET_STATISTICS:
+      if (state.length > 0) return state.map((stat) => (stat.id === payload.id ? payload : stat));
       return [...state, payload];
     default:
       return state;
