@@ -3,7 +3,7 @@ import {
 } from '../types';
 
 // eslint-disable-next-line default-param-last
-export default (state = null, action) => {
+export default function signupReducer(state = null, action) {
   const { type, payload } = action;
 
   switch (type) {
@@ -22,4 +22,4 @@ export default (state = null, action) => {
     default:
       return state;
   }
-};
+}
