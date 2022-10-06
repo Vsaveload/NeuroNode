@@ -12,10 +12,10 @@ module.exports = {
     */
     await queryInterface.bulkInsert('Projects', [
       {
-        name: 'Красная шапочка',
-        desc: 'Эксперементальное интерактивное издание',
-        img: 'https://get.wallhere.com/photo/red-food-girl-fairytale-wolf-basket-littleredridinghood-fantasy-hood-imagination-redridinghood-734466.jpg',
-        category_id: 1,
+        name: 'Первая помощь',
+        desc: 'Инструкция по оказанию первой помощи. Взято с сайта МЧС',
+        img: 'https://pardou11.crimea-school.ru/sites/default/files/images/06122065_1.jpg',
+        category_id: 2,
         user_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -24,7 +24,7 @@ module.exports = {
         name: 'Фильм',
         desc: 'Пример фильма',
         img: 'https://www.kino-teatr.ru/news/8550/86210.jpg',
-        category_id: 2,
+        category_id: 3,
         user_id: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
