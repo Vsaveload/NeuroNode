@@ -48,7 +48,7 @@ export default function CardEditorPage({ project, index }) {
               <CardSubtitle
                 className="title"
               >
-                <strong>Card description:</strong>
+                <strong>Description: </strong>
               </CardSubtitle>
               <CardText className="desc">
                 {project.desc}

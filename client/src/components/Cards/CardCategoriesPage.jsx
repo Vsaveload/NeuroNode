@@ -26,6 +26,11 @@ export default function CardProjectPage({ category }) {
         </div>
         <CardBody className="card-body">
           <CardTitle tag="h5" className="name">
+          <strong>
+            Title:
+            {' '}
+
+          </strong>
             {category.name}
           </CardTitle>
           <CardSubtitle
@@ -33,6 +38,10 @@ export default function CardProjectPage({ category }) {
             tag="h6"
           />
           <CardText className="desc">
+          <strong>
+            Description:
+            {' '}
+          </strong>
             {category.desc}
           </CardText>
           <Button onClick={() => toProjects(category.id)} className="btn">See projects</Button>

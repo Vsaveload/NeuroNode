@@ -77,13 +77,13 @@ export default function NodeEdit({ node, allProjectNodes, toggle }) {
   const switchForIsFirst = (isfirst) => {
     switch (isfirst) {
       case true:
-        return <div>First node in project</div>;
+        return <div style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>First node in project</div>;
       case false:
-        return <div>Finish node</div>;
+        return <div style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Finish node</div>;
       case null:
-        return <div>transitional node</div>;
+        return <div style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>transitional node</div>;
       default:
-        return <div>lost in time and space</div>;
+        return <div style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>lost in time and space</div>;
     }
   };
 
@@ -103,139 +103,149 @@ export default function NodeEdit({ node, allProjectNodes, toggle }) {
         <CardTitle tag="h5">
           {isEditing
             ? (
-                <>
-                  <Input value={input.name} onChange={changeHandler} name="name" />
-                  <Button onClick={() => { setIsEditing(!isEditing); }}>Save</Button>
-                  <Button onClick={() => { setInput({ ...input, name: node.name }); setIsEditing(!isEditing); }}>Cancel</Button>
-                </>
+              <>
+                <Input value={input.name} onChange={changeHandler} name="name" />
+                <Button onClick={() => { setIsEditing(!isEditing); }} style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Save</Button>
+                <Button onClick={() => { setInput({ ...input, name: node.name }); setIsEditing(!isEditing); }} style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Cancel</Button>
+              </>
             )
             : (
-                <>
-                  <p>
+              <>
+                <p style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>
                   Node name:
                   {' '}
                   {input?.name ? input.name : node.name}
-                  </p>
-                  <Button onClick={() => { setInput({ ...input, name: input.name ? input.name : node.name }); setIsEditing(!isEditing); }}>Edit node name</Button>
-                </>
+                </p>
+                <Button onClick={() => { setInput({ ...input, name: input.name ? input.name : node.name }); setIsEditing(!isEditing); }} style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Edit node name</Button>
+              </>
             )}
         </CardTitle>
-          <h3>Node content:</h3>
-          {isEditingContent
-            ? (
-                <>
-                  <Input value={input.content} onChange={changeHandler} name="content" />
-                  <Button onClick={() => { setIsEditingContent(!isEditingContent); }}>Save</Button>
-                  <Button onClick={() => { setInput({ ...input, content: node.content }); setIsEditingContent(!isEditingContent); }}>Cancel</Button>
-                </>
-            )
-            : (
-                <>
-                  <CardText style={{ overflowY: 'scroll', Maxheight: '16rem' }}>{input?.content || node?.content}</CardText>
-                  <Button onClick={() => { setIsEditingContent(!isEditingContent); setInput({ ...input, content: input.content ? input.content : node.content }); }}>Edit content</Button>
-                </>
-            )}
-            {isEditingIsFirst
-              ? (
-                <>
-                  <Input
-                    type="radio"
-                    name="isFirst"
-                    value="true"
-                    onChange={(e) => {
-                      if (alreadyHasFirstChecker(node.id)) {
-                        // eslint-disable-next-line no-alert
-                        alert(`"${alreadyHasFirstChecker().name}" is the first node in this project\nThere can be only one first node`);
-                      }
-                      changeHandler(e);
-                      // console.log('input', input);
-                    }}
-                  />
-                  First
-                  <Input
-                    type="radio"
-                    name="isFirst"
-                    value="null"
-                    onChange={changeHandler}
-                  />
-                  Transitional
-                  <Input
-                    type="radio"
-                    name="isFirst"
-                    value="false"
-                    onChange={async (e) => {
-                      if (node.Connections.reduce((acc, connection) => {
-                        acc.push(connection.to);
-                        return acc;
-                      }, []).length > 0) {
-                        // eslint-disable-next-line no-alert
-                        alert('Finish node can not have outgoing connections\nRemove them to set this node as finish');
-                      } else {
-                        changeHandler(e);
-                      }
-                    }}
-                  />
-                  Finishing
-                  <Button onClick={() => { setIsEditingIsFirst(!isEditingIsFirst); }}>Save</Button>
-                  <Button onClick={() => { setInput({ ...input, isFirst: node.isFirst }); setIsEditingIsFirst(!isEditingIsFirst); }}>Cancel</Button>
-                </>
-              )
-              : (
-                <>
-                   {switchForIsFirst(input.isFirst || node.isFirst)}
-                   <Button onClick={() => { setInput({ ...input, isFirst: node.isFirst }); setIsEditingIsFirst(!isEditingIsFirst); }}>Edit isFirst</Button>
-                </>
-              )}
+        <h3 style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Node content:</h3>
+        {isEditingContent
+          ? (
+            <>
+              <Input value={input.content} onChange={changeHandler} name="content" />
+              <Button onClick={() => { setIsEditingContent(!isEditingContent); }} style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Save</Button>
+              <Button onClick={() => { setInput({ ...input, content: node.content }); setIsEditingContent(!isEditingContent); }} style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Cancel</Button>
+            </>
+          )
+          : (
+            <>
+              <CardText style={{
+                overflowY: 'scroll', maxHeight: '16rem', color: 'white', marginLeft: '5px',
+              }}
+              >
+                {input?.content || node?.content}
+              </CardText>
+              <Button onClick={() => { setIsEditingContent(!isEditingContent); setInput({ ...input, content: input.content ? input.content : node.content }); }} style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Edit content</Button>
+            </>
+          )}
+        {isEditingIsFirst
+          ? (
+            <>
+              <Input
+                type="radio"
+                name="isFirst"
+                value="true"
+                onChange={(e) => {
+                  if (alreadyHasFirstChecker(node.id)) {
+                    // eslint-disable-next-line no-alert
+                    alert(`"${alreadyHasFirstChecker().name}" is the first node in this project\nThere can be only one first node`);
+                  }
+                  changeHandler(e);
+                  // console.log('input', input);
+                }}
+              />
+              <a style={{ marginTop: '5px', color: 'white', marginLeft: '5px' }}>First </a>
+              <Input
+                type="radio"
+                name="isFirst"
+                value="null"
+                onChange={changeHandler}
+              />
+              <a style={{ marginTop: '5px', color: 'white', marginLeft: '5px' }}>Transitional </a>
+              <Input
+                type="radio"
+                name="isFirst"
+                value="false"
+                onChange={async (e) => {
+                  if (node.Connections.reduce((acc, connection) => {
+                    acc.push(connection.to);
+                    return acc;
+                  }, []).length > 0) {
+                    // eslint-disable-next-line no-alert
+                    alert('Finish node can not have outgoing connections\nRemove them to set this node as finish');
+                  } else {
+                    changeHandler(e);
+                  }
+                }}
+              />
+              <a style={{ marginTop: '5px', color: 'white', marginLeft: '5px' }}>Finishing</a>
+              <Button onClick={() => { setIsEditingIsFirst(!isEditingIsFirst); }} style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Save</Button>
+              <Button onClick={() => { setInput({ ...input, isFirst: node.isFirst }); setIsEditingIsFirst(!isEditingIsFirst); }} style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Cancel</Button>
+            </>
+          )
+          : (
+            <>
+              {switchForIsFirst(input.isFirst || node.isFirst)}
+              <Button onClick={() => { setInput({ ...input, isFirst: node.isFirst }); setIsEditingIsFirst(!isEditingIsFirst); }} style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Edit isFirst</Button>
+            </>
+          )}
         <Modal isOpen={isEditingConnections}>
-          <ModalHeader><strong>Available nodes</strong></ModalHeader>
+          <ModalHeader style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}><strong>Available nodes</strong></ModalHeader>
           <ModalBody>
             {allProjectNodes.filter((el) => el.id !== node.id).map((projectNode) => (
               <div key={projectNode.id}>
+
                 Id:
-              {projectNode.id}
-              {': '}
-              {projectNode.name}
-              <Input
-                type="checkbox"
-                checked={connections.includes(projectNode.id)}
-                onChange={() => {
-                  setConnections((prev) => {
-                    if (prev.includes(projectNode.id)) {
-                      const indexOfNode = prev.indexOf(projectNode.id);
-                      return [...prev.slice(0, indexOfNode), ...prev.slice(indexOfNode + 1)];
-                    }
-                    return [...prev, projectNode.id];
-                  });
-                }}
-              />
+                {projectNode.id}
+                {': '}
+                {projectNode.name}
+                <Input
+                  type="checkbox"
+                  checked={connections.includes(projectNode.id)}
+                  onChange={() => {
+                    setConnections((prev) => {
+                      if (prev.includes(projectNode.id)) {
+                        const indexOfNode = prev.indexOf(projectNode.id);
+                        return [...prev.slice(0, indexOfNode), ...prev.slice(indexOfNode + 1)];
+                      }
+                      return [...prev, projectNode.id];
+                    });
+                  }}
+                />
               </div>
             ))}
           </ModalBody>
           <ModalFooter>
-            <Button variant="secondary" onClick={() => setIsEditingConnections(!isEditingConnections)}>
-            Discard Changes
+            <Button variant="secondary" onClick={() => setIsEditingConnections(!isEditingConnections)} style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>
+              Discard Changes
             </Button>
-            <Button variant="primary" onClick={() => setIsEditingConnections(!isEditingConnections)}>
-            Save
+            <Button variant="primary" onClick={() => setIsEditingConnections(!isEditingConnections)} style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>
+              Save
             </Button>
           </ModalFooter>
         </Modal>
-            Connections:
-            {allProjectNodes.filter((projNode) => node.Connections.reduce((acc, connection) => {
-              acc.push(connection.to);
-              return acc;
-            }, []).includes(projNode.id)).map((proNode) => <div key={proNode.id}>{proNode.name}</div>)}
-          <Button onClick={() => {
+        <p style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Connections:</p>
+        {allProjectNodes.filter((projNode) => node.Connections.reduce((acc, connection) => {
+          acc.push(connection.to);
+          return acc;
+        }, []).includes(projNode.id)).map((proNode) => <div key={proNode.id} style={{ marginTop: '5px', color: 'white', marginLeft: '5px' }}>{proNode.name}</div>)}
+        <Button
+          onClick={() => {
             setIsEditingConnections(!isEditingConnections);
           }}
-          >
+          style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}
+        >
           Edit connections
-          </Button>
-        <Button onClick={async () => {
-          await submitHandler(node.id);
-          dispatch(getNodesAsync(node.project_id));
-          toggle();
-        }}
+        </Button>
+        <Button
+          onClick={async () => {
+            await submitHandler(node.id);
+            dispatch(getNodesAsync(node.project_id));
+            toggle();
+          }}
+          style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}
         >
           Submit changes
         </Button>
