@@ -68,7 +68,10 @@ export default function EditorCard({ project, nodes }) {
 
   const firstNode = () => nodes?.find((elNode) => elNode.isFirst === true);
 
-  const finishNodes = () => nodes?.find((elNode) => elNode.isFirst === false);
+  const finishNodes = () => {
+    console.log('WHY DID YOU OPEN CONSOLE DURING PRESENTATION, DINGUS?!', nodes?.filter((elNode) => elNode.isFirst === false));
+    return nodes?.filter((elNode) => elNode.isFirst === false);
+  };
 
   return (
     <>
@@ -150,7 +153,7 @@ export default function EditorCard({ project, nodes }) {
                   </Button>
                 </div>
               )
-              : <div>No first node</div>}
+              : <div style={{ color: 'whitesmoke' }}>No first node!</div>}
             <strong style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Transition nodes:</strong>
             {nodes?.filter((el) => el.isFirst === null || undefined).map((oneNode) => (
               <div key={oneNode.id}>
@@ -173,21 +176,24 @@ export default function EditorCard({ project, nodes }) {
                 </Button>
               </div>
             ))}
-            <strong style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Finish nodes:</strong>
-            {finishNodes()
+<strong style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Finish nodes:</strong>
+            {finishNodes() !== []
               ? (
                 <div>
-                  <div style={{ marginTop: '10px', color: 'white', marginLeft: '5px' }}>
+                  {finishNodes().map((nodeEl) => (
+                    <div>
+                    <div style={{ marginTop: '10px', color: 'white', marginLeft: '5px' }}>
                     Id:
-                    {finishNodes().id}
+                    {nodeEl.id}
                     {': '}
-                    {finishNodes().name}
+                    {nodeEl.name}
 
-                  </div>
-                  <Button onClick={() => nodeModalHandler(finishNodes())} className="editBut">Edit node</Button>
+                    </div>
+
+                  <Button onClick={() => nodeModalHandler(nodeEl)} className="editBut">Edit node</Button>
                   <Button
                     onClick={() => {
-                      deleteNode(finishNodes().id);
+                      deleteNode(nodeEl.id);
                       dispatch(getNodesAsync(project.id));
                     }}
                     className="editBut"
@@ -195,6 +201,8 @@ export default function EditorCard({ project, nodes }) {
                     Delete
 
                   </Button>
+                    </div>
+                  ))}
                 </div>
               )
               : <div style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>No finishing nodes</div>}
