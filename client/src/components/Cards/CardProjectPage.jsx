@@ -24,13 +24,23 @@ export default function CardProjectPage({ project }) {
       />
       <CardBody className="card-body">
         <CardTitle tag="h5" className="name">
+          <strong>
+            Title:
+            {' '}
+
+          </strong>
           {project.name}
+
         </CardTitle>
         <CardSubtitle
           className="title"
           tag="h6"
         />
         <CardText className="desc">
+          <strong>
+            Description:
+            {' '}
+          </strong>
           {project.desc}
         </CardText>
       </CardBody>

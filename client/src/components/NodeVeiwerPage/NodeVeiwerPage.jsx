@@ -44,13 +44,15 @@ export default function NodeVeiwerPage() {
 
   return (
     <div className="node">
-      {/* <Navbar /> */}
+      <Navbar style={{ marginTop: '150px' }} />
       <>
-        <div>{node?.content}</div>
-        <div>
+        <div className="nodeBox">
+          <div className="text"><h1><strong>{node?.content}</strong></h1></div>
+        </div>
+        <div className="nodeBut">
           {node?.isFirst === false
             ? <Button onClick={() => toProject(node.project_id)}>Finish project</Button>
-            : node?.Connections?.map((el) => <Button onClick={() => { console.log('el', el); nextNode(el.to, el.from, projectId); }} key={el.id}>{`${el.from}-${el.to}`}</Button>)}
+            : node?.Connections?.map((el) => <Button onClick={() => { console.log('el', el); nextNode(el.to, el.from, projectId); }} key={el.id} className="nbt">{`${el.from}-${el.to}`}</Button>)}
         </div>
       </>
     </div>
