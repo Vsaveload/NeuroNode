@@ -1,8 +1,11 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   Card, CardBody, CardTitle, CardText, Button, CardSubtitle, Input, Modal,
 } from 'reactstrap';
+import { getNodesAsync } from '../../redux/action/nodeActions';
+import { setProjectForEditAsync } from '../../redux/action/projectForEditActions';
 import NodeModal from '../modalPage/NodeModal';
 import './EditorCard.css';
 
@@ -15,8 +18,9 @@ export default function EditorCard({ project, nodes }) {
     desc: '',
     img: '',
   });
-
   const toggle = () => setModal(!modal);
+
+  const dispatch = useDispatch();
 
   const changeHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -39,10 +43,11 @@ export default function EditorCard({ project, nodes }) {
     if (response.ok) {
       console.log('suces');
     }
+    dispatch(setProjectForEditAsync(project.id));
   };
 
   const addblankNode = async () => {
-    axios.post(
+    await axios.post(
       'http://localhost:3001/node/new',
       {
         name: 'Blank node',
@@ -51,12 +56,14 @@ export default function EditorCard({ project, nodes }) {
         isFirst: null,
       },
     );
+    dispatch(getNodesAsync(project.id));
   };
 
   const deleteNode = async (id) => {
     axios.delete(
       `http://localhost:3001/node/${id}`,
     );
+    dispatch(getNodesAsync(project.id));
   };
 
   const firstNode = () => nodes?.find((elNode) => elNode.isFirst === true);
@@ -119,27 +126,65 @@ export default function EditorCard({ project, nodes }) {
             {firstNode()
               ? (
                 <div>
-                  <div>{firstNode().name}</div>
+                  <div>
+Id:
+{firstNode().id}
+{': '}
+{firstNode().name}
+
+                  </div>
                   <Button onClick={() => nodeModalHandler(firstNode())}>Edit node</Button>
-                  <Button onClick={() => deleteNode(firstNode().id)}>Delete</Button>
+                  <Button onClick={() => {
+                    deleteNode(firstNode().id);
+                    dispatch(getNodesAsync(project.id));
+                  }}
+                  >
+Delete
+
+                  </Button>
                 </div>
               )
               : <div>No first node</div>}
             <strong style={{ marginTop: '30px' }}>Transition nodes:</strong>
             {nodes?.filter((el) => el.isFirst === null || undefined).map((oneNode) => (
               <div key={oneNode.id}>
-                <div>{oneNode.name}</div>
+                <div>
+Id:
+{oneNode.id}
+{': '}
+{oneNode.name}
+                </div>
                 <Button onClick={() => nodeModalHandler(oneNode)}>Edit node</Button>
-                <Button onClick={() => deleteNode(oneNode.id)}>Delete</Button>
+                <Button onClick={() => {
+                  deleteNode(oneNode.id);
+                  dispatch(getNodesAsync(project.id));
+                }}
+                >
+Delete
+
+                </Button>
               </div>
             ))}
             <strong style={{ marginTop: '30px' }}>Finish nodes:</strong>
             {finishNodes()
               ? (
                 <div>
-                  <div>{finishNodes().name}</div>
+                  <div>
+Id:
+{finishNodes().id}
+{': '}
+{finishNodes().name}
+
+                  </div>
                   <Button onClick={() => nodeModalHandler(finishNodes())}>Edit node</Button>
-                  <Button onClick={() => deleteNode(finishNodes().id)}>Delete</Button>
+                  <Button onClick={() => {
+                    deleteNode(finishNodes().id);
+                    dispatch(getNodesAsync(project.id));
+                  }}
+                  >
+Delete
+
+                  </Button>
                 </div>
               )
               : <div>No finishing nodes</div>}

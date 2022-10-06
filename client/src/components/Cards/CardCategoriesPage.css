@@ -34,6 +34,7 @@
   display: contents;
   color: white;
   outline: 2px outset white;
+  width: 350px;
 }
 .name {
   display: contents;

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 const express = require('express');
 const {
-  Project, Node, Connection, Statistic,
+  Project, Node, Connection, Statistic, Category,
 } = require('../db/models');
 
 const router = express.Router();
@@ -38,6 +38,12 @@ router.delete('/:id', async (req, res) => {
   } catch (e) {
     console.log(e);
   }
+});
+
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  const project = await Project.findAll({ where: { user_id: id }, include: [{ model: Category }] });
+  res.json(project);
 });
 
 module.exports = router;
