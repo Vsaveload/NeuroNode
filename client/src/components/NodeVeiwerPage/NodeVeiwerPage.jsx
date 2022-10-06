@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -15,7 +15,7 @@ export default function NodeVeiwerPage() {
   //   const { PORT } = process.env;
   useEffect(() => {
     axios(`http://localhost:3001/node/first/${projectId}`)
-      .then((res) => setNode(res.data[0]))
+      .then((res) => { console.log(res.data[0]); setNode(res.data[0]); })
       .catch(console.log);
   }, []);
 
@@ -30,7 +30,7 @@ export default function NodeVeiwerPage() {
       body: JSON.stringify(data),
     });
     axios(`http://localhost:3001/node/byid/${to}`)
-      .then((res) => setNode(res.data))
+      .then((res) => setNode(res.data[0]))
       .catch(console.log);
   };
 
@@ -42,6 +42,8 @@ export default function NodeVeiwerPage() {
     navigate(path);
   };
 
+  console.log('NODEASDFLKJASG', node);
+
   return (
     <div className="node">
       <Navbar style={{ marginTop: '150px' }} />
@@ -51,8 +53,25 @@ export default function NodeVeiwerPage() {
         </div>
         <div className="nodeBut">
           {node?.isFirst === false
-            ? <Button onClick={() => toProject(node.project_id)}>Finish project</Button>
-            : node?.Connections?.map((el) => <Button onClick={() => { console.log('el', el); nextNode(el.to, el.from, projectId); }} key={el.id} className="nbt">{`${el.from}-${el.to}`}</Button>)}
+            ? <Button onClick={() => toProject(node.Project.category_id)}>Finish project</Button>
+            : node?.Connections?.map((el) => {
+              console.log();
+              return (
+                  <Button
+                    onClick={() => { console.log('el', el); nextNode(el.to, el.from, projectId); }}
+                    key={el.id}
+                    className="nbt"
+                  >
+                                {`${el.nameTo}`}
+                  </Button>
+              );
+              // return (
+              // <Button onClick={() =>{console.log('el', el);nextNode(el.to, el.from, projectId);}}
+              // key={el.id} className="nbt">{`${el.from}-${el.to}`}</Button>);
+            })}
+        </div>
+        <div className="nodeBut">
+        <Button onClick={() => toProject(node.Project.category_id)}>Back to project</Button>
         </div>
       </>
     </div>

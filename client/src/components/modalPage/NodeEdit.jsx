@@ -196,6 +196,10 @@ export default function NodeEdit({ node, allProjectNodes, toggle }) {
           <ModalBody>
             {allProjectNodes.filter((el) => el.id !== node.id).map((projectNode) => (
               <div key={projectNode.id}>
+
+                Id:
+                {projectNode.id}
+                {': '}
                 {projectNode.name}
                 <Input
                   type="checkbox"
@@ -245,8 +249,7 @@ export default function NodeEdit({ node, allProjectNodes, toggle }) {
         >
           Submit changes
         </Button>
-        <Button onClick={() => toggle()} style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Discard changes</Button>
-        <Button onClick={() => dispatch(getNodesAsync(node.project_id))} style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Log</Button>
+        <Button onClick={() => toggle()}>Discard changes</Button>
       </CardBody>
     </Card>
   );
