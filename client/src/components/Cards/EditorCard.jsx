@@ -102,6 +102,7 @@ export default function EditorCard({ project, nodes }) {
             />
             <CardBody className="card-body">
               <CardTitle tag="h5" className="name">
+                <strong>Title: </strong>
                 {project.name}
               </CardTitle>
               <CardSubtitle
@@ -109,86 +110,102 @@ export default function EditorCard({ project, nodes }) {
                 tag="h6"
               />
               <CardText className="desc">
+                <strong>Description: </strong>
                 {project.desc}
               </CardText>
-              <Button onClick={() => {
-                setIsEditing(!isEditing);
-                setInput({
-                  ...input, name: project.name, desc: project.desc, img: project.img,
-                });
-              }}
+              <Button
+                onClick={() => {
+                  setIsEditing(!isEditing);
+                  setInput({
+                    ...input, name: project.name, desc: project.desc, img: project.img,
+                  });
+                }}
+                className="editBut1"
               >
                 Edit Project Info
               </Button>
-              <Button onClick={addblankNode}>Add blank node</Button>
+              <Button onClick={addblankNode} className="editBut1">Add blank node</Button>
             </CardBody>
-            <strong style={{ marginTop: '30px' }}>First node:</strong>
+            <strong style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>First node:</strong>
             {firstNode()
               ? (
                 <div>
-                  <div>
-Id:
-{firstNode().id}
-{': '}
-{firstNode().name}
+                  <div style={{ marginTop: '10px', color: 'white', marginLeft: '5px' }}>
+                    Id:
+                    {firstNode().id}
+                    {': '}
+                    {firstNode().name}
 
                   </div>
-                  <Button onClick={() => nodeModalHandler(firstNode())}>Edit node</Button>
-                  <Button onClick={() => {
-                    deleteNode(firstNode().id);
-                    dispatch(getNodesAsync(project.id));
-                  }}
+                  <Button onClick={() => nodeModalHandler(firstNode())} className="editBut">Edit node</Button>
+                  <Button
+                    onClick={() => {
+                      deleteNode(firstNode().id);
+                      dispatch(getNodesAsync(project.id));
+                    }}
+                    className="editBut"
                   >
-Delete
+                    Delete
 
                   </Button>
                 </div>
               )
               : <div>No first node</div>}
-            <strong style={{ marginTop: '30px' }}>Transition nodes:</strong>
+            <strong style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Transition nodes:</strong>
             {nodes?.filter((el) => el.isFirst === null || undefined).map((oneNode) => (
               <div key={oneNode.id}>
-                <div>
-Id:
-{oneNode.id}
-{': '}
-{oneNode.name}
+                <div style={{ marginTop: '10px', color: 'white', marginLeft: '5px' }}>
+                  Id:
+                  {oneNode.id}
+                  {': '}
+                  {oneNode.name}
                 </div>
-                <Button onClick={() => nodeModalHandler(oneNode)}>Edit node</Button>
-                <Button onClick={() => {
-                  deleteNode(oneNode.id);
-                  dispatch(getNodesAsync(project.id));
-                }}
+                <Button onClick={() => nodeModalHandler(oneNode)} className="editBut">Edit node</Button>
+                <Button
+                  onClick={() => {
+                    deleteNode(oneNode.id);
+                    dispatch(getNodesAsync(project.id));
+                  }}
+                  className="editBut"
                 >
-Delete
+                  Delete
 
                 </Button>
               </div>
             ))}
-            <strong style={{ marginTop: '30px' }}>Finish nodes:</strong>
+            <strong style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>Finish nodes:</strong>
             {finishNodes()
               ? (
                 <div>
-                  <div>
-Id:
-{finishNodes().id}
-{': '}
-{finishNodes().name}
+                  <div style={{ marginTop: '10px', color: 'white', marginLeft: '5px' }}>
+                    Id:
+                    {finishNodes().id}
+                    {': '}
+                    {finishNodes().name}
 
                   </div>
-                  <Button onClick={() => nodeModalHandler(finishNodes())}>Edit node</Button>
-                  <Button onClick={() => {
-                    deleteNode(finishNodes().id);
-                    dispatch(getNodesAsync(project.id));
-                  }}
+                  <Button onClick={() => nodeModalHandler(finishNodes())} className="editBut">Edit node</Button>
+                  <Button
+                    onClick={() => {
+                      deleteNode(finishNodes().id);
+                      dispatch(getNodesAsync(project.id));
+                    }}
+                    className="editBut"
                   >
-Delete
+                    Delete
 
                   </Button>
                 </div>
               )
-              : <div>No finishing nodes</div>}
-            <NodeModal modal={modal} toggle={toggle} node={node} allProjectNodes={nodes} />
+              : <div style={{ marginTop: '20px', color: 'white', marginLeft: '5px' }}>No finishing nodes</div>}
+            <NodeModal
+              style={{ color: 'black' }}
+              modal={modal}
+              toggle={toggle}
+              node={node}
+              allProjectNodes={nodes}
+            />
+
           </Card>
         )}
     </>

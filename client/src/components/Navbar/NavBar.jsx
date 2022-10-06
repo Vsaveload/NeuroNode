@@ -26,22 +26,24 @@ export default function Navbar() {
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 d-md-flex float-right">
+          <div className="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 d-md-flex float-sm-right nav">
               <li><NavLink className="btn btn-dark m-2" to="/">NEURO NODE</NavLink></li>
-              <li className="nav">
-                <NavLink className="btn btn-dark m-2" to="/home">HOME</NavLink>
-              </li>
-              {!signup
-                ? (
-                  ''
-                ) : (
-                  <li>
-                    {/* <NavLink to="/game"
+              <div className="">
+                <li>
+                  <NavLink className="btn btn-dark m-2 float-sm-right" style={{}} to="/home">HOME</NavLink>
+                </li>
+                {!signup
+                  ? (
+                    ''
+                  ) : (
+                    <li>
+                      {/* <NavLink to="/game"
                   className="btn btn-outline-dark m-2"><strong>Node</strong></NavLink> */}
-                    <a onClick={logoutHandler} className="btn btn-dark m-2" href="logout">EXIT</a>
-                  </li>
-                )}
+                      <a onClick={logoutHandler} className="btn btn-dark m-2 float-sm-right" href="logout">EXIT</a>
+                    </li>
+                  )}
+              </div>
             </ul>
           </div>
         </div>
