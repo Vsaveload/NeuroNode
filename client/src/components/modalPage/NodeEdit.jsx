@@ -3,10 +3,12 @@
 /* eslint-disable no-fallthrough */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
   Button, Card, CardBody, CardSubtitle, CardText, CardTitle, Input, Modal, ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap';
+import { getNodesAsync } from '../../redux/action/nodeActions';
 
 export default function NodeEdit({ node, allProjectNodes, toggle }) {
   // console.log(allProjectNodes, node);
@@ -64,6 +66,14 @@ export default function NodeEdit({ node, allProjectNodes, toggle }) {
     }
   };
 
+  useEffect(() => {
+    setConnections(node.Connections.reduce((acc, connection) => {
+      acc.push(connection.to);
+      return acc;
+    }, []));
+    console.log(connections);
+  }, []);
+
   const switchForIsFirst = (isfirst) => {
     switch (isfirst) {
       case true:
@@ -86,7 +96,7 @@ export default function NodeEdit({ node, allProjectNodes, toggle }) {
     return allProjectNodes.find((el) => el.isFirst === true);
   };
   // console.log(alreadyHasFirstChecker(node.id));
-
+  const dispatch = useDispatch();
   return (
     <Card>
       <CardBody>
@@ -121,7 +131,7 @@ export default function NodeEdit({ node, allProjectNodes, toggle }) {
             )
             : (
                 <>
-                  <CardText style={{ overflowY: 'scroll', Maxheight: '16rem' }}>{node?.content}</CardText>
+                  <CardText style={{ overflowY: 'scroll', Maxheight: '16rem' }}>{input?.content || node?.content}</CardText>
                   <Button onClick={() => { setIsEditingContent(!isEditingContent); setInput({ ...input, content: input.content ? input.content : node.content }); }}>Edit content</Button>
                 </>
             )}
@@ -179,7 +189,7 @@ export default function NodeEdit({ node, allProjectNodes, toggle }) {
         <Modal isOpen={isEditingConnections}>
           <ModalHeader><strong>Available nodes</strong></ModalHeader>
           <ModalBody>
-            {allProjectNodes.map((projectNode) => (
+            {allProjectNodes.filter((el) => el.id !== node.id).map((projectNode) => (
               <div key={projectNode.id}>
               {projectNode.name}
               <Input
@@ -191,7 +201,6 @@ export default function NodeEdit({ node, allProjectNodes, toggle }) {
                       const indexOfNode = prev.indexOf(projectNode.id);
                       return [...prev.slice(0, indexOfNode), ...prev.slice(indexOfNode + 1)];
                     }
-                    prev.push(projectNode.id);
                     return [...prev, projectNode.id];
                   });
                 }}
@@ -214,25 +223,21 @@ export default function NodeEdit({ node, allProjectNodes, toggle }) {
               return acc;
             }, []).includes(projNode.id)).map((proNode) => <div key={proNode.id}>{proNode.name}</div>)}
           <Button onClick={() => {
-            setConnections(node.Connections.reduce((acc, connection) => {
-              acc.push(connection.to);
-              return acc;
-            }, []));
-            console.log(connections);
             setIsEditingConnections(!isEditingConnections);
           }}
           >
           Edit connections
           </Button>
-        <Button onClick={() => {
-          submitHandler(node.id);
+        <Button onClick={async () => {
+          await submitHandler(node.id);
+          dispatch(getNodesAsync(node.project_id));
           toggle();
         }}
         >
           Submit changes
         </Button>
         <Button onClick={() => toggle()}>Discard changes</Button>
-        <Button onClick={() => console.log(connections)}>Log</Button>
+        <Button onClick={() => dispatch(getNodesAsync(node.project_id))}>Log</Button>
       </CardBody>
     </Card>
   );

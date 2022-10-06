@@ -16,7 +16,7 @@ export default function EditProjectPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const nodes = useSelector((state) => state.node);
-  const project = useSelector((state) => state.projectForEdit);
+  const project = useSelector((state) => state.projectForEdit)[0];
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function EditProjectPage() {
     <div className="mainEdit">
       <NavBar style={{ marginTop: '150px' }} />
       <div className="cardPage">
-      {project && <EditorCard project={project[0]} nodes={nodes} className="cardEditor" />}
+      {project && <EditorCard project={project} nodes={nodes} className="cardEditor" />}
         {nodes && <Graph data={newData} className="graph" />}
       </div>
 

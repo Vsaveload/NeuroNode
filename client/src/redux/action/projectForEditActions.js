@@ -8,3 +8,9 @@ export const setProjectForEditAsync = (id) => (dispatch) => {
     .then((res) => dispatch(setProjectForEdit(res.data)))
     .catch(console.log);
 };
+
+export const setProjectForMyProjectsAsync = (id) => (dispatch) => {
+  axios(`http://localhost:3001/myprojects/${id}`)
+    .then((res) => dispatch(setProjectForEdit(res.data)))
+    .catch(console.log);
+};
