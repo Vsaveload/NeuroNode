@@ -1,2 +1,2 @@
 # NeuroNode
-Let`s begin!
+What an adventure, boys)
