@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { logout } from '../../redux/action/signupActions';
 import './NavBar.css';
 
-export default function Navbar() {
+export default function Navbar({ page }) {
   const navigate = useNavigate();
   const { signup } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -20,34 +20,19 @@ export default function Navbar() {
 
   return (
     <div className="navbar border fixed-top" id="navbar0">
-      <nav className="navbar navbar-expand-lg bg-black" id="navbar">
-        {/* <div className="container-fluid"> */}
-        {/* <NavLink className="navbar-brand" to="/">NeuroNode</NavLink> */}
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div className="collapse navbar-collapse " id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 d-md-flex float-sm-right" id="nav">
-              <li><NavLink className="btn btn-dark m-2" to="/">NEURO NODE</NavLink></li>
-            <div id="lid">
-              <li id="home">
-                <NavLink className="btn btn-dark m-2" style={{}} to="/home" id="navBut">HOME</NavLink>
-              </li>
+              <NavLink className="btn btn-dark m-2" to="/"><strong>NEURO NODE</strong></NavLink>
+              <div style={{ color: 'white' }}><strong><big>{page}</big></strong></div>
+              <div id="nav">
+<NavLink className="btn btn-dark m-2" style={{}} to="/home" id="navBut">HOME</NavLink>
               {!signup
                 ? (
-                  ''
+                  <div />
                 ) : (
-                  <li>
-                    {/* <NavLink to="/game"
-                  className="btn btn-outline-dark m-2"><strong>Node</strong></NavLink> */}
-                    <a onClick={logoutHandler} className="btn btn-dark m-2" href="logout" id="navBut">EXIT</a>
-                  </li>
+                    <NavLink onClick={logoutHandler} className="btn btn-dark m-2" href="logout" id="navBut">EXIT</NavLink>
                 )}
-            </div>
-          </ul>
-        </div>
-        {/* </div> */}
-      </nav>
+
+              </div>
+
     </div>
   );
 }

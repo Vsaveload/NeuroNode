@@ -31,7 +31,7 @@ export default function MyProjectPage() {
   return (
     <div>
       <div className="mainDiv">
-      <Navbar style={{ marginTop: '150px' }} />
+      <Navbar style={{ marginTop: '150px' }} page="MY PROJECTS" />
         <div className="myDiv">
           {currentUserProjects && currentUserProjects?.map((project, i) => (
             <>
