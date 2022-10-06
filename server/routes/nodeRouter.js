@@ -5,14 +5,14 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable camelcase */
 const express = require('express');
-const { Node, Connection } = require('../db/models');
+const { Node, Connection, Project } = require('../db/models');
 
 const router = express.Router();
 
 router.get('/first/:id', async (req, res) => {
   const { id } = req.params;
   const response = await Node.findAll({
-    include: [{ model: Connection }],
+    include: [{ model: Connection }, { model: Project }],
     where: { project_id: id, isFirst: true },
   });
 
@@ -104,7 +104,7 @@ router.get('/byid/:id', async (req, res) => {
   const projectID = projectNode.project_id;
   console.log('sadasdasdasdgdsfhsdfh', projectID);
   const response = await Node.findAll({
-    include: [{ model: Connection }],
+    include: [{ model: Connection }, { model: Project }],
     where: { id, project_id: projectID },
   });
 
@@ -194,7 +194,8 @@ router.get('/byid/:id', async (req, res) => {
   // // const firstNode = await Promise.all(firstNode0);
   // // const firstNode = {
   // //   ...firstNodePrev,
-  // //   dataValues: { ...firstNodePrev.dataValues, Connections: await Promise.all(connectionsNew) },
+  // //   dataValues: { ...firstNodePrev.dataValues,
+  // Connections: await Promise.all(connectionsNew) },
   // // };
   // // console.log(firstNode);
   // // firstNode.Connections = firstNode.Connections.map(async (connection) => {

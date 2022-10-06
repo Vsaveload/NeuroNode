@@ -42,6 +42,8 @@ export default function NodeVeiwerPage() {
     navigate(path);
   };
 
+  console.log('NODEASDFLKJASG', node);
+
   return (
     <div className="node">
       <Navbar style={{ marginTop: '150px' }} />
@@ -51,7 +53,7 @@ export default function NodeVeiwerPage() {
         </div>
         <div className="nodeBut">
           {node?.isFirst === false
-            ? <Button onClick={() => toProject(node.project_id)}>Finish project</Button>
+            ? <Button onClick={() => toProject(node.Project.category_id)}>Finish project</Button>
             : node?.Connections?.map((el) => {
               console.log();
               return (
@@ -69,7 +71,7 @@ export default function NodeVeiwerPage() {
             })}
         </div>
         <div className="nodeBut">
-        <Button onClick={() => toProject(node.project_id)}>Back to project</Button>
+        <Button onClick={() => toProject(node.Project.category_id)}>Back to project</Button>
         </div>
       </>
     </div>
