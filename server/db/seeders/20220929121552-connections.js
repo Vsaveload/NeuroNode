@@ -162,6 +162,71 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        from: 19,
+        to: 20,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 19,
+        to: 21,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 20,
+        to: 21,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 20,
+        to: 22,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 21,
+        to: 20,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }, {
+        from: 21,
+        to: 23,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 22,
+        to: 21,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 22,
+        to: 24,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 23,
+        to: 24,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 23,
+        to: 25,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 24,
+        to: 25,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ]);
   },
 
