@@ -23,7 +23,7 @@ export default function projectSelectPage() {
   };
   return (
     <div className="select">
-     <Navbar style={{ marginTop: '150px' }} />
+     <Navbar style={{ marginTop: '150px' }} page="PROJECTS" />
       <div className="projectPage">
         {projects?.map((project) => (
           <CardProjectPage key={project.id} project={project} />))}
