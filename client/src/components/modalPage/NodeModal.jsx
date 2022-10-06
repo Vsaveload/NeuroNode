@@ -9,11 +9,11 @@ export default function NodeModal({
 }) {
   return (
     <div>
-    <Modal isOpen={modal} toggle={toggle}>
-      <ModalBody>
-        <NodeEdit node={node} allProjectNodes={allProjectNodes} toggle={toggle} />
-      </ModalBody>
-    </Modal>
+      <Modal isOpen={modal} toggle={toggle}>
+        <ModalBody style={{ backgroundColor: 'black' }}>
+          <NodeEdit node={node} allProjectNodes={allProjectNodes} toggle={toggle} />
+        </ModalBody>
+      </Modal>
     </div>
   );
 }
