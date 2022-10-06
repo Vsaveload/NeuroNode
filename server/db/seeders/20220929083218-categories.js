@@ -26,9 +26,9 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: 'Interactive videos',
-        desc: 'Choose the faith of you heros',
-        img: 'https://images.squarespace-cdn.com/content/v1/57601bd0d51cd4f0854758bd/1466170112861-7XKP0KULV5ROGN1ORLIP/tvis.jpg?format=1500w',
+        name: 'Interactive tests',
+        desc: 'Choose the faith of you test',
+        img: 'https://testedu.ru/assets/templates/testedu/images/test.png',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
