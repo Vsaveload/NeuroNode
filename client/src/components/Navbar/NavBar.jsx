@@ -20,19 +20,18 @@ export default function Navbar({ page }) {
 
   return (
     <div className="navbar border fixed-top" id="navbar0">
-              <NavLink className="btn btn-dark m-2" to="/"><strong>NEURO NODE</strong></NavLink>
-              <div style={{ color: 'white' }}><strong><big>{page}</big></strong></div>
-              <div id="nav">
-<NavLink className="btn btn-dark m-2" style={{}} to="/home" id="navBut">HOME</NavLink>
-              {!signup
-                ? (
-                  <div />
-                ) : (
-                    <NavLink onClick={logoutHandler} className="btn btn-dark m-2" href="logout" id="navBut">EXIT</NavLink>
-                )}
+      <NavLink className="btn btn-dark m-2" to="/"><strong>NEURO NODE</strong></NavLink>
+      <div style={{ color: 'white' }}><strong><big>{page}</big></strong></div>
+      <div id="nav">
+        <NavLink className="btn btn-dark m-2" style={{}} to="/home" id="navBut">HOME</NavLink>
+        {!signup
+          ? (
+            <div />
+          ) : (
+            <NavLink onClick={logoutHandler} className="btn btn-dark m-2" href="logout" id="navBut">EXIT</NavLink>
+          )}
 
-              </div>
-
+      </div>
     </div>
   );
 }
