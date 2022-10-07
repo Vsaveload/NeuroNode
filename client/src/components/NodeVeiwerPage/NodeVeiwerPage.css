@@ -5,12 +5,12 @@
 }
 
 .text {
-  border: solid 200px white;
+  border: solid 200px rgb(232, 230, 229);
   border-radius: 5px;
   margin-left: 20%;
   margin-right: 20%;
   color: black;
-  background-color: white;
+  background-color: rgb(232, 230, 229);
 
 }
 

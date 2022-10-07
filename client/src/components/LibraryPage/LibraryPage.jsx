@@ -18,7 +18,7 @@ export default function LibraryPage() {
 
   return (
     <>
-     <Navbar style={{ marginTop: '150px' }} />
+     <Navbar style={{ marginTop: '150px' }} page="CATEGORIES" />
 
       <div className="library">
         {categories?.map((category) => (
