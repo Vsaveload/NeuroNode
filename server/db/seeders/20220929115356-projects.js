@@ -29,6 +29,15 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        name: 'Пещера ужасов',
+        desc: 'Интерактивное приключение',
+        img: 'https://i.ytimg.com/vi/ATt6q2Nyqfc/maxresdefault.jpg',
+        category_id: 1,
+        user_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ]);
   },
 
