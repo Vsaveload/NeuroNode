@@ -106,13 +106,13 @@ export default function AddProject() {
             {allCategories && allCategories?.map((category) => {
               console.log('category from map', category);
               return (
-<option
-  key={category.id}
-  value={category.id}
-  name="categoryID"
->
-{category.name}
-</option>
+                <option
+                  key={category.id}
+                  value={category.id}
+                  name="categoryID"
+                >
+                  {category.name}
+                </option>
               );
             })}
           </Input>

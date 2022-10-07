@@ -31,11 +31,11 @@ export default function MyProjectPage() {
   return (
     <div>
       <div className="mainDiv">
-      <Navbar style={{ marginTop: '150px' }} page="MY PROJECTS" />
+        <Navbar style={{ marginTop: '150px' }} page="MY PROJECTS" />
         <div className="myDiv">
           {currentUserProjects && currentUserProjects?.map((project, i) => (
             <>
-  {console.log('prpr', project)}
+              {console.log('prpr', project)}
               <CardEditorPage
                 key={project.id}
                 project={project}
