@@ -32,7 +32,7 @@ module.exports = {
       {
         name: 'Пещера ужасов',
         desc: 'Интерактивное приключение',
-        img: 'https://static.wikia.nocookie.net/adventuretime/images/9/9b/Mystery_Cave.png/revision/latest?cb=20140402155438&path-prefix=ru',
+        img: 'https://i.ytimg.com/vi/ATt6q2Nyqfc/maxresdefault.jpg',
         category_id: 1,
         user_id: 1,
         createdAt: new Date(),
