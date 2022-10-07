@@ -227,6 +227,48 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        from: 26,
+        to: 27,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 26,
+        to: 28,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 27,
+        to: 29,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 28,
+        to: 29,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 29,
+        to: 30,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 30,
+        to: 31,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        from: 30,
+        to: 32,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ]);
   },
 
