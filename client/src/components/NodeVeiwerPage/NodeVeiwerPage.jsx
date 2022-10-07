@@ -46,7 +46,7 @@ export default function NodeVeiwerPage() {
 
   return (
     <div className="node">
-      <Navbar style={{ marginTop: '150px' }} />
+      <Navbar style={{ marginTop: '150px' }} page={node.name} />
       <>
         <div className="nodeBox">
           <div className="text"><h1><strong>{node?.content}</strong></h1></div>

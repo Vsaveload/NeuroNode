@@ -33,9 +33,9 @@ export default function EditProjectPage() {
   console.log('Project', project);
   return (
     <div className="mainEdit">
-      <NavBar style={{ marginTop: '150px' }} />
+      <NavBar style={{ marginTop: '150px' }} page="EDITOR" />
       <div className="cardPage">
-      {project && <EditorCard project={project} nodes={nodes} className="cardEditor" />}
+        {project && <EditorCard project={project} nodes={nodes} className="cardEditor" />}
         {nodes && <Graph data={newData} className="graph" />}
       </div>
 
@@ -45,7 +45,7 @@ export default function EditProjectPage() {
         numbered
       /> */}
       <div>
-      <Button onClick={() => navigate('/myprojects')} className="btnEdit">Back to projects</Button>
+        <Button onClick={() => navigate('/myprojects')} className="btnEdit">Back to projects</Button>
       </div>
     </div>
   );

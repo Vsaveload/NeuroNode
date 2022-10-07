@@ -45,7 +45,7 @@ export default function AddProject() {
 
   return (
     <div className="main">
-      <NavBar style={{ marginTop: '150px' }} />
+      <NavBar style={{ marginTop: '150px' }} page="NEW PROJECT" />
 
       <Form onSubmit={submitHandler} className="cardMain">
         <FormGroup className="form">
@@ -106,13 +106,13 @@ export default function AddProject() {
             {allCategories && allCategories?.map((category) => {
               console.log('category from map', category);
               return (
-<option
-  key={category.id}
-  value={category.id}
-  name="categoryID"
->
-{category.name}
-</option>
+                <option
+                  key={category.id}
+                  value={category.id}
+                  name="categoryID"
+                >
+                  {category.name}
+                </option>
               );
             })}
           </Input>
