@@ -11,7 +11,7 @@ This project will help Authors to creacte interactive books, movies, games, inst
 - Get statistics of the users solutions 
 
 [![N|Solid](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Statistic.jpg)](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Statistic.jpg)
-- Шnteract with nodes through a graphical editor
+- Interact with nodes through a graphical editor
 
 [![N|Solid](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Connections.jpg)](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Connections.jpg)
 ## Near Future
