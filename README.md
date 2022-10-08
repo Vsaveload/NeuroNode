@@ -5,7 +5,7 @@
 
 
 
-This project will help Authors to creacte interactive books,moives,games,instructions and many other things.
+This project will help Authors to creacte interactive books, movies, games, instructions and many other things.
 
 - Create and edit your interactive projects
 - Get statistics of the users solutions 
