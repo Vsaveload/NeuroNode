@@ -20,7 +20,7 @@ The project is under development. The minimal functionality of the application i
 - Adding functionality to work with content such as: videos, games and much more
 - Connecting libraries for more convenient and functional reading of projects
 - Add Heads-Up Display, HUD (rolling project variables)
-- Export documents as Markdown, HTML and PDF
+
 
 ## Tech
 
