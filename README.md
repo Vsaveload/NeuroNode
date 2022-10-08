@@ -12,7 +12,8 @@ This project will help Authors to creacte interactive books,moives,games,instruc
 
 [![N|Solid](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Statistic.jpg)](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Statistic.jpg)
 - Шnteract with nodes through a graphical editor
-- [![N|Solid](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Connections.jpg)](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Connections.jpg)
+
+[![N|Solid](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Connections.jpg)](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Connections.jpg)
 ## Near Future
 The project is under development. The minimal functionality of the application is now available. We plan to develop:
 - Transferring the editor to the graphical interface
