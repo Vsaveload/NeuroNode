@@ -9,6 +9,7 @@ This project will help Authors to creacte interactive books,moives,games,instruc
 
 - Create and edit your interactive projects
 - Get statistics of the users solutions 
+
 [![N|Solid](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Statistic.jpg)](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Statistic.jpg)
 - Шnteract with nodes through a graphical editor
 - [![N|Solid](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Connections.jpg)](https://raw.githubusercontent.com/Vsaveload/NeuroNode/main/Connections.jpg)
