@@ -21,10 +21,7 @@ The project is under development. The minimal functionality of the application i
 - Connecting libraries for more convenient and functional reading of projects
 - Add Heads-Up Display, HUD (rolling project variables)
 
-
 ## Tech
-
-Dillinger uses a number of open source projects to work properly:
 
 - [React] - A JavaScript library for building user interfaces
 - [React-particals] - A lightweight JavaScript library for creating particles.
@@ -34,13 +31,9 @@ Dillinger uses a number of open source projects to work properly:
 - [Express] - fast node.js network app framework 
 - [Redux] - A predictable state container for JavaScript applications
 
-
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
-
 ## Installation
 
-Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
+Requires [Node.js](https://nodejs.org/) la v16+ to run.
 
 Install the dependencies and devDependencies and start the server.
 
