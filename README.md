@@ -39,6 +39,8 @@ Install the dependencies and devDependencies and start the server.
 
 ```sh
 npm i
+npx sequelize-cli db:migrate
+npx sequelize-cli db:seed:all
 cd client
 npm start
 cd server
